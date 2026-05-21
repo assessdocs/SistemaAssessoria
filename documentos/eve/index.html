@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EVE e SWOT | WebDOCs</title>
+
+    <link rel="icon" href="../../favicon.png">
+
+    <link rel="stylesheet" href="../../estilos/sistema.css">
+    <link rel="stylesheet" href="../../estilos/exportar.css">
+    <link rel="stylesheet" href="../../estilos/documentos.css">
+    <link rel="stylesheet" href="../../estilos/grafico.css">
+
+    <link rel="stylesheet" href="../../estilos/consulta.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-25..200&display=block"/>
+
+    <link rel="stylesheet" href="../../estilos/icones.css">
+</head>
+
+<body id="eve">
+    <div class="conteudo" id="conteudo">
+        <header id="pagina">
+            <span id="sistema-assessoria" class="assessoria-nome"></span>
+        </header>
+        <div class="sistema-pagina">
+
+            <select id="select-h1">
+                <option value="ETVE" selected="">Exportar como ETVE</option>
+                <option value="EVE">Exportar como EVE</option>
+                <option value="SWOT">Exportar como SWOT</option>
+            </select>
+            
+            <div class="formularios">
+                <div class="area-boxes">
+                    <div class="box-duplo">
+                        <div class="base-box">
+                            <h2>Dados de Contato (Cliente)</h2>
+                            <div class="base-boxcampos">
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-telefone">Telefone</label>
+                                    </div>
+                                    <input class="input" id="i-telefone" placeholder="(00) 90000-0000">
+                                </div>
+
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-email">E-mail</label>
+                                    </div>
+                                    <input class="input" id="i-email" placeholder="email@exemplo.com">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="base-box">
+                            <h2>Gráfico de Faturamento</h2>
+                            <div class="base-boxcampos">
+                                <div class="campo-duplo">
+                                    <div class="campo">
+                                        <div class="label">
+                                            <label class="label-campo receita" for="i-receita1">Receita (Mês 1)</label>
+                                        </div>
+                                        <input class="input receita" id="i-receita1" placeholder="Valor">
+                                    </div>
+                                    <div class="campo">
+                                        <div class="label">
+                                            <label class="label-campo despesa" for="i-despesa1">Despesa (Mês 1)</label>
+                                        </div>
+                                        <input class="input despesa" id="i-despesa1" placeholder="Valor">
+                                    </div>
+                                </div>
+
+                                <div class="campo-duplo">
+                                    <div class="campo">
+                                        <div class="label">
+                                            <label class="label-campo receita" for="i-receita2">Receita (Mês 2)</label>
+                                        </div>
+                                        <input class="input receita" id="i-receita2" placeholder="Valor">
+                                    </div>
+                                    <div class="campo">
+                                        <div class="label">
+                                            <label class="label-campo despesa" for="i-despesa2">Despesa (Mês 2)</label>
+                                        </div>
+                                        <input class="input despesa" id="i-despesa2" placeholder="Valor">
+                                    </div>
+                                </div>
+
+                                <div class="campo-duplo">
+                                    <div class="campo">
+                                        <div class="label">
+                                            <label class="label-campo receita" for="i-receita3">Receita (Mês 3)</label>
+                                        </div>
+                                        <input class="input receita" id="i-receita3" placeholder="Valor">
+                                    </div>
+                                    <div class="campo">
+                                        <div class="label">
+                                            <label class="label-campo despesa" for="i-despesa3">Despesa (Mês 3)</label>
+                                        </div>
+                                        <input class="input despesa" id="i-despesa3" placeholder="Valor">
+                                    </div>
+                                </div>
+
+                                <div class="campo-duplo">
+                                    <div class="campo">
+                                        <div class="label">
+                                            <label class="label-campo receita" for="i-receita4">Receita (Mês 4)</label>
+                                        </div>
+                                        <input class="input receita" id="i-receita4" placeholder="Valor">
+                                    </div>
+                                    <div class="campo">
+                                        <div class="label">
+                                            <label class="label-campo despesa" for="i-despesa4">Despesa (Mês 4)</label>
+                                        </div>
+                                        <input class="input despesa" id="i-despesa4" placeholder="Valor">
+                                    </div>
+                                </div>
+
+                                <div class="campo-duplo">
+                                    <div class="campo">
+                                        <div class="label">
+                                            <label class="label-campo receita" for="i-receita5">Receita (Mês 5)</label>
+                                        </div>
+                                        <input class="input receita" id="i-receita5" placeholder="Valor">
+                                    </div>
+                                    <div class="campo">
+                                        <div class="label">
+                                            <label class="label-campo despesa" for="i-despesa5">Despesa (Mês 5)</label>
+                                        </div>
+                                        <input class="input despesa" id="i-despesa5" placeholder="Valor">
+                                    </div>
+                                </div>
+
+                                <div class="campos-divisoria" id="calculo-div"></div>
+
+                                <div class="campo" id="calculos-resultados">
+                                    <div class="label">
+                                        <label class="label-campo" for="calculo-grafico">Dados da Empresa</label>
+                                    </div>
+                                    <div class="campo-texto">
+                                        <p id="calculo-grafico">
+                                            Receita Total (Anual): R$ <span id="receita-anual"></span>
+                                            <br>
+                                            Despesa Total (Anual): R$ <span id="despesa-anual"></span>
+                                            <br>
+                                            Lucro Anual Estimado: R$ <span id="lucro-anual"></span>
+                                            <br>
+                                            VPL: R$ <span id="calculo-vpl"></span>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="campos-divisoria"></div>
+
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="select-mes">Mês 1 do Gráfico</label>
+                                        <span class="material-symbols-rounded" title="É o mês de referência para o gráfico (inicia a partir do mês informado).">info</span>
+                                    </div>
+                                    <select id="select-mes">
+                                        <option value="[MÊS 01]" disabled="" selected="">Selecione uma opção</option>
+                                        <option value="Janeiro">Janeiro</option>
+                                        <option value="Fevereiro">Fevereiro</option>
+                                        <option value="Março">Março</option>
+                                        <option value="Abril">Abril</option>
+                                        <option value="Maio">Maio</option>
+                                        <option value="Junho">Junho</option>
+                                        <option value="Julho">Julho</option>
+                                        <option value="Agosto">Agosto</option>
+                                        <option value="Setembro">Setembro</option>
+                                        <option value="Outubro">Outubro</option>
+                                        <option value="Novembro">Novembro</option>
+                                        <option value="Dezembro">Dezembro</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box-duplo">
+
+                        <div class="base-box">
+                            <div class="h2-ativar" id="h2-versaomanual">
+                                <h2>Versão Manual</h2>
+                                <input type="checkbox" id="i-versaomanual">
+                            </div>
+                            <div class="base-boxcampos" id="versaomanual">
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-cnpj">CNPJ</label>
+                                        <span class="material-symbols-rounded" title="Utilize somente números, pois o sistema irá pontuar automaticamente.">info</span>
+                                    </div>
+                                    <input class="input" id="i-cnpj" placeholder="00.000.000/0000-00">
+                                </div>
+
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-razaosocial">Razão Social</label>
+                                    </div>
+                                    <input class="input" id="i-razaosocial" placeholder="Nome da Empresa">
+                                </div>
+
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-abertura">Data de Abertura</label>
+                                    </div>
+                                    <input class="input" id="i-abertura" placeholder="dd/mm/aaaa">
+                                </div>
+
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-porte">Porte</label>
+                                    </div>
+                                    <input class="input" id="i-porte" placeholder="Porte da Empresa">
+                                </div>
+
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-naturezajuridica">Natureza Jurídica</label>
+                                    </div>
+                                    <input class="input" id="i-naturezajuridica" placeholder="Natureza Jurídica">
+                                </div>
+
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-capitalsocial">Capital Social</label>
+                                    </div>
+                                    <input class="input" id="i-capitalsocial" placeholder="R$ 10.000,00">
+                                </div>
+
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-endereco">Endereço</label>
+                                    </div>
+                                    <input class="input" id="i-endereco" placeholder="Logradouro, nº - Bairro, Cidade - UF, CEP">
+                                </div>
+
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-atividade">Atividade (CNAES)</label>
+                                    </div>
+                                    <input class="input" id="i-atividade" placeholder="00.00-0-00 - Atividade">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="base-box" id="consulta">
+                            <h2>Consulta</h2>
+                            <div class="base-boxcampos">
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-consulta">CNPJ</label>
+                                        <span class="material-symbols-rounded" title="Utilize somente números, pois o sistema irá pontuar automaticamente.">info</span>
+                                    </div>
+                                    <input class="input" id="i-consulta" placeholder="00.000.000/0000-00">
+                                </div>
+
+                                <div class="campo" id="campo-iframe">
+                                    <div class="label">
+                                        <label class="label-campo" for="iframe">Base de Dados</label>
+                                    </div>
+                                    <iframe id="iframe"></iframe>
+                                </div>
+                                
+                                <div class="campo" id="verificacao">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-code">Verificação</label>
+                                    </div>
+                                    <textarea id="i-code" placeholder="Copie o código exibido no campo preto e cole-o aqui."></textarea>
+                                    <button class="consulta" id="verificar">
+                                        <span class="material-symbols-rounded">frame_inspect</span>
+                                        <span>Verificar Dados</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="base-box" id="resultado-consulta">
+                            <h2>Resultado da Consulta</h2>
+                            <div class="base-boxcampos">
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="dadosdaempresa">Dados da Empresa</label>
+                                    </div>
+                                    <div class="campo-texto">
+                                        <p id="dadosdaempresa">
+                                            CNPJ: <span id="resultado-cnpj"></span>
+                                            <br>
+                                            Razão Social: <span id="resultado-rs"></span>
+                                        </p>
+                                    </div>
+                                    <button class="consulta" id="preencher">
+                                        <span class="material-symbols-rounded">edit_document</span>
+                                        <span>Inserir no Documento</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            <div class="menu-inferior">
+                <div class="confirmacao">
+                    <label for="confirmacao" class="label-confirmacao">
+                        Todos os campos foram preenchidos?<input type="checkbox" id="confirmacao">
+                    </label>
+                </div>
+                
+                <button id="exportar">
+                    <span class="material-symbols-rounded">download</span>
+                    Exportar
+                </button>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div id="documento">
+        <div class="capa">
+            <header>
+                <img src="../../sistema/logo-ass.svg" alt="Logo da Assessoria">
+            </header>
+
+            <h1 id="titulo-documento">ESTUDO<br>TÉCNICO DE<br>VIABILIDADE<br>ECONÔMICA</h1>
+
+            <footer>
+                EMITIDO EM <span id="dia">[DIA]</span> DE <span id="mes">[MÊS]</span> DE <span id="ano1">[ANO]</span>
+            </footer>
+        </div>
+        <div class="pagina" id="pagina1">
+            <header></header>
+
+            <div class="conteudo-doc">
+                <section>
+                    <h1>CLIENTE</h1>
+                    <p>CNPJ: <span id="cnpj">[CNPJ]</span></p>
+                    <p>Razão Social: <span id="razaosocial">[RAZÃO SOCIAL]</span></p>
+                </section>
+                
+                <section>
+                    <h1>INFORMAÇÕES DA EMPRESA</h1>
+                    <p>Data de Abertura: <span id="abertura">[DATA DE ABERTURA]</span></p>
+                    <p>Porte: <span id="porte">[PORTE]</span></p>
+                    <p>Natureza Jurídica: <span id="naturezajuridica">[NATUREZA JURÍDICA]</span></p>
+                    <p>Capital Social: <span id="capitalsocial">[CAPITAL SOCIAL]</span></p>
+                    <p>Endereço: <span id="endereco">[ENDEREÇO]</span></p>
+                    <p>Atividade (CNAES): <span id="atividade">[ATIVIDADE]</span></p>
+                </section>
+
+                <section>
+                    <h1>DADOS DE CONTATO</h1>
+                    <p>Telefone: <span id="telefone">[TELEFONE]</span></p>
+                    <p>E-mail: <span id="email">[E-MAIL]</span></p>
+                </section>
+
+                <section>
+                    <h1>FATURAMENTO DA EMPRESA</h1>
+                    <div id="grafico">
+                        <div id="grafico-header">
+                            <div class="header-legenda">
+                                <div class="bloco-receita"></div>
+                                <div class="legenda">RECEITAS</div>
+                            </div>
+                            <div class="header-legenda">
+                                <div class="bloco-despesa"></div>
+                                <div class="legenda">DESPESAS</div>
+                            </div>
+                        </div>
+                        <div id="grafico-colunas">
+                            <div id="grafico-valores">
+                                <div class="gfc-valor" id="gfc-1">0,00</div>
+                                <div class="gfc-valor" id="gfc-2">0,00</div>
+                                <div class="gfc-valor" id="gfc-3">0,00</div>
+                                <div class="gfc-valor" id="gfc-4">0,00</div>
+                                <div class="gfc-valor">R$ 0,00</div>
+                            </div>
+                            <div class="gfc-coluna" id="coluna-mes1">
+                                <div class="coluna-receita" id="receita1"></div>
+                                <div class="coluna-despesa" id="despesa1"></div>
+                            </div>
+                            <div class="gfc-coluna" id="coluna-mes2">
+                                <div class="coluna-receita" id="receita2"></div>
+                                <div class="coluna-despesa" id="despesa2"></div>
+                            </div>
+                            <div class="gfc-coluna" id="coluna-mes3">
+                                <div class="coluna-receita" id="receita3"></div>
+                                <div class="coluna-despesa" id="despesa3"></div>
+                            </div>
+                            <div class="gfc-coluna" id="coluna-mes4">
+                                <div class="coluna-receita" id="receita4"></div>
+                                <div class="coluna-despesa" id="despesa4"></div>
+                            </div>
+                            <div class="gfc-coluna" id="coluna-mes5">
+                                <div class="coluna-receita" id="receita5"></div>
+                                <div class="coluna-despesa" id="despesa5"></div>
+                            </div>
+                        </div>
+                        <div id="grafico-footer">
+                            <div class="gfc-footer"></div>
+                            <div class="gfc-footer" id="mes1">[MÊS 1]</div>
+                            <div class="gfc-footer" id="mes2">[MÊS 2]</div>
+                            <div class="gfc-footer" id="mes3">[MÊS 3]</div>
+                            <div class="gfc-footer" id="mes4">[MÊS 4]</div>
+                            <div class="gfc-footer" id="mes5">[MÊS 5]</div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <footer class="footer-direita">1</footer>
+        </div>
+        <div class="pagina" id="pagina2">
+            <header></header>
+            
+            <div class="conteudo-doc">
+                <section>
+                    <h1>ANÁLISE DE INDICADORES</h1>
+                    <p>Valor Presente Líquido (VPL): <span>R$ <span id="vpl">[VPL]</span></span></p>
+                    <p>Taxa Interna de Retorno (TIR): <span>3,00%</span></p>
+                    <p>Payback (Retorno de Capital): <span>5,00%</span></p>
+                </section>
+
+                <div class="pagina-divisoria"></div>
+
+                <section>
+                    <h1>RESULTADOS GERAIS DO ESTUDO</h1>
+                    <p>Status do VPL: <span>Positivo</span></p>
+                    <p>Análise do TIR: <span>Maior que a taxa de desconto.</span></p>
+                    <p>Resumo: <span>Os investimentos podem ser aprovados e concluídos com sucesso.</span></p>
+                    <p id="analise">Análise Completa:<br>
+                        <span>Com base na meticulosa análise realizada, destaco com satisfação que identificamos um Valor Presente Líquido (VPL) positivo, sinalizando claramente a viabilidade econômica do investimento em questão. Ao mesmo tempo, a Taxa Interna de Retorno (TIR) mantém-se consistentemente acima da taxa de desconto aplicada, reforçando a atratividade financeira deste empreendimento.
+                        Esses indicadores favoráveis respaldam a conclusão de que a iniciativa de investir no desenvolvimento da empresa é não apenas sustentável, mas também promissora. A implementação iminente deste investimento tem o potencial não apenas de gerar retornos significativos, mas também de impulsionar consideravelmente o valor intrínseco da sua empresa.</span>
+                    </p>
+                </section>
+            </div>
+
+            <div id="selo">
+                SELO DE<br>AUTENTICAÇÃO
+                <div id="selo-qr">
+                    <div id="qr-logo">
+                        <img src="../../sistema/qr-logo.svg" alt="Logo">
+                    </div>
+                    <img src="../../sistema/qr-code.svg" alt="QR Code">
+                </div>
+            </div>
+
+            <footer class="footer-esquerda">2</footer>
+        </div>
+        <div class="contracapa">
+            <img src="../../sistema/logo-ass-branca.svg" alt="Logo da Assessoria">
+            <footer>
+                AGRADECEMOS A PREFERÊNCIA
+            </footer>
+        </div>
+    </div>
+
+    <!--SISTEMA-->
+    <script src="../../scripts/navdrawer.js"></script>
+    <script src="../../scripts/assessoria.js"></script>
+
+    <!--EXPORTAÇÃO-->
+    <script src="../../scripts/exportar.js"></script>
+    <script src="../../scripts/impressao.js"></script>
+
+    <!--OPCIONAIS-->
+    <script src="../../scripts/hoje.js"></script>
+    
+    <script src="../../scripts/formatacao/cnpj.js"></script>
+    <script src="../../scripts/formatacao/telefone.js"></script>
+    <script src="../../scripts/formatacao/email.js"></script>
+
+    <!--PERSONALIZADO-->
+    <script src="./inputs.js"></script>
+    <script src="./tipo-export.js"></script>
+
+    <!--CONSULTA-->
+    <script src="../../scripts/consulta.js"></script>
+
+    <!--GRÁFICO-->
+    <script src="../../scripts/grafico.js"></script>
+    <script src="../../scripts/grafico-mes.js"></script>
+</body>
+
+</html>

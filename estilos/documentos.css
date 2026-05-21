@@ -1,0 +1,440 @@
+/* CSS Document */
+
+@charset "utf-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --cor-1: #BE9D6B;
+    --cor-2: #9E7D4A;
+    --cor-3: #573D16;
+    --cor-4: rgba(190, 157, 107, 0.1);
+
+    --m3-surface: #f9f9f9;
+    --m3-on-surface: #1a1a1a;
+    --m3-outline: grey;
+}
+
+#documento {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+}
+
+.capa {
+    width: 792px;
+    height: 1120px;
+
+    background-image: url(../sistema/mda.svg);
+	background-size: cover;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+}
+
+.capa header {
+    position: absolute;
+    top: 0;
+    margin-top: 60px;
+}
+
+.capa h1 {
+    margin: 0;
+    line-height: 76px;
+
+    color: var(--cor-2);
+    font-family: 'Montserrat';
+    font-weight: 800;
+    font-size: 64px;
+
+    word-wrap: break-word;
+    text-align: center;
+    text-transform: uppercase;
+    font-feature-settings: 'pnum' 1, 'lnum' 1;
+}
+
+.capa footer {
+    position: absolute;
+    bottom: 0;
+
+    width: 100%;
+    height: 84px;
+    background-color: var(--cor-1);
+
+    align-content: center;
+
+    color: white;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-size: 16px;
+
+    text-align: center;
+    text-transform: uppercase;
+    font-feature-settings: 'pnum' 1, 'lnum' 1;
+}
+
+.pagina {
+    width: 792px;
+    height: 1120px;
+
+    background-image: url(../sistema/mda.svg);
+	background-size: cover;
+
+    display: flex;
+    flex-direction: column;
+
+    position: relative;
+}
+
+.pagina header {
+    height: 28px;
+
+    background-color: var(--cor-1);
+
+    margin-bottom: 48px;
+}
+
+.pagina .conteudo-doc {
+    padding-left: 36px;
+    padding-right: 36px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 32px;
+}
+
+.conteudo-doc section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.conteudo-doc h1 {
+    margin: 0;
+
+    color: var(--cor-1);
+    font-family: 'Montserrat';
+    font-weight: bold;
+    font-size: 18px;
+
+    text-align: left;
+
+    line-height: 24px;
+    font-feature-settings: 'pnum' 1, 'lnum' 1;
+}
+
+.conteudo-doc p {
+    margin: 0;
+
+    color: var(--m3-on-surface);
+    font-family: 'Montserrat';
+    font-weight: bold;
+    font-size: 17px;
+
+    text-align: justify;
+
+    font-feature-settings: 'pnum' 1, 'lnum' 1;
+
+    overflow: hidden; /* esconde qualquer conteúdo que ultrapasse a largura */
+    white-space: nowrap; /* faz com que o texto não quebre para a próxima linha */
+    text-overflow: ellipsis; /* adiciona "..." para indicar que o texto foi truncado */
+}
+
+.conteudo-doc span {
+    font-weight: normal;
+
+    font-feature-settings: 'pnum' 1, 'lnum' 1;
+}
+
+.pagina-divisoria {
+    width: 792px;
+    height: 6px;
+    background-color: var(--cor-2);
+
+    margin-left: -36px;
+}
+
+.conteudo-doc h2 {
+    margin: 0;
+
+    color: var(--m3-on-surface);
+    font-family: 'Montserrat';
+    font-weight: normal;
+    font-size: 48px;
+
+    line-height: 58px;
+    font-feature-settings: 'pnum' 1, 'lnum' 1;
+}
+
+.conteudo-doc h3 {
+    margin: 0;
+
+    color: var(--m3-on-surface);
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-size: 48px;
+
+    line-height: 58px;
+    font-feature-settings: 'pnum' 1, 'lnum' 1;
+}
+
+.conteudo-doc h3 #total {
+    font-weight: 600;
+    font-feature-settings: 'pnum' 1, 'lnum' 1;
+}
+
+.formas-pagamento {
+    height: 58px;
+
+    background-color: var(--cor-4);
+    border-radius: 6px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.opcoes {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.opcao {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.opcao span {
+    line-height: 32px;
+    color: var(--cor-1);
+}
+
+.opcao p {
+    margin: 0;
+
+    color: var(--m3-on-surface);
+    font-family: 'Montserrat';
+    font-weight: bold;
+    font-size: 18px;
+    
+    line-height: 22px;
+    letter-spacing: 1.04px;
+    font-feature-settings: 'pnum' 1, 'lnum' 1;
+}
+
+span#pag-texto {
+    display: flex;
+
+    text-align: justify;
+    white-space: normal;
+
+    line-height: 26px;
+    font-size: 18px;
+}
+
+.pagina footer.footer-direita {
+    position: absolute;
+
+    bottom: 32px;
+    right: 36px;
+
+    color: var(--m3-on-surface);
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-size: 16px;
+
+    line-height: 20px;
+    text-align: right;
+    font-feature-settings: 'pnum' 1, 'lnum' 1;
+}
+
+.pagina footer.footer-esquerda {
+    position: absolute;
+
+    bottom: 32px;
+    left: 36px;
+
+    color: var(--m3-on-surface);
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-size: 16px;
+
+    line-height: 20px;
+    text-align: right;
+    font-feature-settings: 'pnum' 1, 'lnum' 1;
+}
+
+#tratamento p {
+    font-size: 18px;
+    font-weight: normal;
+    
+    line-height: 26px;
+
+    overflow: visible;
+    white-space: normal;
+    text-overflow: unset;
+}
+
+#analise {
+    white-space: normal;
+    word-wrap: break-word;
+    line-height: 24px;
+}
+
+.contracapa {
+    width: 792px;
+    height: 1120px;
+
+    background-color: var(--cor-2);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+}
+
+.contracapa footer {
+    position: absolute;
+    bottom: 0;
+
+    width: 100%;
+    height: 84px;
+    background-color: white;
+
+    align-content: center;
+
+    color: var(--cor-2);
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-size: 16px;
+
+    text-align: center;
+    text-transform: uppercase;
+    font-feature-settings: 'pnum' 1, 'lnum' 1;
+}
+
+/* SELOS */
+
+#selo {
+    width: 300px;
+    height: 118px;
+    box-sizing: border-box;
+    padding: 10px 10px 10px 20px;
+    background-color: var(--cor-1);
+    border-radius: 6px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+
+    color: white;
+    font-family: 'Montserrat';
+    font-weight: bold;
+    font-size: 18px;
+    text-align: left;
+    line-height: 27px;
+
+    margin-left: 36px;
+    margin-top: 60px;
+}
+
+#selo-qr {
+    display: flex;
+    justify-content: center;
+    width: 68px;
+    height: 68px;
+    box-sizing: content-box;
+    padding: 2px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 4px;
+    position: relative;
+
+    scale: 1.33;
+    transform-origin: right;
+}
+
+#qr-logo {
+    position: absolute;
+    align-self: center;
+
+    width: 12px;
+    height: 12px;
+    box-sizing: content-box;
+
+    padding: 3px 3px 3px 3px;
+    background-color: var(--cor-1);
+    border: 1px solid white;
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ASSINATURAS */
+
+#assinaturas {
+    margin-top: 0px;
+    
+    font-family: 'Inter';
+    font-size: 13px;
+    font-weight: 400;
+    color: black;
+}
+
+.a-modelo {
+	display: flex;
+	flex-direction: column;
+
+    position: relative;
+
+    gap: 4px;
+}
+
+.a-div {
+	width: 300px;
+	height: 1px;
+	
+	background-color: black;
+	
+	margin-bottom: 5px;
+}
+
+.svg-diretor {
+	position: absolute;
+	left: 24px;
+	top: -62px;
+}
+
+.svg-gerente {
+	position: absolute;
+	left: 64px;
+	top: -45px;
+}
+
+.a-digital {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	gap: 1px;
+	
+	position: absolute;
+	left: 0px;
+	top: -30px;
+}
+
+.digital-texto {
+	font-family: 'Calibri';
+	color: black;
+	font-size: 10px;
+	font-weight: 400;
+	word-wrap: break-word;
+}

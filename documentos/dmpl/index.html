@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DMPL | WebDOCs</title>
+
+    <link rel="icon" href="../../favicon.png">
+
+    <link rel="stylesheet" href="../../estilos/sistema.css">
+    <link rel="stylesheet" href="../../estilos/exportar.css">
+    <link rel="stylesheet" href="../../estilos/documentos.css">
+
+    <link rel="stylesheet" href="../../estilos/consulta.css">
+    
+    <link rel="stylesheet" href="tabela.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-25..200&display=block"/>
+
+    <link rel="stylesheet" href="../../estilos/icones.css">
+</head>
+
+<body id="dmpl">
+    <div class="conteudo" id="conteudo">
+        <header id="pagina">
+            <span id="sistema-assessoria" class="assessoria-nome"></span>
+        </header>
+        <div class="sistema-pagina">
+
+            <h1>DMPL</h1>
+
+            <div class="formularios">
+                <div class="area-boxes" style="grid-template-columns: 100%">
+                    <div class="base-box">
+                        <div class="h2-ativar" id="h2-versaomanual">
+                            <h2>Versão Manual</h2>
+                            <input type="checkbox" id="i-versaomanual">
+                        </div>
+                        <div class="base-boxcampos" id="versaomanual">
+                            <div class="campo">
+                                <div class="label">
+                                    <label class="label-campo" for="i-cnpj">CNPJ</label>
+                                    <span class="material-symbols-rounded" title="Utilize somente números, pois o sistema irá pontuar automaticamente.">info</span>
+                                    </div>
+                                <input class="input" id="i-cnpj" placeholder="00.000.000/0000-00">
+                            </div>
+
+                            <div class="campo">
+                                <div class="label">
+                                    <label class="label-campo" for="i-razaosocial">Razão Social</label>
+                                </div>
+                                <input class="input" id="i-razaosocial" placeholder="Nome da Empresa">
+                            </div>
+
+                            <div class="campo">
+                                <div class="label">
+                                    <label class="label-campo" for="i-abertura">Data de Abertura</label>
+                                </div>
+                                <input class="input" id="i-abertura" placeholder="dd/mm/aaaa">
+                            </div>
+
+                            <div class="campo">
+                                <div class="label">
+                                    <label class="label-campo" for="i-porte">Porte</label>
+                                </div>
+                                <input class="input" id="i-porte" placeholder="Porte da Empresa">
+                            </div>
+
+                            <div class="campo">
+                                <div class="label">
+                                    <label class="label-campo" for="i-naturezajuridica">Natureza Jurídica</label>
+                                </div>
+                                <input class="input" id="i-naturezajuridica" placeholder="Natureza Jurídica">
+                            </div>
+
+                            <div class="campo">
+                                <div class="label">
+                                    <label class="label-campo" for="i-capitalsocial">Capital Social</label>
+                                </div>
+                                <input class="input" id="i-capitalsocial" placeholder="R$ 10.000,00">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="base-box" id="consulta">
+                        <h2>Consulta</h2>
+                        <div class="base-boxcampos">
+                            <div class="campo">
+                                <div class="label">
+                                    <label class="label-campo" for="i-consulta">CNPJ</label>
+                                    <span class="material-symbols-rounded" title="Utilize somente números, pois o sistema irá pontuar automaticamente.">info</span>
+                                    </div>
+                                <input class="input" id="i-consulta" placeholder="00.000.000/0000-00">
+                            </div>
+
+                            <div class="campo" id="campo-iframe">
+                                <div class="label">
+                                    <label class="label-campo" for="iframe">Base de Dados</label>
+                                </div>
+                                <iframe id="iframe"></iframe>
+                            </div>
+                                
+                            <div class="campo" id="verificacao">
+                                <div class="label">
+                                    <label class="label-campo" for="i-code">Verificação</label>
+                                </div>
+
+                                <textarea id="i-code" placeholder="Copie o código exibido no campo preto e cole-o aqui."></textarea>
+                                
+                                <button class="consulta" id="verificar">
+                                    <span class="material-symbols-rounded">frame_inspect</span>
+                                    <span>Verificar Dados</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="base-box" id="resultado-consulta">
+                        <h2>Resultado da Consulta</h2>
+                        <div class="base-boxcampos">
+                            <div class="campo">
+                                <div class="label">
+                                    <label class="label-campo" for="dadosdaempresa">Dados da Empresa</label>
+                                </div>
+                                <div class="campo-texto">
+                                    <p id="dadosdaempresa">
+                                        CNPJ: <span id="resultado-cnpj"></span>
+                                        <br>
+                                        Razão Social: <span id="resultado-rs"></span>
+                                    </p>
+                                </div>
+
+                                <button class="consulta" id="preencher">
+                                    <span class="material-symbols-rounded">edit_document</span>
+                                    <span>Inserir no Documento</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            <div class="menu-inferior">
+                <div class="confirmacao">
+                    <label for="confirmacao" class="label-confirmacao">
+                        Todos os campos foram preenchidos?<input type="checkbox" id="confirmacao">
+                    </label>
+                </div>
+                
+                <button id="exportar">
+                    <span class="material-symbols-rounded">download</span>
+                    Exportar
+                </button>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div id="documento">
+        <div class="capa">
+            <header>
+                <img src="../../sistema/logo-ass.svg" alt="Logo da Assessoria">
+            </header>
+
+            <h1>DEMONSTRAÇÃO<br>DAS MUTAÇÕES<br>DO PATRIMÔNIO<br>LÍQUIDO (DMPL)</h1>
+
+            <footer>
+                EMITIDO EM <span id="dia">[DIA]</span> DE <span id="mes">[MÊS]</span> DE <span id="ano1">[ANO]</span>
+            </footer>
+        </div>
+        <div class="pagina" id="pagina1">
+            <header></header>
+
+            <div class="conteudo-doc">
+                <section>
+                    <h1>CLIENTE</h1>
+                    <p>CNPJ: <span id="cnpj">[CNPJ]</span></p>
+                    <p>Razão Social: <span id="razaosocial">[RAZÃO SOCIAL]</span></p>
+                </section>
+                
+                <section>
+                    <h1>INFORMAÇÕES DA EMPRESA</h1>
+                    <p>Data de Abertura: <span id="abertura">[DATA DE ABERTURA]</span></p>
+                    <p>Porte: <span id="porte">[PORTE]</span></p>
+                    <p>Natureza Jurídica: <span id="naturezajuridica">[NATUREZA JURÍDICA]</span></p>
+                </section>
+
+                <div class="pagina-divisoria"></div>
+
+                <section>
+                    <h1>ANÁLISES FINANCEIRAS</h1>
+
+                    <table>
+                        <tbody><tr>
+                            <th class="tabela-esquerda">DADOS DO<br>PATRIMÔNIO</th>
+                            <th>CAPITAL<br>SOCIAL</th>
+                            <th>RESERVA<br>LEGAL</th>
+                            <th>FUNDOS<br>ESPECIAIS</th>
+                        </tr>
+                        <tr>
+                            <td class="tabela-subtitulos">Saldo no Início<br>do Período</td>
+                            <td><span id="capitalsocial">[CAPITAL SOCIAL]</span></td>
+                            <td>R$ 25.987,40</td>
+                            <td>R$ 0,00</td>
+                        </tr>
+                        <tr>
+                            <td class="tabela-subtitulos">Ajuste de Exercícios<br>Anteriores</td>
+                            <td>R$ 80.400,00</td>
+                            <td>R$ 63,039.00</td>
+                            <td>R$ 15.945,12</td>
+                        </tr>
+                        <tr>
+                            <td class="tabela-subtitulos">Saldo Inicial Ajustado</td>
+                            <td>R$ 35.200,00</td>
+                            <td>R$ 14.800,00</td>
+                            <td>R$ 0,00</td>
+                        </tr>
+                        <tr>
+                            <td class="tabela-subtitulos">Realização de Reservas</td>
+                            <td>R$ 0,00</td>
+                            <td>R$ 2.000,00</td>
+                            <td>R$ 0,00</td>
+                        </tr>
+                        <tr>
+                            <td class="tabela-subtitulos">Aumento/Redução<br>do Capital Social</td>
+                            <td>R$ 0,00</td>
+                            <td>R$ 35.008,88</td>
+                            <td>R$ 0,00</td>
+                        </tr>
+                    </tbody></table>
+                </section>
+            </div>
+
+            <footer class="footer-direita">1</footer>
+        </div>
+        <div class="pagina" id="pagina2">
+            <header></header>
+            
+            <div class="conteudo-doc">
+                <section>
+                    <h1>VARIÁVEIS ADICIONAIS</h1>
+                    <p>Taxa de Desconto: <span>20%</span></p>
+                    <p>Crescimento na Perpetuidade: <span>3,00%</span></p>
+                    <p>IPCA Projetado: <span>5,00%</span></p>
+                </section>
+                <div class="pagina-divisoria"></div>
+                <section>
+                    <h1>FLUXO DE CAIXA DESCONTADO</h1>
+                    <p>Valor dos 5 Anos: <span>R$ <span id="5anos">[VALOR 5 ANOS]</span></span></p>
+                    <p>Valor de Perpetuidade: <span>R$ <span id="perpetuidade">[PERPETUIDADE]</span></span></p>
+                    <p>Valot Total da Empresa: <span>R$ <span id="valortotalempresa">[VALOR TOTAL]</span></span></p>
+                </section>
+                <div class="pagina-divisoria"></div>
+                <section>
+                    <h1>ANÁLISE GERAL</h1>
+                    <p><span id="analise">
+                        Neste contexto, os benefícios transcendem os meros ganhos financeiros. O investimento estratégico proposto tem o potencial de fortalecer a posição competitiva da empresa, desbravar novos horizontes de mercado e consolidar laços com os stakeholders. Ao fomentar a inovação e aprimorar a eficiência operacional, esse investimento também pode impulsionar a sustentabilidade ambiental e social da empresa, gerando impactos positivos além do aspecto financeiro. Em síntese, optar por prosseguir com este investimento não só está em sintonia com a busca pela rentabilidade, mas também com a garantia da sustentabilidade e sucesso duradouros da sua empresa.
+                    </span></p>
+                </section>
+            </div>
+
+            <div id="selo">
+                SELO DE<br>AUTENTICAÇÃO
+                <div id="selo-qr">
+                    <div id="qr-logo">
+                        <img src="../../sistema/qr-logo.svg" alt="Logo">
+                    </div>
+                    <img src="../../sistema/qr-code.svg" alt="QR Code">
+                </div>
+            </div>
+
+            <footer class="footer-esquerda">2</footer>
+        </div>
+        <div class="contracapa">
+            <img src="../../sistema/logo-ass-branca.svg" alt="Logo da Assessoria">
+            <footer>
+                AGRADECEMOS A PREFERÊNCIA
+            </footer>
+        </div>
+    </div>
+    
+    <!--SISTEMA-->
+    <script src="../../scripts/navdrawer.js"></script>
+    <script src="../../scripts/assessoria.js"></script>
+
+    <!--EXPORTAÇÃO-->
+    <script src="../../scripts/titulo.js"></script>
+
+    <script src="../../scripts/exportar.js"></script>
+    <script src="../../scripts/impressao.js"></script>
+
+    <!--OPCIONAIS-->
+    <script src="../../scripts/hoje.js"></script>
+
+    <script src="../../scripts/formatacao/cnpj.js"></script>
+
+    <!--CONSULTA-->
+    <script src="../../scripts/consulta.js"></script>
+</body>
+
+</html>

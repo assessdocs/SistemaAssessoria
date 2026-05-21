@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Conciliação | WebDOCs</title>
+
+    <link rel="icon" href="../../favicon.png">
+
+    <link rel="stylesheet" href="../../estilos/sistema.css">
+    <link rel="stylesheet" href="../../estilos/exportar.css">
+
+    <link rel="stylesheet" href="../../estilos/consulta.css">
+
+    <link rel="stylesheet" href="conciliacao.css">
+
+    <link rel="stylesheet" href="../../estilos/css/light.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-25..200&display=block"/>
+
+    <link rel="stylesheet" href="../../estilos/icones.css">
+</head>
+
+<body id="conciliacao">
+    <div class="conteudo" id="conteudo">
+        <header id="pagina">
+            <span id="sistema-assessoria" class="assessoria-nome"></span>
+        </header>
+        <div class="sistema-pagina">
+
+            <h1>Conciliação</h1>
+            
+            <div class="formularios">
+                <div class="area-boxes">
+                    <div class="box-duplo">
+                        <div class="base-box">
+                            <div class="h2-ativar" id="h2-versaomanual">
+                                <h2>Versão Manual</h2>
+                                <input type="checkbox" id="i-versaomanual">
+                            </div>
+                            <div class="base-boxcampos" id="versaomanual">
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-cnpj">CNPJ</label>
+                                        <span class="material-symbols-rounded" title="Utilize somente números, pois o sistema irá pontuar automaticamente.">info</span>
+                                    </div>
+                                    <input class="input" id="i-cnpj" placeholder="00.000.000/0000-00">
+                                </div>
+                                
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-razaosocial">Razão Social</label>
+                                    </div>
+                                    <input class="input" id="i-razaosocial" placeholder="Nome da Empresa">
+                                </div>
+
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-logradouro">Logradouro</label>
+                                    </div>
+                                    <input class="input" id="i-logradouro" placeholder="Rua, Avenida, Travessa...">
+                                </div>
+
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-numero">Número</label>
+                                        <span class="material-symbols-rounded" title="Utilize somente números.">info</span>
+                                    </div>
+                                    <input class="input" id="i-numero" placeholder="Nº (00)">
+                                </div>
+
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-bairro">Número</label>
+                                    </div>
+                                    <input class="input" id="i-bairro" placeholder="Bairro">
+                                </div>
+
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-cidade">Cidade</label>
+                                    </div>
+                                    <input class="input" id="i-cidade" placeholder="Cidade">
+                                </div>
+
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-estado">Estado/UF</label>
+                                    </div>
+                                    <select id="i-estado" name="estado">
+                                        <option value="" disabled="" selected="">Selecione um estado</option>
+
+                                        <option value="AC">AC - Acre</option>
+                                        <option value="AL">AL - Alagoas</option>
+                                        <option value="AP">AP - Amapá</option>
+                                        <option value="AM">AM - Amazonas</option>
+                                        <option value="BA">BA - Bahia</option>
+                                        <option value="CE">CE - Ceará</option>
+                                        <option value="DF">DF - Distrito Federal</option>
+                                        <option value="ES">ES - Espírito Santo</option>
+                                        <option value="GO">GO - Goiás</option>
+                                        <option value="MA">MA - Maranhão</option>
+                                        <option value="MT">MT - Mato Grosso</option>
+                                        <option value="MS">MS - Mato Grosso do Sul</option>
+                                        <option value="MG">MG - Minas Gerais</option>
+                                        <option value="PA">PA - Pará</option>
+                                        <option value="PB">PB - Paraíba</option>
+                                        <option value="PR">PR - Paraná</option>
+                                        <option value="PE">PE - Pernambuco</option>
+                                        <option value="PI">PI - Piauí</option>
+                                        <option value="RJ">RJ - Rio de Janeiro</option>
+                                        <option value="RN">RN - Rio Grande do Norte</option>
+                                        <option value="RS">RS - Rio Grande do Sul</option>
+                                        <option value="RO">RO - Rondônia</option>
+                                        <option value="RR">RR - Roraima</option>
+                                        <option value="SC">SC - Santa Catarina</option>
+                                        <option value="SP">SP - São Paulo</option>
+                                        <option value="SE">SE - Sergipe</option>
+                                        <option value="TO">TO - Tocantins</option>
+                                    </select>
+                                </div>
+
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-cep">CEP</label>
+                                        <span class="material-symbols-rounded" title="Utilize somente números.">info</span>
+                                    </div>
+                                    <input class="input" id="i-cep" placeholder="00.000-000">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="base-box" id="consulta">
+                            <h2>Consulta</h2>
+                            <div class="base-boxcampos">
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-consulta">CNPJ</label>
+                                        <span class="material-symbols-rounded" title="Utilize somente números, pois o sistema irá pontuar automaticamente.">info</span>
+                                    </div>
+                                    <input class="input" id="i-consulta" placeholder="00.000.000/0000-00">
+                                </div>
+
+                                <div class="campo" id="campo-iframe">
+                                    <div class="label">
+                                        <label class="label-campo" for="iframe">Base de Dados</label>
+                                    </div>
+                                    <iframe id="iframe"></iframe>
+                                </div>
+                                
+                                <div class="campo" id="verificacao">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-code">Verificação</label>
+                                    </div>
+                                    <textarea id="i-code" placeholder="Copie o código exibido no campo preto e cole-o aqui."></textarea>
+                                    <button class="consulta" id="verificar">
+                                        <span class="material-symbols-rounded">frame_inspect</span>
+                                        <span>Verificar Dados</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="base-box" id="resultado-consulta">
+                            <h2>Resultado da Consulta</h2>
+                            <div class="base-boxcampos">
+                                    <div class="campo">
+                                        <div class="label">
+                                            <label class="label-campo" for="dadosdaempresa">Dados da Empresa</label>
+                                        </div>
+                                        <div class="campo-texto">
+                                            <p id="dadosdaempresa">
+                                                CNPJ: <span id="resultado-cnpj"></span>
+                                                <br>
+                                                Razão Social: <span id="resultado-rs"></span>
+                                            </p>
+                                        </div>
+                                        <button class="consulta" id="preencher">
+                                            <span class="material-symbols-rounded">edit_document</span>
+                                            <span>Inserir no Documento</span>
+                                        </button>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-duplo">
+                        <div class="base-box">
+                            <h2>Documento</h2>
+                            <div class="base-boxcampos">
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-data">Data de Emissão</label>
+                                    </div>
+                                    <input class="input" id="i-data" placeholder="00/00/0000" type="date">
+                                </div>
+
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-valortotal">Hora de Emissão</label>
+                                    </div>                            
+                                    <input class="input" id="i-hora" placeholder="00:00" type="time">
+                                </div>
+                                
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-telefone">Telefone do Cliente</label>
+                                    </div>
+                                    <input class="input" id="i-telefone" placeholder="(00) 90000-0000" type="tel">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <div class="menu-inferior">
+                <div class="confirmacao">
+                    <label for="confirmacao" class="label-confirmacao">
+                        Todos os campos foram preenchidos?<input type="checkbox" id="confirmacao">
+                    </label>
+                </div>
+                
+                <button id="exportar">
+                    <span class="material-symbols-rounded">download</span>
+                    Exportar
+                </button>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div id="documento">
+        <div class="pagina" id="pagina1">
+            
+        </div>
+    </div>
+    
+    <!--SISTEMA-->
+    <script src="../../scripts/navdrawer.js"></script>
+    <script src="../../scripts/assessoria.js"></script>
+
+    <!--EXPORTAÇÃO-->
+    <script src="../../scripts/titulo.js"></script>
+
+    <script src="../../scripts/exportar.js"></script>
+    <script src="../../scripts/impressao.js"></script>
+
+    <!--OPCIONAIS-->
+    <script src="../../scripts/formatacao/cnpj.js"></script>
+    <script src="../../scripts/formatacao/telefone.js"></script>
+
+    <!--PERSONALIZADO-->
+
+    <!--CONSULTA-->
+    <script src="../../scripts/consulta.js"></script>
+
+    <script type="module">
+        import materialweb from 'https://cdn.jsdelivr.net/npm/@material/web@2.4.1/+esm'
+    </script>
+</body>
+
+</html>

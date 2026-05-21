@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nota Fiscal | WebDOCs</title>
+
+    <link rel="icon" href="../../favicon.png">
+
+    <link rel="stylesheet" href="../../estilos/sistema.css">
+    <link rel="stylesheet" href="../../estilos/exportar.css">
+
+    <link rel="stylesheet" href="../../estilos/consulta.css">
+
+    <link rel="stylesheet" href="notafiscal.css">
+
+    <link rel="stylesheet" href="../../estilos/css/light.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-25..200&display=block"/>
+
+    <link rel="stylesheet" href="../../estilos/icones.css">
+</head>
+
+<body id="notafiscal">
+    <div class="conteudo" id="conteudo">
+        <header id="pagina">
+            <span id="sistema-assessoria" class="assessoria-nome"></span>
+        </header>
+        <div class="sistema-pagina">
+
+            <h1>Nota Fiscal</h1>
+            
+            <div class="formularios">
+                <div class="area-boxes">
+                    <div class="box-duplo">
+                        <div class="base-box">
+                            <div class="h2-ativar" id="h2-versaomanual">
+                                <h2>Versão Manual</h2>
+                                <input type="checkbox" id="i-versaomanual">
+                            </div>
+                            <div class="base-boxcampos" id="versaomanual">
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-cnpj">CNPJ</label>
+                                        <span class="material-symbols-rounded" title="Utilize somente números, pois o sistema irá pontuar automaticamente.">info</span>
+                                    </div>
+                                    <input class="input" id="i-cnpj" placeholder="00.000.000/0000-00">
+                                </div>
+                                
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-razaosocial">Razão Social</label>
+                                    </div>
+                                    <input class="input" id="i-razaosocial" placeholder="Nome da Empresa">
+                                </div>
+
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-logradouro">Logradouro</label>
+                                    </div>
+                                    <input class="input" id="i-logradouro" placeholder="Rua, Avenida, Travessa...">
+                                </div>
+
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-numero">Número</label>
+                                        <span class="material-symbols-rounded" title="Utilize somente números.">info</span>
+                                    </div>
+                                    <input class="input" id="i-numero" placeholder="Nº (00)">
+                                </div>
+
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-bairro">Número</label>
+                                    </div>
+                                    <input class="input" id="i-bairro" placeholder="Bairro">
+                                </div>
+
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-cidade">Cidade</label>
+                                    </div>
+                                    <input class="input" id="i-cidade" placeholder="Cidade">
+                                </div>
+
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-estado">Estado/UF</label>
+                                    </div>
+                                    <select id="i-estado" name="estado">
+                                        <option value="" disabled="" selected="">Selecione um estado</option>
+
+                                        <option value="AC">AC - Acre</option>
+                                        <option value="AL">AL - Alagoas</option>
+                                        <option value="AP">AP - Amapá</option>
+                                        <option value="AM">AM - Amazonas</option>
+                                        <option value="BA">BA - Bahia</option>
+                                        <option value="CE">CE - Ceará</option>
+                                        <option value="DF">DF - Distrito Federal</option>
+                                        <option value="ES">ES - Espírito Santo</option>
+                                        <option value="GO">GO - Goiás</option>
+                                        <option value="MA">MA - Maranhão</option>
+                                        <option value="MT">MT - Mato Grosso</option>
+                                        <option value="MS">MS - Mato Grosso do Sul</option>
+                                        <option value="MG">MG - Minas Gerais</option>
+                                        <option value="PA">PA - Pará</option>
+                                        <option value="PB">PB - Paraíba</option>
+                                        <option value="PR">PR - Paraná</option>
+                                        <option value="PE">PE - Pernambuco</option>
+                                        <option value="PI">PI - Piauí</option>
+                                        <option value="RJ">RJ - Rio de Janeiro</option>
+                                        <option value="RN">RN - Rio Grande do Norte</option>
+                                        <option value="RS">RS - Rio Grande do Sul</option>
+                                        <option value="RO">RO - Rondônia</option>
+                                        <option value="RR">RR - Roraima</option>
+                                        <option value="SC">SC - Santa Catarina</option>
+                                        <option value="SP">SP - São Paulo</option>
+                                        <option value="SE">SE - Sergipe</option>
+                                        <option value="TO">TO - Tocantins</option>
+                                    </select>
+                                </div>
+
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-cep">CEP</label>
+                                        <span class="material-symbols-rounded" title="Utilize somente números.">info</span>
+                                    </div>
+                                    <input class="input" id="i-cep" placeholder="00.000-000">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="base-box" id="consulta">
+                            <h2>Consulta</h2>
+                            <div class="base-boxcampos">
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-consulta">CNPJ</label>
+                                        <span class="material-symbols-rounded" title="Utilize somente números, pois o sistema irá pontuar automaticamente.">info</span>
+                                    </div>
+                                    <input class="input" id="i-consulta" placeholder="00.000.000/0000-00">
+                                </div>
+
+                                <div class="campo" id="campo-iframe">
+                                    <div class="label">
+                                        <label class="label-campo" for="iframe">Base de Dados</label>
+                                    </div>
+                                    <iframe id="iframe"></iframe>
+                                </div>
+                                
+                                <div class="campo" id="verificacao">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-code">Verificação</label>
+                                    </div>
+                                    <textarea id="i-code" placeholder="Copie o código exibido no campo preto e cole-o aqui."></textarea>
+                                    <button class="consulta" id="verificar">
+                                        <span class="material-symbols-rounded">frame_inspect</span>
+                                        <span>Verificar Dados</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="base-box" id="resultado-consulta">
+                            <h2>Resultado da Consulta</h2>
+                            <div class="base-boxcampos">
+                                    <div class="campo">
+                                        <div class="label">
+                                            <label class="label-campo" for="dadosdaempresa">Dados da Empresa</label>
+                                        </div>
+                                        <div class="campo-texto">
+                                            <p id="dadosdaempresa">
+                                                CNPJ: <span id="resultado-cnpj"></span>
+                                                <br>
+                                                Razão Social: <span id="resultado-rs"></span>
+                                            </p>
+                                        </div>
+                                        <button class="consulta" id="preencher">
+                                            <span class="material-symbols-rounded">edit_document</span>
+                                            <span>Inserir no Documento</span>
+                                        </button>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-duplo">
+                        <div class="base-box">
+                            <h2>Documento</h2>
+                            <div class="base-boxcampos">
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-data">Data de Emissão</label>
+                                    </div>
+                                    <input class="input" id="i-data" placeholder="00/00/0000" type="date">
+                                </div>
+
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-valortotal">Hora de Emissão</label>
+                                    </div>                            
+                                    <input class="input" id="i-hora" placeholder="00:00" type="time">
+                                </div>
+                                
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-telefone">Telefone do Cliente</label>
+                                    </div>
+                                    <input class="input" id="i-telefone" placeholder="(00) 90000-0000" type="tel">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="base-box">
+                            <h2>Serviços</h2>
+                            <div class="base-boxcampos">
+                                <div class="campo-duplo" id="c-servico1">
+                                    <div class="campo">
+                                        <div class="label">
+                                            <label class="label-campo" for="i-servico1">Serviço 1</label>
+                                        </div>
+                                        <input class="input" id="i-servico1" placeholder="Nome do Serviço">
+                                    </div>
+                                    <div class="campo">
+                                        <div class="label">
+                                            <label class="label-campo" for="i-valor1">Valor 1</label>
+                                        </div>
+                                        <input class="input" id="i-valor1" placeholder="Valor do Serviço">
+                                    </div>
+                                </div>
+                                <div class="campo-duplo" id="c-servico2">
+                                    <div class="campo">
+                                        <div class="label">
+                                            <label class="label-campo" for="i-servico2">Serviço 2</label>
+                                        </div>
+                                        <input class="input" id="i-servico2" placeholder="Nome do Serviço">
+                                    </div>
+                                    <div class="campo">
+                                        <div class="label">
+                                            <label class="label-campo" for="i-valor2">Valor 2</label>
+                                        </div>
+                                        <input class="input" id="i-valor2" placeholder="Valor do Serviço">
+                                    </div>
+                                </div>
+                                <div class="campo-duplo" id="c-servico3">
+                                    <div class="campo">
+                                        <div class="label">
+                                            <label class="label-campo" for="i-servico3">Serviço 3</label>
+                                        </div>
+                                        <input class="input" id="i-servico3" placeholder="Nome do Serviço">
+                                    </div>
+                                    <div class="campo">
+                                        <div class="label">
+                                            <label class="label-campo" for="i-valor3">Valor 3</label>
+                                        </div>
+                                        <input class="input" id="i-valor3" placeholder="Valor do Serviço">
+                                    </div>
+                                </div>
+                                <div class="campo-duplo" id="c-servico4">
+                                    <div class="campo">
+                                        <div class="label">
+                                            <label class="label-campo" for="i-servico4">Serviço 4</label>
+                                        </div>
+                                        <input class="input" id="i-servico4" placeholder="Nome do Serviço">
+                                    </div>
+                                    <div class="campo">
+                                        <div class="label">
+                                            <label class="label-campo" for="i-valor4">Valor 4</label>
+                                        </div>
+                                        <input class="input" id="i-valor4" placeholder="Valor do Serviço">
+                                    </div>
+                                </div>
+                                <div class="campo-duplo" id="c-servico5">
+                                    <div class="campo">
+                                        <div class="label">
+                                            <label class="label-campo" for="i-servico5">Serviço 5</label>
+                                        </div>
+                                        <input class="input" id="i-servico5" placeholder="Nome do Serviço">
+                                    </div>
+                                    <div class="campo">
+                                        <div class="label">
+                                            <label class="label-campo" for="i-valor5">Valor 5</label>
+                                        </div>
+                                        <input class="input" id="i-valor5" placeholder="Valor do Serviço">
+                                    </div>
+                                </div>
+                                <div class="campo-duplo" id="c-servico6">
+                                    <div class="campo">
+                                        <div class="label">
+                                            <label class="label-campo" for="i-servico6">Serviço 6</label>
+                                        </div>
+                                        <input class="input" id="i-servico6" placeholder="Nome do Serviço">
+                                    </div>
+                                    <div class="campo">
+                                        <div class="label">
+                                            <label class="label-campo" for="i-valor6">Valor 6</label>
+                                        </div>
+                                        <input class="input" id="i-valor6" placeholder="Valor do Serviço">
+                                    </div>
+                                </div>
+                                <div class="campo-duplo" id="c-servico7">
+                                    <div class="campo">
+                                        <div class="label">
+                                            <label class="label-campo" for="i-servico7">Serviço 7</label>
+                                        </div>
+                                        <input class="input" id="i-servico7" placeholder="Nome do Serviço">
+                                    </div>
+                                    <div class="campo">
+                                        <div class="label">
+                                            <label class="label-campo" for="i-valor7">Valor 7</label>
+                                        </div>
+                                        <input class="input" id="i-valor7" placeholder="Valor do Serviço">
+                                    </div>
+                                </div>
+                                <button class="outlined light" id="adicionar">
+                                    <span class="material-symbols-rounded" id="icone-adicionar">add_circle</span>
+                                    <span id="texto-adicionar">Adicionar</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <div class="menu-inferior">
+                <div class="confirmacao">
+                    <label for="confirmacao" class="label-confirmacao">
+                        Todos os campos foram preenchidos?<input type="checkbox" id="confirmacao">
+                    </label>
+                </div>
+                
+                <button id="exportar">
+                    <span class="material-symbols-rounded">download</span>
+                    Exportar
+                </button>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div id="documento">
+        <div class="pagina" id="pagina1">
+            <div class="nota">
+                <div id="destacavel">
+                    <div class="destacavel-left">
+                        <div class="celula" style="width: 468px">
+                            <div class="nota-label">RECEBEMOS OS PRODUTOS CONSTANTES NA NOTA FISCAL INDICADA ABAIXO</div>
+                            <p></p>
+                        </div>
+                        <div class="linha" style="margin-top: -1px">
+                            <div class="celula" style="width: 111px">
+                                <div class="nota-label">DATA DE RECEBIMENTO</div>
+                                <p></p>
+                            </div>
+                            <div class="celula" style="width: 354px; margin-left: -1px">
+                                <div class="nota-label">IDENTIFICAÇÃO E ASSINATURA DO RECEBEDOR</div>
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="celula" style="width: 91px; height: 39px; margin-left: -1px; padding-left: 0px; gap: 0px">
+                        <div style="text-align: center; font-size: 5px; line-height: 4px; margin-bottom: 9px;">NF-e</div>
+                        <div style="text-align: center; font-size: 9px; line-height: 7px; margin-bottom: 7px;">Nº <span id="numero-nota1">71944656</span></div>
+                        <div style="text-align: center; font-size: 9px; line-height: 7px;">SÉRIE 1</div>
+                    </div>
+                </div>
+                <div class="linha-destacavel"></div>
+                <div id="nota-parte1">
+                    <div class="parte1">
+                        <div id="celula-assessoria">
+                            <img src="../../sistema/logo-ass.svg" alt="LogoAssessoria" style="height: 48px; margin-bottom: 0px; margin-top: 0px;">
+                            <p class="assessoria-nome"></p>
+                            <p><span class="assessoria-logradouro"></span>, <span class="assessoria-numero"></span></p>
+                            <p><span class="assessoria-bairro"></span>, <span class="assessoria-cidade"></span> - <span class="assessoria-uf"></span></p>
+                            <p class="assessoria-email"></p>
+                        </div>
+                        <div id="celula-danfe" style="margin-left: -1px;">
+                            <div style="margin-top: 3px; text-align: center; font-size: 7px; line-height: 5px;">DANFE</div>
+                            <div style="margin-top: 7px; text-align: center; line-height: 6px;">DOCUMENTO AUXILIAR<br>DE NOTA FISCAL<br>ELETRÔNICA</div>
+                            <div id="danfe-infos">
+                                <div style="margin-top: 2px">
+                                    <p>0 - ENTRADA</p>
+                                    <p style="margin-top: 5px;">1 - SAÍDA</p>
+                                </div>
+                                <div id="danfe-square">1</div>
+                            </div>
+                            <div id="danfe-outros">
+                                <div>Nº <span id="numero-nota2">71944656</span></div>
+                                <div>SÉRIE 1</div>
+                                <div style="margin-top: 4px;">PÁGINA 1 DE 1</div>
+                            </div>
+                        </div>
+                        <div class="parte1-linhas" style="margin-left: -1px;">
+                            <div class="celula" style="width: 217px; height: 38px;">
+                                <div class="nota-label">CONTROLE DO FISCO</div>
+                                <img src="barcode.svg" alt="Código de Barras" style="height: 25px; margin-top: 1px;">
+                            </div>
+                            <div class="celula" style="width: 217px; height: 19px; margin-top: -1px;">
+                                <div class="nota-label">CHAVE DE ACESSO</div>
+                                <p><span id="chavedeacesso" style="font-size: 8px;">6267.6682.9500.8472.8294.7705.3195.4493.9570.9674</span></p>
+                            </div>
+                            <div class="celula" style="width: 217px; margin-top: -1px; padding: 0px 0px 0px 2px; justify-content: center; height: 25px;">
+                                <p style="line-height: 7px;">Consulta de autencidade no portal nacional da NF-e<br>www.nfe.fazenda.gov.br/portal ou no site da Sefaz Autorizada.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="linha" style="margin-top: -1px">
+                        <div class="celula" style="width: 336px;">
+                            <div class="nota-label">NATUREZA DA OPERAÇÃO</div>
+                            <p>Preparação de documentos e serviços especializados de apoio administrativo.</p>
+                        </div>
+                        <div class="celula" style="width: 217px; margin-left: -1px;">
+                            <div class="nota-label">PROTOCOLO DE AUTORIZAÇÃO</div>
+                            <p><span id="protocolo">797865753602664</span>   <span id="data1">[DATA 1]</span>   <span id="hora1">[HORA 1]</span>:<span id="segundo1">21</span></p>
+                        </div>
+                    </div>
+                    <div class="linha" style="margin-top: -1px">
+                        <div class="celula" style="width: 184px;">
+                            <div class="nota-label">INSCRIÇÃO ESTADUAL</div>
+                            <p>Isento</p>
+                        </div>
+                        <div class="celula" style="width: 184px; margin-left: -1px;">
+                            <div class="nota-label">INSCRIÇÃO ESTADUAL DE SUBST.</div>
+                            <p>Isento</p>
+                        </div>
+                        <div class="celula" style="width: 182px; margin-left: -1px;">
+                            <div class="nota-label">CNPJ</div>
+                            <p class="assessoria-cnpj"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="secao-titulo">DESTINATÁRIO / REMETENTE</div>
+                <div class="linha">
+                    <div class="celula" style="width: 361px;">
+                        <div class="nota-label">NOME / RAZÃO SOCIAL</div>
+                        <p><span id="razaosocial">[RAZÃO SOCIAL]</span></p>
+                    </div>
+                    <div class="celula" style="width: 107px; margin-left: -1px;">
+                        <div class="nota-label">CPF / CNPJ</div>
+                        <p><span id="cnpj">[CNPJ]</span></p>
+                    </div>
+                    <div class="celula" style="width: 82px; margin-left: -1px;">
+                        <div class="nota-label">DATA DE EMISSÃO</div>
+                        <p><span id="data2">[DATA 2]</span></p>
+                    </div>
+                </div>
+                <div class="linha" style="margin-top: -1px">
+                    <div class="celula" style="width: 271px;">
+                        <div class="nota-label">ENDEREÇO</div>
+                        <p><span id="logradouro">[LOGRADOURO]</span>, <span id="numero">[NÚMERO]</span></p>
+                    </div>
+                    <div class="celula" style="width: 145px; margin-left: -1px;">
+                        <div class="nota-label">BAIRRO / DISTRITO</div>
+                        <p><span id="bairro">[BAIRRO]</span></p>
+                    </div>
+                    <div class="celula" style="width: 49px; margin-left: -1px;">
+                        <div class="nota-label">CEP</div>
+                        <p><span id="cep">[CEP]</span></p>
+                    </div>
+                    <div class="celula" style="width: 82px; margin-left: -1px;">
+                        <div class="nota-label">DATA DE ENTRADA / SAÍDA</div>
+                        <p><span id="data3">[DATA 3]</span></p>
+                    </div>
+                </div>
+                <div class="linha" style="margin-top: -1px">
+                    <div class="celula" style="width: 222px;">
+                        <div class="nota-label">MUNICÍPIO</div>
+                        <p><span id="cidade">[CIDADE]</span></p>
+                    </div>
+                    <div class="celula" style="width: 26px; margin-left: -1px;">
+                        <div class="nota-label">UF</div>
+                        <p><span id="uf">[UF]</span></p>
+                    </div>
+                    <div class="celula" style="width: 88px; margin-left: -1px;">
+                        <div class="nota-label">FONE / FAX</div>
+                        <p><span id="telefone">[TELEFONE]</span></p>
+                    </div>
+                    <div class="celula" style="width: 126px; margin-left: -1px;">
+                        <div class="nota-label">INSCRIÇÃO ESTADUAL</div>
+                        <p>Não Informado</p>
+                    </div>
+                    <div class="celula" style="width: 82px; margin-left: -1px;">
+                        <div class="nota-label">HORA DE ENTRADA / SAÍDA</div>
+                        <p><span id="hora2">[HORA 2]</span>:<span id="segundo2">21</span></p>
+                    </div>
+                </div>
+                <div class="secao-titulo">CÁLCULO DO IMPOSTO</div>
+                <div class="linha" style="margin-top: -1px">
+                    <div class="celula-valor" style="width: 106px;">
+                        <div class="nota-label">BASE DE CÁLCULO DO ICMS</div>
+                        <p style="text-align: right; font-size: 10px; line-height: 7px;"><span id="total3">[TOTAL 3]</span></p>
+                    </div>
+                    <div class="celula-valor" style="width: 106px; margin-left: -1px;">
+                        <div class="nota-label">VALOR DO ICMS</div>
+                        <p style="text-align: right; font-size: 10px; line-height: 7px;">0,00</p>
+                    </div>
+                    <div class="celula-valor" style="width: 110px; margin-left: -1px;">
+                        <div class="nota-label">BASE DE CÁLCULO DO ICMS SUBST.</div>
+                        <p style="text-align: right; font-size: 10px; line-height: 7px;">0,00</p>
+                    </div>
+                    <div class="celula-valor" style="width: 106px; margin-left: -1px;">
+                        <div class="nota-label">VALOR DO ICMS SUBST.</div>
+                        <p style="text-align: right; font-size: 10px; line-height: 7px;">0,00</p>
+                    </div>
+                    <div class="celula-valor" style="width: 106px; margin-left: -1px;">
+                        <div class="nota-label">VALOR TOTAL DOS PRODUTOS</div>
+                        <p style="text-align: right; font-size: 10px; line-height: 7px;">R$ <span id="total1">[TOTAL 1]</span></p>
+                    </div>
+                </div>
+                <div class="linha" style="margin-top: -1px">
+                    <div class="celula-valor" style="width: 88px;;">
+                        <div class="nota-label">VALOR DO FRETE</div>
+                        <p style="text-align: right; font-size: 10px; line-height: 7px;">0,00</p>
+                    </div>
+                    <div class="celula-valor" style="width: 88px; margin-left: -1px;">
+                        <div class="nota-label">VALOR DO SEGURO</div>
+                        <p style="text-align: right; font-size: 10px; line-height: 7px;">0,00</p>
+                    </div>
+                    <div class="celula-valor" style="width: 88px; margin-left: -1px;">
+                        <div class="nota-label">DESCONTO</div>
+                        <p style="text-align: right; font-size: 10px; line-height: 7px;">0,00</p>
+                    </div>
+                    <div class="celula-valor" style="width: 88px; margin-left: -1px;">
+                        <div class="nota-label">OUTRAS DESPESAS ACESSÓRIAS</div>
+                        <p style="text-align: right; font-size: 10px; line-height: 7px;">0,00</p>
+                    </div>
+                    <div class="celula-valor" style="width: 88px; margin-left: -1px;">
+                        <div class="nota-label">VALOR TOTAL DO IPI</div>
+                        <p style="text-align: right; font-size: 10px; line-height: 7px;">0,00</p>
+                    </div>
+                    <div class="celula-valor" style="width: 89px; margin-left: -1px;">
+                        <div class="nota-label">VALOR TOTAL DA NOTA</div>
+                        <p style="text-align: right; font-size: 10px; line-height: 7px;">R$ <span id="total2">[TOTAL 2]</span></p>
+                    </div>
+                </div>
+                <div class="secao-titulo">TRANSPORTADOR / VOLUMES TRANSPORTADOS</div>
+                <div class="linha">
+                    <div class="celula" style="width: 222px;">
+                        <div class="nota-label">RAZÃO SOCIAL</div>
+                        <p></p>
+                    </div>
+                    <div class="celula" style="width: 64px; margin-left: -1px;">
+                        <div class="nota-label">FRETE POR CONTA</div>
+                        <p></p>
+                    </div>
+                    <div class="celula" style="width: 61px; margin-left: -1px;">
+                        <div class="nota-label">CÓDIGO ANTT</div>
+                        <p></p>
+                    </div>
+                    <div class="celula" style="width: 61px; margin-left: -1px;">
+                        <div class="nota-label">PLACA DO VEÍCULO</div>
+                        <p></p>
+                    </div>
+                    <div class="celula" style="width: 26px; margin-left: -1px;">
+                        <div class="nota-label">UF</div>
+                        <p></p>
+                    </div>
+                    <div class="celula" style="width: 107px; margin-left: -1px;">
+                        <div class="nota-label">CNPJ / CPF</div>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="linha" style="margin-top: -1px">
+                    <div class="celula" style="width: 222px;">
+                        <div class="nota-label">ENDEREÇO</div>
+                        <p></p>
+                    </div>
+                    <div class="celula" style="width: 192px; margin-left: -1px;">
+                        <div class="nota-label">MUNICÍPIO</div>
+                        <p></p>
+                    </div>
+                    <div class="celula" style="width: 26px; margin-left: -1px;">
+                        <div class="nota-label">UF</div>
+                        <p></p>
+                    </div>
+                    <div class="celula" style="width: 107px; margin-left: -1px;">
+                        <div class="nota-label">INSCRIÇÃO ESTADUAL</div>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="linha" style="margin-top: -1px">
+                    <div class="celula" style="width: 71px;">
+                        <div class="nota-label">QUANTIDADE</div>
+                        <p>0</p>
+                    </div>
+                    <div class="celula" style="width: 71px; margin-left: -1px;">
+                        <div class="nota-label">ESPÉCIE</div>
+                        <p>PC</p>
+                    </div>
+                    <div class="celula" style="width: 74px; margin-left: -1px;">
+                        <div class="nota-label">MARCA</div>
+                        <p></p>
+                    </div>
+                    <div class="celula" style="width: 136px; margin-left: -1px;">
+                        <div class="nota-label">NUMERAÇÃO</div>
+                        <p></p>
+                    </div>
+                    <div class="celula-valor" style="width: 92px; margin-left: -1px;">
+                        <div class="nota-label">PESO BRUTO</div>
+                        <p>0,00</p>
+                    </div>
+                    <div class="celula-valor" style="width: 93px; margin-left: -1px;">
+                        <div class="nota-label">PESO LÍQUIDO</div>
+                        <p>0,00</p>
+                    </div>
+                </div>
+
+                <div class="secao-titulo">DADOS DOS PRODUTOS / SERVIÇOS</div>
+                <table id="produtos">
+                    <tr>
+                        <th style="width: 11%;">CÓD. DO PRODUTO</th>
+                        <th style="width: 28%;" class="left">DESCRIÇÃO DOS PRODUTOS / SERVIÇOS</th>
+                        <th style="width: 7%;">NCM</th>
+                        <th style="width: 4%;">CST</th>
+                        <th style="width: 4%;">CFOP</th>
+                        <th style="width: 4%;">UN</th>
+                        <th style="width: 4%;">QUANT.</th>
+                        <th style="width: 10%;" class="left">VALOR UNITÁRIO</th>
+                        <th style="width: 10%;" class="left">VALOR TOTAL</th>
+                        <th style="width: 8%;">BC. ICMS</th>
+                        <th style="width: 5%;">V. ICMS</th>
+                        <th style="width: 5%;">ICMS</th>
+                    </tr>
+                    <tr id="linha1">
+                        <td><span id="codigo-prod1"></span></td>
+                        <td class="left"><span id="servico1">[SERVIÇO 1]</span></td>
+                        <td><span id="ncm1"></span></td>
+                        <td><span id="cst1"></span></td>
+                        <td><span id="cfop1"></span></td>
+                        <td>PC</td>
+                        <td>1</td>
+                        <td class="right">R$ <span class="valor">[V1]</span></td>
+                        <td class="right">R$ <span class="valor">[V2]</span></td>
+                        <td><span class="valor">[V3]</span></td>
+                        <td>0,00</td>
+                        <td>0,00</td>
+                    </tr>
+                    <tr id="linha2">
+                        <td><span id="codigo-prod2"></span></td>
+                        <td class="left"><span id="servico2">[SERVIÇO 2]</span></td>
+                        <td><span id="ncm2"></span></td>
+                        <td><span id="cst2"></span></td>
+                        <td><span id="cfop2"></span></td>
+                        <td>PC</td>
+                        <td>1</td>
+                        <td class="right">R$ <span class="valor">[V1]</span></td>
+                        <td class="right">R$ <span class="valor">[V2]</span></td>
+                        <td><span class="valor">[V3]</span></td>
+                        <td>0,00</td>
+                        <td>0,00</td>
+                    </tr>
+                    <tr id="linha3">
+                        <td><span id="codigo-prod3"></span></td>
+                        <td class="left"><span id="servico3">[SERVIÇO 3]</span></td>
+                        <td><span id="ncm3"></span></td>
+                        <td><span id="cst3"></span></td>
+                        <td><span id="cfop3"></span></td>
+                        <td>PC</td>
+                        <td>1</td>
+                        <td class="right">R$ <span class="valor">[V1]</span></td>
+                        <td class="right">R$ <span class="valor">[V2]</span></td>
+                        <td><span class="valor">[V3]</span></td>
+                        <td>0,00</td>
+                        <td>0,00</td>
+                    </tr>
+                    <tr id="linha4">
+                        <td><span id="codigo-prod4"></span></td>
+                        <td class="left"><span id="servico4">[SERVIÇO 4]</span></td>
+                        <td><span id="ncm4"></span></td>
+                        <td><span id="cst4"></span></td>
+                        <td><span id="cfop4"></span></td>
+                        <td>PC</td>
+                        <td>1</td>
+                        <td class="right">R$ <span class="valor">[V1]</span></td>
+                        <td class="right">R$ <span class="valor">[V2]</span></td>
+                        <td><span class="valor">[V3]</span></td>
+                        <td>0,00</td>
+                        <td>0,00</td>
+                    </tr>
+                    <tr id="linha5">
+                        <td><span id="codigo-prod5"></span></td>
+                        <td class="left"><span id="servico5">[SERVIÇO 5]</span></td>
+                        <td><span id="ncm5"></span></td>
+                        <td><span id="cst5"></span></td>
+                        <td><span id="cfop5"></span></td>
+                        <td>PC</td>
+                        <td>1</td>
+                        <td class="right">R$ <span class="valor">[V1]</span></td>
+                        <td class="right">R$ <span class="valor">[V2]</span></td>
+                        <td><span class="valor">[V3]</span></td>
+                        <td>0,00</td>
+                        <td>0,00</td>
+                    </tr>
+                    <tr id="linha6">
+                        <td><span id="codigo-prod6"></span></td>
+                        <td class="left"><span id="servico6">[SERVIÇO 6]</span></td>
+                        <td><span id="ncm6"></span></td>
+                        <td><span id="cst6"></span></td>
+                        <td><span id="cfop6"></span></td>
+                        <td>PC</td>
+                        <td>1</td>
+                        <td class="right">R$ <span class="valor">[V1]</span></td>
+                        <td class="right">R$ <span class="valor">[V2]</span></td>
+                        <td><span class="valor">[V3]</span></td>
+                        <td>0,00</td>
+                        <td>0,00</td>
+                    </tr>
+                    <tr id="linha7">
+                        <td><span id="codigo-prod7"></span></td>
+                        <td class="left"><span id="servico7">[SERVIÇO 7]</span></td>
+                        <td><span id="ncm7"></span></td>
+                        <td><span id="cst7"></span></td>
+                        <td><span id="cfop7"></span></td>
+                        <td>PC</td>
+                        <td>1</td>
+                        <td class="right">R$ <span class="valor">[V1]</span></td>
+                        <td class="right">R$ <span class="valor">[V2]</span></td>
+                        <td><span class="valor">[V3]</span></td>
+                        <td>0,00</td>
+                        <td>0,00</td>
+                    </tr>
+                    <tr id="linha8">
+                    </tr>
+                </table>
+                
+                <div class="secao-titulo">CÁLCULO DO ISSQN</div>
+                <div class="linha" style="margin-top: -1px">
+                    <div class="celula" style="width: 136px;">
+                        <div class="nota-label">INSCRIÇÃO MUNICIPAL</div>
+                        <p></p>
+                    </div>
+                    <div class="celula" style="width: 138px; margin-left: -1px;">
+                        <div class="nota-label">VALOR TOTAL DOS SERVIÇOS</div>
+                        <p>0,00</p>
+                    </div>
+                    <div class="celula" style="width: 137px; margin-left: -1px;">
+                        <div class="nota-label">BASE DE CÁLCULO DO ISSQN</div>
+                        <p>0,00</p>
+                    </div>
+                    <div class="celula" style="width: 136px; margin-left: -1px;">
+                        <div class="nota-label">VALOR DO ISSQN</div>
+                        <p>0,00</p>
+                    </div>
+                </div>
+                <div class="secao-titulo">DADOS ADICIONAIS</div>
+                <div class="linha" style="margin-top: -1px">
+                    <div class="celula" style="width: 361px; height: 83px;">
+                        <div class="nota-label">INFORMAÇÕES COMPLEMENTARES</div>
+                        <p></p>
+                    </div>
+                    <div class="celula" style="width: 192px;  height: 83px; margin-left: -1px;">
+                        <div class="nota-label">RESERVADO AO FISCO</div>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!--SISTEMA-->
+    <script src="../../scripts/navdrawer.js"></script>
+    <script src="../../scripts/assessoria.js"></script>
+
+    <!--EXPORTAÇÃO-->
+    <script src="../../scripts/titulo.js"></script>
+
+    <script src="../../scripts/exportar.js"></script>
+    <script src="../../scripts/impressao.js"></script>
+
+    <!--OPCIONAIS-->
+    <script src="../../scripts/formatacao/cnpj.js"></script>
+    <script src="../../scripts/formatacao/telefone.js"></script>
+
+    <!--PERSONALIZADO-->
+    <script src="./inputs.js"></script>
+
+    <script src="./chavedeacesso.js"></script>
+    <script src="./numeronota.js"></script>
+    <script src="./produto.js"></script>
+    <script src="./protocolo.js"></script>
+    <script src="./segundos.js"></script>
+    <script src="./servicos.js"></script>
+
+    <!--CONSULTA-->
+    <script src="../../scripts/consulta.js"></script>
+</body>
+
+</html>

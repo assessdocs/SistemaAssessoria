@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Orçamento | WebDOCs</title>
+
+    <link rel="icon" href="../../favicon.png">
+
+    <link rel="stylesheet" href="../../estilos/sistema.css">
+    <link rel="stylesheet" href="../../estilos/exportar.css">
+    <link rel="stylesheet" href="../../estilos/documentos.css">
+
+    <link rel="stylesheet" href="../../estilos/consulta.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-25..200&display=block"/>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+
+    <link rel="stylesheet" href="../../estilos/icones.css">
+</head>
+
+<body id="orcamento">
+    <div class="conteudo" id="conteudo">
+        <header id="pagina">
+            <span id="sistema-assessoria" class="assessoria-nome"></span>
+        </header>
+        <div class="sistema-pagina">
+
+            <h1>Orçamento</h1>
+            
+            <div class="formularios">
+                <div class="area-boxes">
+                    <div class="box-duplo">
+                        <div class="base-box">
+                            <div class="h2-ativar" id="h2-versaomanual">
+                                <h2>Versão Manual</h2>
+                                <input type="checkbox" id="i-versaomanual">
+                            </div>
+                            <div class="base-boxcampos" id="versaomanual">
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-cnpj">CNPJ</label>
+                                        <span class="material-symbols-rounded" title="Utilize somente números, pois o sistema irá pontuar automaticamente.">info</span>
+                                    </div>
+                                    <input class="input" id="i-cnpj" placeholder="00.000.000/0000-00">
+                                </div>
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-razaosocial">Razão Social</label>
+                                    </div>
+                                    <input class="input" id="i-razaosocial" placeholder="Nome da Empresa">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="base-box" id="consulta">
+                            <h2>Consulta</h2>
+                            <div class="base-boxcampos">
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-consulta">CNPJ</label>
+                                        <span class="material-symbols-rounded" title="Utilize somente números, pois o sistema irá pontuar automaticamente.">info</span>
+                                    </div>
+                                    <input class="input" id="i-consulta" placeholder="00.000.000/0000-00">
+                                </div>
+
+                                <div class="campo" id="campo-iframe">
+                                    <div class="label">
+                                        <label class="label-campo" for="iframe">Base de Dados</label>
+                                    </div>
+                                    <iframe id="iframe"></iframe>
+                                </div>
+                                
+                                <div class="campo" id="verificacao">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-code">Verificação</label>
+                                    </div>
+                                    <textarea id="i-code" placeholder="Copie o código exibido no campo preto e cole-o aqui."></textarea>
+                                    <button class="consulta" id="verificar">
+                                        <span class="material-symbols-rounded">frame_inspect</span>
+                                        <span>Verificar Dados</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <div class="box-duplo">
+                    <div class="base-box" id="resultado-consulta">
+                        <h2>Resultado da Consulta</h2>
+                        <div class="base-boxcampos">
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="dadosdaempresa">Dados da Empresa</label>
+                                    </div>
+                                    <div class="campo-texto">
+                                        <p id="dadosdaempresa">
+                                            CNPJ: <span id="resultado-cnpj"></span>
+                                            <br>
+                                            Razão Social: <span id="resultado-rs"></span>
+                                        </p>
+                                    </div>
+                                    <button class="consulta" id="preencher">
+                                        <span class="material-symbols-rounded">edit_document</span>
+                                        <span>Inserir no Documento</span>
+                                    </button>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="base-box">
+                        <h2>Documento</h2>
+                        <div class="base-boxcampos">
+                            <div class="campo">
+                                <div class="label">
+                                    <label class="label-campo" for="i-documento">Orçamento de:</label>
+                                    <span class="material-symbols-rounded" title="É o documento que está sendo orçado, como EVE, BV, DMPL, etc.">info</span>
+                                </div>
+                                <input class="input" id="i-orcamentode" placeholder="Documento">
+                            </div>
+
+                            <div class="campo">
+                                <div class="label">
+                                    <label class="label-campo" for="i-valortotal">Valor Total</label>
+                                    <span class="material-symbols-rounded" title="Utilize somente números e vírgulas. OBS: Esse é o valor TOTAL do orçamento, ou seja, o valor final que é cobrado, pois o sistema irá calcular os 'Tributos' automaticamente">info</span>
+                                </div>                            
+                                <input class="input" id="i-valortotal" placeholder="1.000,00" type="text">
+                            </div>
+                            
+                            <div class="campo">
+                                <div class="label">
+                                    <label class="label-campo" for="i-telefone">Telefone do Cliente (WhatsApp)</label>
+                                </div>
+                                <input class="input" id="i-telefone" placeholder="(00) 90000-0000">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-inferior">
+                <div class="confirmacao">
+                    <label for="confirmacao" class="label-confirmacao">
+                        Todos os campos foram preenchidos?<input type="checkbox" id="confirmacao">
+                    </label>
+                </div>
+                
+                <button id="exportar">
+                    <span class="material-symbols-rounded">download</span>
+                    Exportar
+                </button>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div id="documento">
+        <div class="capa">
+            <header>
+                <img src="../../sistema/logo-ass.svg" alt="Logo da Assessoria">
+            </header>
+
+            <h1>ORÇAMENTO</h1>
+
+            <footer>
+                EMITIDO EM <span id="dia">[DIA]</span> DE <span id="mes">[MÊS]</span> DE <span id="ano1">[ANO]</span>
+            </footer>
+        </div>
+        <div class="pagina" id="pagina1">
+            <header></header>
+
+            <div class="conteudo-doc">
+                <section>
+                    <h1>ORÇAMENTO</h1>
+                    <p>Documento: <span id="orcamentode">[DOCUMENTO]</span></p>
+                    <p>Finalidade: <span>Empréstimo Empresarial</span></p>
+                    <p>CNPJ do Cliente: <span id="cnpj">[CNPJ]</span></p>
+                    <p>Razão Social do Cliente: <span id="razaosocial">[RAZÃO SOCIAL]</span></p>
+                    <p>Telefone (WhatsApp): <span id="telefone">[TELEFONE]</span></p>
+                    <p>Válido até: <span>Dezembro de <span id="ano2">[ANO]</span></span></p>
+                </section>
+
+                <div class="pagina-divisoria"></div>
+
+                <section>
+                    <h1>TRIBUTOS DE AVALIAÇÃO</h1>
+                    <h2>R$ <span id="tributos">[TRIBUTOS]</span></h2>
+                </section>
+
+                <section>
+                    <h1>CUSTO DE OPERAÇÃO</h1>
+                    <h2>R$ <span id="custo">350,00</span></h2>
+                </section>
+
+                <section>
+                    <h1>VALOR TOTAL</h1>
+                    <h3>R$ <span id="total">[TOTAL]</span></h3>
+                </section>
+
+                <div class="pagina-divisoria"></div>
+
+                <section>
+                    <h1>FORMAS DE PAGAMENTO</h1>
+
+                    <div class="formas-pagamento">
+                        <div class="opcoes">
+                            <div class="opcao">
+                                <span class="material-icons" style="font-size: 32px;">pix</span>
+                                <p>PIX</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p><span id="pag-texto">Após a detecção do valor em nossa conta, aguarde o prazo de duas horas para a entrega do serviço solicitado.</span></p>
+                </section>
+            </div>
+
+            <footer class="footer-direita">1</footer>
+        </div>
+        <div class="pagina" id="pagina2">
+            <header></header>
+            
+            <div class="conteudo-doc">
+                <section id="tratamento">
+                    <h1>TRATAMENTO DE DADOS</h1>
+                    <p>A LGPD estabelece que os titulares possuem direitos sobre os dados pessoais tratados, a contratada possui meios de comunicação com o titular para que essas solicitações sejam recebidas, analisadas e atendidas, sendo o resultado positivo ou negativo.</p>
+                    <p>Pela natureza de nosso negócio é possível que exista o compartilhamento de dados pessoais com a nossa empresa durante o estabelecimento de contratos de prestação de serviço com os clientes.</p>
+                    <p>Com isso, a contratada segue o papel de operador dos dados de acordo com o que for determinado pelo cliente que assume o papel de controlador dos dados pessoais.</p>
+                    <p>Quando houver o compartilhamento pela contratada com terceiros, este será realizado se for absolutamente necessário para o alcance dos resultados para os quais eles são mantidos e quando existirem arranjos contratuais e mecanismos de segurança apropriados.</p>
+                    <p>Atenciosamente,<br><b>Administração - <span class="assessoria-nome" style="font-weight: bold;"></span></b></p>
+                </section>
+            </div>
+
+            <footer class="footer-esquerda">2</footer>
+        </div>
+        <div class="contracapa">
+            <img src="../../sistema/logo-ass-branca.svg" alt="Logo da Assessoria">
+            <footer>
+                AGRADECEMOS A PREFERÊNCIA
+            </footer>
+        </div>
+    </div>
+    
+    <!--SISTEMA-->
+    <script src="../../scripts/navdrawer.js"></script>
+    <script src="../../scripts/assessoria.js"></script>
+
+    <!--EXPORTAÇÃO-->
+    <script src="../../scripts/titulo.js"></script>
+
+    <script src="../../scripts/exportar.js"></script>
+    <script src="../../scripts/impressao.js"></script>
+
+    <!--OPCIONAIS-->
+    <script src="../../scripts/hoje.js"></script>
+
+    <script src="../../scripts/formatacao/cnpj.js"></script>
+    <script src="../../scripts/formatacao/telefone.js"></script>
+
+    <!--PERSONALIZADO-->
+    <script src="./inputs.js"></script>
+    <script src="./valortotal.js"></script>
+
+    <!--CONSULTA-->
+    <script src="../../scripts/consulta.js"></script>
+</body>
+
+</html>

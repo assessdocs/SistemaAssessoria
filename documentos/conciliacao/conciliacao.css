@@ -1,0 +1,265 @@
+/* CSS Document */
+
+@charset "utf-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+:root {
+    --cor-1: #273C81;
+    --cor-2: #1B2E6B;
+    --cor-3: #0F2262;
+}
+
+#documento {
+    display: flex;
+    flex-direction: column;
+    justify-self: start;
+
+    scale: 1.33;
+    transform-origin: top left;
+}
+
+.pagina {
+    width: 595px;
+    height: 841px;
+
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.nota {
+    font-family: 'Inter';
+    padding: 17px 17px 0px 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+#destacavel {
+    display: flex;
+    flex-direction: row;
+}
+
+.linha {
+    display: flex;
+    flex-direction: row;
+}
+
+.celula {
+    border: 1px solid black;
+
+    display: flex;
+    flex-direction: column;
+
+    padding-top: 2px;
+    padding-left: 2px;
+    padding-bottom: 4px;
+
+    gap: 6px;
+
+    height: 16px;
+}
+
+#documento div.nota-label {
+    color: black;
+    font-weight: 400;
+    font-size: 5px;
+
+    text-align: left;
+    text-transform: uppercase;
+
+    line-height: 4px;
+}
+
+#documento p {
+    color: black;
+    font-weight: 400;
+    font-size: 7px;
+
+    text-align: left;
+
+    line-height: 5px;
+
+    margin: 0px;
+}
+
+.linha-destacavel {
+    margin-top: 2px;
+    margin-bottom: 2px;
+
+    border: none;
+    border-top: 1px dashed black;
+    width: 100%;
+}
+
+#nota-parte1 {
+    display: flex;
+    flex-direction: column;
+}
+
+.parte1 {
+    display: flex;
+    flex-direction: row;
+}
+
+#celula-assessoria {
+    display: flex;
+    flex-direction: column;
+
+    border: 1px solid black;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 264px;
+    height: 96px;
+
+    gap: 4px;
+
+    color: black;
+    font-size: 7px;
+    line-height: 5px;
+}
+
+#celula-danfe {
+    display: flex;
+    flex-direction: column;
+
+    border: 1px solid black;
+
+    width: 73px;
+    height: 96px;
+
+    color: black;
+    font-size: 6px;
+    line-height: 4px;
+}
+
+#danfe-infos {
+    display: flex;
+    flex-direction: row;
+
+    margin-left: 9px;
+    margin-top: 8px;
+    gap: 7px
+}
+
+#danfe-infos p {
+    font-size: 6px;
+    line-height: 4px;
+}
+
+#danfe-square {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 13px;
+    height: 13px;
+
+    border: 0.5px solid black;
+
+    font-size: 9px;
+    line-height: 7px;
+}
+
+#danfe-outros {
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+    margin-left: 9px;
+    margin-top: 8px;
+}
+
+.parte1-linhas {
+    display: flex;
+    flex-direction: column;
+}
+
+.secao-titulo {
+    margin-top: 6px;
+    margin-bottom: 5px;
+
+    color: black;
+    font-size: 6px;
+    line-height: 4px;
+}
+
+.celula-valor {
+    border: 1px solid black;
+
+    display: flex;
+    flex-direction: column;
+
+    padding-top: 2px;
+    padding-left: 2px;
+    padding-bottom: 4px;
+    padding-right: 2px;
+
+    gap: 6px;
+
+    height: 16px;
+}
+
+.celula-valor p {
+    font-size: 10px;
+    line-height: 7px;
+}
+
+table::after {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+
+    width: 100%;
+    min-width: 20px;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+table {
+    width: 100%;
+    height: 220px;
+}
+
+th {
+    align-items: center;
+
+    height: 10px;
+
+    font-size: 5px;
+    font-weight: normal;
+
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+td {
+    align-items: center;
+
+    height: 25px;
+
+    font-size: 6px;
+    font-weight: normal;
+
+    text-align: center;
+
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+.left {
+    text-align: left;
+}
+
+.right {
+    text-align: right;
+}
+
+tr#linha8 {
+    height: 100%;
+}
