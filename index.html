@@ -4,15 +4,22 @@
 <head>
     <title>WebDOCs Assessoria</title>
 
-    <!-- SISTEMA -->
-        <script type="module" src="/scripts/sistema/head.js"></script> <!-- HEAD, FAVICON E ÍCONES -->
-        <script type="module" src="/scripts/sistema/navdrawer/main.js"></script> <!-- NAVDRAWER -->
-        <script src="/scripts/sistema/assessoria.js"></script> <!-- DADOS DA ASSESSORIA -->
+    <!-- SCRIPT -->
+        <script>
+            window.BASE_URL = location.hostname.includes('github.io')
+                ? '/SistemaAssessoria/'
+                : '/';
 
-    <!-- ESTILOS -->
-        <link rel="stylesheet" href="/estilos/sistema.css"> <!-- SISTEMA -->
+            document.write(`
+                <script type="module" src="${window.BASE_URL}scripts/sistema/head.js"><\/script> <!-- HEAD, FAVICON E ÍCONES -->
+                <script type="module" src="${window.BASE_URL}scripts/sistema/navdrawer/main.js"><\/script> <!-- NAVDRAWER -->
+                <script src="${window.BASE_URL}scripts/sistema/assessoria.js"><\/script> <!-- DADOS DA ASSESSORIA -->
+                <script src="${window.BASE_URL}scripts/sistema/tooltip.js"><\/script> <!-- TOOLTIP -->
 
-        <link rel="stylesheet" href="/estilos/inicio.css"> <!-- HOMEPAGE -->
+                <link rel="stylesheet" href="${window.BASE_URL}estilos/sistema.css"> <!-- SISTEMA -->
+                <link rel="stylesheet" href="${window.BASE_URL}estilos/inicio.css">
+            `);
+        </script>
 </head>
 
 <body>

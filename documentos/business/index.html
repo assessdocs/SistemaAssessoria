@@ -4,22 +4,43 @@
 <head>
     <title>Business | WebDOCs</title>
 
-    <!-- SISTEMA -->
-        <script type="module" src="/scripts/sistema/head.js"></script> <!-- HEAD, FAVICON E ÍCONES -->
-        <script type="module" src="/scripts/sistema/navdrawer/main.js"></script> <!-- NAVDRAWER -->
-        <script src="/scripts/sistema/assessoria.js"></script> <!-- DADOS DA ASSESSORIA -->
-        <script src="/scripts/sistema/tooltip.js"></script> <!-- TOOLTIP -->
+    <!-- SCRIPT -->
+        <script>
+            window.BASE_URL = location.hostname.includes('github.io')
+                ? '/SistemaAssessoria/'
+                : '/';
 
-    <!-- ESTILOS -->
-        <link rel="stylesheet" href="/estilos/sistema.css"> <!-- SISTEMA -->
+            document.write(`
+                <script type="module" src="${window.BASE_URL}scripts/sistema/head.js"><\/script> <!-- HEAD, FAVICON E ÍCONES -->
+                <script type="module" src="${window.BASE_URL}scripts/sistema/navdrawer/main.js"><\/script> <!-- NAVDRAWER -->
+                <script src="${window.BASE_URL}scripts/sistema/assessoria.js"><\/script> <!-- DADOS DA ASSESSORIA -->
+                <script src="${window.BASE_URL}scripts/sistema/tooltip.js"><\/script> <!-- TOOLTIP -->
 
-        <link rel="stylesheet" href="/estilos/exportar.css"> <!-- MENU EXPORTAR -->
+                <link rel="stylesheet" href="${window.BASE_URL}estilos/sistema.css"> <!-- SISTEMA -->
+                <link rel="stylesheet" href="${window.BASE_URL}estilos/exportar.css"> <!-- MENU EXPORTAR -->
+                <link rel="stylesheet" href="${window.BASE_URL}estilos/consulta.css"> <!-- CONSULTA -->
+                <link rel="stylesheet" href="${window.BASE_URL}estilos/grafico.css"> <!-- GRÁFICO -->
+            `);
 
-        <link rel="stylesheet" href="/estilos/consulta.css"> <!-- CONSULTA -->
+            document.write(`
+                <!-- CONSULTA -->
+                    <script src="${window.BASE_URL}scripts/consulta.js"><\/script>
 
-        <link rel="stylesheet" href="/estilos/documentos.css"> <!-- DOCUMENTO -->
+                <!-- EXPORTAÇÃO -->
+                    <script src="${window.BASE_URL}scripts/exportacao/exportar.js"><\/script>
+                    <script src="${window.BASE_URL}scripts/exportacao/impressao.js"><\/script>
+                    <script src="${window.BASE_URL}scripts/exportacao/titulo.js"><\/script>
 
-        <link rel="stylesheet" href="/estilos/grafico.css"> <!-- GRÁFICO --> 
+                <!-- OPCIONAIS -->
+                    <script src="${window.BASE_URL}scripts/formatacao/cnpj.js"><\/script>
+                    <script src="${window.BASE_URL}scripts/formatacao/telefone.js"><\/script>
+                    <script src="${window.BASE_URL}scripts/formatacao/email.js"><\/script>
+
+                <!-- GRÁFICO -->
+                    <script src="${window.BASE_URL}scripts/grafico.js"><\/script>
+                    <script src="${window.BASE_URL}scripts/grafico-mes.js"><\/script>
+            `)
+        </script>
 </head>
 
 <body id="bv">
@@ -333,25 +354,8 @@
         </div>
     </div>
 
-    <!-- CONSULTA -->
-        <script src="/scripts/consulta.js"></script>
-
-    <!-- EXPORTAÇÃO -->
-        <script src="/scripts/exportacao/exportar.js"></script>
-        <script src="/scripts/exportacao/impressao.js"></script>
-        <script src="/scripts/exportacao/titulo.js"></script>
-
-    <!-- OPCIONAIS -->
-        <script src="/scripts/formatacao/cnpj.js"></script>
-        <script src="/scripts/formatacao/telefone.js"></script>
-        <script src="/scripts/formatacao/email.js"></script>
-
     <!-- PERSONALIZADO -->
         <script src="./inputs.js"></script>
-
-    <!-- GRÁFICO -->
-        <script src="/scripts/grafico.js"></script>
-        <script src="/scripts/grafico-mes.js"></script>
 </body>
 
 </html>
