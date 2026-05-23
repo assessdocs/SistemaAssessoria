@@ -6,10 +6,15 @@ document.addEventListener('DOMContentLoaded', function () {
     const documento = document.getElementById('documento');
 
     function base() {
-        navdrawer.style.display = 'flex';
-        sistema.style.display = 'flex'; //alterar para flex após editar
-    }
+        const navdrawer = document.getElementById('navdrawer');
 
+        if (navdrawer) {
+            navdrawer.style.display = 'flex';
+        }
+
+        sistema.style.display = 'flex';
+    }
+    
     function doc() {
         documento.style.display = 'none'; //alterar para none após editar
     }
@@ -18,7 +23,12 @@ document.addEventListener('DOMContentLoaded', function () {
     doc();
 
     function basePRINT() {
-        navdrawer.style.display = 'none';
+        const navdrawer = document.getElementById('navdrawer');
+
+        if (navdrawer) {
+            navdrawer.style.display = 'none';
+        }
+
         sistema.style.display = 'none';
     }
 

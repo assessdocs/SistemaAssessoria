@@ -148,6 +148,9 @@ header#navdrawer {
     height: 100%;
 
     background-color: #F9F9F9;
+
+    overflow: visible !important;
+    z-index: 1;
 }
 
 header#pagina {
@@ -175,16 +178,21 @@ header#pagina {
 
 .sistema-pagina {
     display: flex;
-    width: 100%;
+    width: calc(100% - 48px);
 
-    padding: 36px 0px 0px 0px;
+    padding: 36px 24px 24px 24px;
 
     align-items: center;
     flex-direction: column;
     
     /* Para rolagem */
     overflow-y: auto;
-    max-height: calc(100vh - 100px); /* ajusta esse valor conforme altura do header e margens */
+    height: calc(100vh - 124px);
+    max-height: calc(100vh - 124px); /* ajusta esse valor conforme altura do header e margens */
+
+    position: relative;
+
+    overflow-x: visible;
 }
 
 h1 {
@@ -198,6 +206,8 @@ h1 {
     line-height: 17px;
 
     margin: 0px 0px 24px 0px;
+
+    white-space: nowrap;
 }
 
 #select-h1 {
@@ -227,18 +237,22 @@ h1 {
     display: flex;
     flex-direction: column;
 
-    margin-left: 24px;
-    margin-right: 24px;
-
-    padding-bottom: 24px;
+    width: 100%;
 }
-
 
 .area-boxes {
     display: grid;
     grid-template-columns: 340px 340px;
     gap: 12px;
     justify-content: center;
+}
+
+.area-boxes.grid3 {
+    grid-template-columns: 340px 340px 340px;
+}
+
+.area-boxes.mono {
+    grid-template-columns: 480px;
 }
 
 .base-box {
@@ -249,6 +263,7 @@ h1 {
     box-sizing: border-box;
 
     width: 100%;
+
     height: min-content;
 
     border-radius: 16px;
@@ -291,6 +306,8 @@ h2 {
     line-height: 12px;
 
     margin: 0px 0px 20px 0px;
+
+    white-space: nowrap;
 }
 
 .base-boxcampos {
@@ -317,15 +334,7 @@ h2 {
     align-items: center;    
 }
 
-.label span {
-    cursor: pointer;
-
-    color: #bdbdbd;
-
-    font-size: 16px;
-}
-
-label.label-campo {
+.label-campo {
     color: var(--cinza-titulos);
     font-family: 'Inter';
     font-size: 12px;
@@ -412,6 +421,8 @@ input::placeholder {
     display: flex;
     flex-direction: column;
     gap: 12px;
+
+    box-sizing: border-box;
 }
 
 .campo-duplo {
@@ -443,11 +454,11 @@ input.input.despesa::placeholder {
     color: rgba(97, 0, 0, 0.5);
 }
 
-label.label-campo.receita {
+.label-campo.receita {
     color: #005E1A;
 }
 
-label.label-campo.despesa {
+.label-campo.despesa {
     color: #610000;
 }
 
@@ -457,18 +468,6 @@ label.label-campo.despesa {
 
     background-color: #EEEEEE;
     border-radius: 1px;
-}
-
-@media (max-width: 1020px) {
-    .area-boxes {
-        grid-template-columns: 100%;
-    }
-}
-
-@media (max-width: 840px) {
-    .area-boxes {
-        grid-template-columns: 100%;
-    }
 }
 
 /* BOTÕES */
@@ -481,29 +480,38 @@ label.label-campo.despesa {
     justify-content: center;
     gap: 8px;
 
-    border-radius: 18px;
+    border-radius: 20px;
     box-sizing: border-box;
 
     font-family: 'Inter';
     font-size: 14px;
-    font-weight: 400;
+    font-weight: 500;
     text-align: left;
 
-    height: 36px;
+    height: 40px;
     width: 100%;
+    padding-left: 24px;
+    padding-right: 24px;
 
     transition: all 0.2s ease-in-out;
 }
 
+.sistema-pagina button .material-symbols-rounded {
+    font-size: 20px;
+    font-variation-settings: 'FILL' 0 'wght' 500 'GRAD' 0 'opsz' 20;
+}
+
 button.filled {
-    background-color: #000055;
+    background-color: var(--md-sys-color-primary);
     border: none;
     
-    color: white;
+    color: var(--md-sys-color-on-primary);
 }
 
 button.filled:hover {
-    filter: brightness(1.02);
+    background-color: color-mix(
+        in srgb, var(--md-sys-color-primary) 100%,
+        var(--md-sys-color-on-primary) 8%);
 }
 
 button.filled:active {
@@ -516,13 +524,13 @@ button.filled:active {
 
 button.outlined {
     background-color: var(--md-sys-color-surface);
-    border: 1px solid var(--md-sys-color-outline);
+    border: 1px solid var(--md-sys-color-outline-variant);
     
     color: var(--md-sys-color-on-surface-variant);
 }
 
 button.outlined:hover {
-    filter: brightness(1.02);
+    background-color: rgb(from var(--md-sys-color-on-surface-variant) rgb / var(--md-sys-state-hover-state-layer-opacity));
 }
 
 button.outlined:active {
@@ -531,4 +539,243 @@ button.outlined:active {
     font-weight: 500;
 
     font-variation-settings:'FILL' 1;
+}
+
+button .label {
+    margin-top: 2px;
+    height: 0px;
+}
+
+/* SWITCH */
+
+.md-switch {
+    display: inline-flex;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+}
+
+.md-switch input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.track {
+    position: relative;
+    width: 52px;
+    height: 32px;
+    border-radius: 16px;
+    box-sizing: border-box;
+
+    background: var(--md-sys-color-surface-container-highest);
+    border: 2px solid var(--md-sys-color-outline);
+
+    transition:
+        background-color .2s,
+        border-color .2s;
+}
+
+.thumb {
+    position: absolute;
+    top: 50%;
+    left: 6px;
+
+    width: 16px;
+    height: 16px;
+
+    border-radius: 8px;
+    background: var(--md-sys-color-outline);
+
+    transform: translateY(-50%);
+    transition:
+        left .25s cubic-bezier(.2,0,0,1),
+        width .15s,
+        height .15s,
+        background-color .2s;
+}
+
+.md-switch input:checked + .track {
+    background: var(--md-sys-color-primary);
+    border-color: var(--md-sys-color-primary);
+}
+
+.md-switch input:checked + .track .thumb {
+    left: 22px;
+    border-radius: 12px;
+    width: 24px;
+    height: 24px;
+    background: var(--md-sys-color-on-primary);
+}
+
+.md-switch:active .thumb {
+    border-radius: 14px;
+    width: 28px;
+    height: 28px;
+}
+
+.md-switch:active input:not(:checked) + .track .thumb {
+    left: 0;
+}
+
+.md-switch:active input:checked + .track .thumb {
+    left: 20px;
+    border-radius: 14px;
+    width: 28px;
+    height: 28px;
+}
+
+.md-switch .track::before {
+    content: "";
+    position: absolute;
+    left: 14px;
+    top: 50%;
+
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+
+    background: var(--md-sys-on-surface);
+    opacity: 0;
+
+    transition: .2s;
+
+    pointer-events: none;
+}
+
+.md-switch input:checked + .track::before {
+    left: 34px;
+}
+
+.md-switch:hover .track::before {
+    opacity: var(--md-sys-state-hover-state-layer-opacity);
+}
+
+.md-switch input:focus-visible + .track::before {
+    opacity: var(--md-sys-state-focus-state-layer-opacity);
+}
+
+.md-switch:active .track::before {
+    opacity: var(--md-sys-state-pressed-state-layer-opacity);
+}
+
+/* TOOLTIP */
+
+.label .tooltip {
+    cursor: pointer;
+
+    color: var(--md-sys-color-on-surface);
+
+    font-size: 20px;
+    font-variation-settings: 'opsz' 20;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: visible;
+}
+
+.tooltip::before {
+    content: '';
+
+    position: absolute;
+
+    width: 28px;
+    height: 28px;
+
+    border-radius: 50%;
+
+    background-color: var(--md-sys-color-on-surface);
+
+    opacity: 0;
+
+    transition: opacity .2s;
+
+    pointer-events: none;
+}
+
+.tooltip:hover::before {
+    opacity: var(--md-sys-state-hover-state-layer-opacity);
+}
+
+.tooltip-global {
+    position: fixed;
+
+    display: inline-block;
+    width: fit-content;
+
+    max-width: 300px;
+
+    white-space: normal;
+    overflow-wrap: break-word;
+
+    padding: 6px 8px;
+    border-radius: 8px;
+
+    background-color: var(--md-sys-color-inverse-surface);
+    box-sizing: border-box;
+
+    color: var(--md-sys-color-inverse-on-surface);
+    font-family: 'Inter';
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 0.04em;
+
+    text-align: center;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: opacity .2s;
+
+    z-index: 1000;
+
+    pointer-events: none;
+}
+
+.tooltip-global.ativo {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 1330px) {
+    .area-boxes.grid3 {
+        grid-template-columns: calc(33% - 8px) calc(33% - 8px) calc(34% - 8px);
+    }
+}
+
+@media (max-width: 1100px) {
+    .area-boxes.grid3 {
+        grid-template-columns: calc(50% - 6px) calc(50% - 6px);
+    }
+}
+
+@media (max-width: 1020px) {
+    .area-boxes {
+        grid-template-columns: calc(50% - 6px) calc(50% - 6px);
+    }
+
+    .area-boxes.grid3 {
+        grid-template-columns: calc(50% - 6px) calc(50% - 6px);
+    }
+}
+
+@media (max-width: 840px) {
+    .area-boxes {
+        grid-template-columns: 100%;
+    }
+
+    .area-boxes.grid3 {
+        grid-template-columns: 100%;
+    }
+
+    .area-boxes.mono {
+        grid-template-columns: 100%;
+    }
 }

@@ -5,9 +5,11 @@ document.addEventListener("DOMContentLoaded", function () {
     // função para atualizar a classe
     function atualizarBotao() {
         if (confirmacao.checked) {
-            exportar.classList.add("ativo");
+            exportar.classList.add("enabled");
+            exportar.classList.remove("disabled");
         } else {
-            exportar.classList.remove("ativo");
+            exportar.classList.remove("enabled");
+            exportar.classList.add("disabled");
         }
     }
 
@@ -16,4 +18,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // garante estado inicial
     atualizarBotao();
+
+    document.getElementById('exportar').innerHTML = `
+        <span class="material-symbols-rounded icon">download</span>Baixar
+    `;
 });

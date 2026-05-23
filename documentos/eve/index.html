@@ -2,23 +2,24 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>EVE e SWOT | WebDOCs</title>
 
-    <link rel="icon" href="../../favicon.png">
+    <!-- SISTEMA -->
+        <script type="module" src="/scripts/sistema/head.js"></script> <!-- HEAD, FAVICON E ÍCONES -->
+        <script type="module" src="/scripts/sistema/navdrawer/main.js"></script> <!-- NAVDRAWER -->
+        <script src="/scripts/sistema/assessoria.js"></script> <!-- DADOS DA ASSESSORIA -->
+        <script src="/scripts/sistema/tooltip.js"></script> <!-- TOOLTIP -->
 
-    <link rel="stylesheet" href="../../estilos/sistema.css">
-    <link rel="stylesheet" href="../../estilos/exportar.css">
-    <link rel="stylesheet" href="../../estilos/documentos.css">
-    <link rel="stylesheet" href="../../estilos/grafico.css">
+    <!-- ESTILOS -->
+        <link rel="stylesheet" href="/estilos/sistema.css"> <!-- SISTEMA -->
 
-    <link rel="stylesheet" href="../../estilos/consulta.css">
+        <link rel="stylesheet" href="/estilos/exportar.css"> <!-- MENU EXPORTAR -->
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-25..200&display=block"/>
+        <link rel="stylesheet" href="/estilos/consulta.css"> <!-- CONSULTA -->
 
-    <link rel="stylesheet" href="../../estilos/icones.css">
+        <link rel="stylesheet" href="/estilos/documentos.css"> <!-- DOCUMENTO -->
+
+        <link rel="stylesheet" href="/estilos/grafico.css"> <!-- GRÁFICO -->
 </head>
 
 <body id="eve">
@@ -35,7 +36,83 @@
             </select>
             
             <div class="formularios">
-                <div class="area-boxes">
+                <div class="area-boxes grid3">
+
+                    <div class="box-duplo">
+                        <div class="base-box">
+                            <div class="h2-ativar" id="h2-versaomanual">
+                                <h2>Versão Manual</h2>
+                                <label class="md-switch">
+                                    <input type="checkbox" id="i-versaomanual">
+                                    <span class="track">
+                                        <span class="thumb"></span>
+                                    </span>
+                                </label>
+                            </div>
+                            <div class="base-boxcampos" id="versaomanual">
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-cnpj">CNPJ</label>
+                                        <span class="material-symbols-rounded tooltip" data-tooltip="Utilize somente números, pois o sistema irá pontuar automaticamente.">info</span>
+                                    </div>
+                                    <input class="input" id="i-cnpj" placeholder="00.000.000/0000-00">
+                                </div>
+
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-razaosocial">Razão Social</label>
+                                    </div>
+                                    <input class="input" id="i-razaosocial" placeholder="Nome da Empresa">
+                                </div>
+
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-abertura">Data de Abertura</label>
+                                    </div>
+                                    <input class="input" id="i-abertura" placeholder="dd/mm/aaaa">
+                                </div>
+
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-porte">Porte</label>
+                                    </div>
+                                    <input class="input" id="i-porte" placeholder="Porte da Empresa">
+                                </div>
+
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-naturezajuridica">Natureza Jurídica</label>
+                                    </div>
+                                    <input class="input" id="i-naturezajuridica" placeholder="Natureza Jurídica">
+                                </div>
+
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-capitalsocial">Capital Social</label>
+                                    </div>
+                                    <input class="input" id="i-capitalsocial" placeholder="R$ 10.000,00">
+                                </div>
+
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-endereco">Endereço</label>
+                                    </div>
+                                    <input class="input" id="i-endereco" placeholder="Logradouro, nº - Bairro, Cidade - UF, CEP">
+                                </div>
+
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-atividade">Atividade (CNAES)</label>
+                                    </div>
+                                    <input class="input" id="i-atividade" placeholder="00.00-0-00 - Atividade">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="base-box" id="consulta"></div>
+                        <div class="base-box" id="resultado-consulta"></div>
+                    </div>
+                    
                     <div class="box-duplo">
                         <div class="base-box">
                             <h2>Dados de Contato (Cliente)</h2>
@@ -55,7 +132,9 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
 
+                    <div class="box-duplo">
                         <div class="base-box">
                             <h2>Gráfico de Faturamento</h2>
                             <div class="base-boxcampos">
@@ -138,7 +217,7 @@
 
                                 <div class="campo" id="calculos-resultados">
                                     <div class="label">
-                                        <label class="label-campo" for="calculo-grafico">Dados da Empresa</label>
+                                        <div class="label-campo">Dados da Empresa</div>
                                     </div>
                                     <div class="campo-texto">
                                         <p id="calculo-grafico">
@@ -158,7 +237,7 @@
                                 <div class="campo">
                                     <div class="label">
                                         <label class="label-campo" for="select-mes">Mês 1 do Gráfico</label>
-                                        <span class="material-symbols-rounded" title="É o mês de referência para o gráfico (inicia a partir do mês informado).">info</span>
+                                        <span class="material-symbols-rounded tooltip" data-tooltip="É o mês de referência para o gráfico (inicia a partir do mês informado).">info</span>
                                     </div>
                                     <select id="select-mes">
                                         <option value="[MÊS 01]" disabled="" selected="">Selecione uma opção</option>
@@ -179,128 +258,7 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="box-duplo">
-
-                        <div class="base-box">
-                            <div class="h2-ativar" id="h2-versaomanual">
-                                <h2>Versão Manual</h2>
-                                <input type="checkbox" id="i-versaomanual">
-                            </div>
-                            <div class="base-boxcampos" id="versaomanual">
-                                <div class="campo">
-                                    <div class="label">
-                                        <label class="label-campo" for="i-cnpj">CNPJ</label>
-                                        <span class="material-symbols-rounded" title="Utilize somente números, pois o sistema irá pontuar automaticamente.">info</span>
-                                    </div>
-                                    <input class="input" id="i-cnpj" placeholder="00.000.000/0000-00">
-                                </div>
-
-                                <div class="campo">
-                                    <div class="label">
-                                        <label class="label-campo" for="i-razaosocial">Razão Social</label>
-                                    </div>
-                                    <input class="input" id="i-razaosocial" placeholder="Nome da Empresa">
-                                </div>
-
-                                <div class="campo">
-                                    <div class="label">
-                                        <label class="label-campo" for="i-abertura">Data de Abertura</label>
-                                    </div>
-                                    <input class="input" id="i-abertura" placeholder="dd/mm/aaaa">
-                                </div>
-
-                                <div class="campo">
-                                    <div class="label">
-                                        <label class="label-campo" for="i-porte">Porte</label>
-                                    </div>
-                                    <input class="input" id="i-porte" placeholder="Porte da Empresa">
-                                </div>
-
-                                <div class="campo">
-                                    <div class="label">
-                                        <label class="label-campo" for="i-naturezajuridica">Natureza Jurídica</label>
-                                    </div>
-                                    <input class="input" id="i-naturezajuridica" placeholder="Natureza Jurídica">
-                                </div>
-
-                                <div class="campo">
-                                    <div class="label">
-                                        <label class="label-campo" for="i-capitalsocial">Capital Social</label>
-                                    </div>
-                                    <input class="input" id="i-capitalsocial" placeholder="R$ 10.000,00">
-                                </div>
-
-                                <div class="campo">
-                                    <div class="label">
-                                        <label class="label-campo" for="i-endereco">Endereço</label>
-                                    </div>
-                                    <input class="input" id="i-endereco" placeholder="Logradouro, nº - Bairro, Cidade - UF, CEP">
-                                </div>
-
-                                <div class="campo">
-                                    <div class="label">
-                                        <label class="label-campo" for="i-atividade">Atividade (CNAES)</label>
-                                    </div>
-                                    <input class="input" id="i-atividade" placeholder="00.00-0-00 - Atividade">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="base-box" id="consulta">
-                            <h2>Consulta</h2>
-                            <div class="base-boxcampos">
-                                <div class="campo">
-                                    <div class="label">
-                                        <label class="label-campo" for="i-consulta">CNPJ</label>
-                                        <span class="material-symbols-rounded" title="Utilize somente números, pois o sistema irá pontuar automaticamente.">info</span>
-                                    </div>
-                                    <input class="input" id="i-consulta" placeholder="00.000.000/0000-00">
-                                </div>
-
-                                <div class="campo" id="campo-iframe">
-                                    <div class="label">
-                                        <label class="label-campo" for="iframe">Base de Dados</label>
-                                    </div>
-                                    <iframe id="iframe"></iframe>
-                                </div>
-                                
-                                <div class="campo" id="verificacao">
-                                    <div class="label">
-                                        <label class="label-campo" for="i-code">Verificação</label>
-                                    </div>
-                                    <textarea id="i-code" placeholder="Copie o código exibido no campo preto e cole-o aqui."></textarea>
-                                    <button class="consulta" id="verificar">
-                                        <span class="material-symbols-rounded">frame_inspect</span>
-                                        <span>Verificar Dados</span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="base-box" id="resultado-consulta">
-                            <h2>Resultado da Consulta</h2>
-                            <div class="base-boxcampos">
-                                <div class="campo">
-                                    <div class="label">
-                                        <label class="label-campo" for="dadosdaempresa">Dados da Empresa</label>
-                                    </div>
-                                    <div class="campo-texto">
-                                        <p id="dadosdaempresa">
-                                            CNPJ: <span id="resultado-cnpj"></span>
-                                            <br>
-                                            Razão Social: <span id="resultado-rs"></span>
-                                        </p>
-                                    </div>
-                                    <button class="consulta" id="preencher">
-                                        <span class="material-symbols-rounded">edit_document</span>
-                                        <span>Inserir no Documento</span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
+        
                 </div>
             <div class="menu-inferior">
                 <div class="confirmacao">
@@ -309,15 +267,12 @@
                     </label>
                 </div>
                 
-                <button id="exportar">
-                    <span class="material-symbols-rounded">download</span>
-                    Exportar
-                </button>
+                <button id="exportar"></button>
             </div>
             </div>
         </div>
     </div>
-    <div id="documento">
+    <div id="documento" style="display: none;">
         <div class="capa">
             <header>
                 <img src="../../sistema/logo-ass.svg" alt="Logo da Assessoria">
@@ -456,31 +411,26 @@
         </div>
     </div>
 
-    <!--SISTEMA-->
-    <script src="../../scripts/navdrawer.js"></script>
-    <script src="../../scripts/assessoria.js"></script>
+    <!-- CONSULTA -->
+        <script src="/scripts/consulta.js"></script>
 
-    <!--EXPORTAÇÃO-->
-    <script src="../../scripts/exportar.js"></script>
-    <script src="../../scripts/impressao.js"></script>
+    <!-- EXPORTAÇÃO -->
+        <script src="/scripts/exportacao/exportar.js"></script>
+        <script src="/scripts/exportacao/impressao.js"></script>
+        <script src="/scripts/exportacao/titulo.js"></script>
 
-    <!--OPCIONAIS-->
-    <script src="../../scripts/hoje.js"></script>
-    
-    <script src="../../scripts/formatacao/cnpj.js"></script>
-    <script src="../../scripts/formatacao/telefone.js"></script>
-    <script src="../../scripts/formatacao/email.js"></script>
+    <!-- OPCIONAIS -->
+        <script src="/scripts/formatacao/cnpj.js"></script>
+        <script src="/scripts/formatacao/telefone.js"></script>
+        <script src="/scripts/formatacao/email.js"></script>
 
-    <!--PERSONALIZADO-->
-    <script src="./inputs.js"></script>
-    <script src="./tipo-export.js"></script>
+    <!-- PERSONALIZADO -->
+        <script src="./inputs.js"></script>
+        <script src="./tipo-export.js"></script>
 
-    <!--CONSULTA-->
-    <script src="../../scripts/consulta.js"></script>
-
-    <!--GRÁFICO-->
-    <script src="../../scripts/grafico.js"></script>
-    <script src="../../scripts/grafico-mes.js"></script>
+    <!-- GRÁFICO -->
+        <script src="/scripts/grafico.js"></script>
+        <script src="/scripts/grafico-mes.js"></script>
 </body>
 
 </html>

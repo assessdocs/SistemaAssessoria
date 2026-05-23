@@ -2,23 +2,24 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Business | WebDOCs</title>
 
-    <link rel="icon" href="../../favicon.png">
+    <!-- SISTEMA -->
+        <script type="module" src="/scripts/sistema/head.js"></script> <!-- HEAD, FAVICON E ÍCONES -->
+        <script type="module" src="/scripts/sistema/navdrawer/main.js"></script> <!-- NAVDRAWER -->
+        <script src="/scripts/sistema/assessoria.js"></script> <!-- DADOS DA ASSESSORIA -->
+        <script src="/scripts/sistema/tooltip.js"></script> <!-- TOOLTIP -->
 
-    <link rel="stylesheet" href="../../estilos/sistema.css">
-    <link rel="stylesheet" href="../../estilos/exportar.css">
-    <link rel="stylesheet" href="../../estilos/documentos.css">
-    <link rel="stylesheet" href="../../estilos/grafico.css">
+    <!-- ESTILOS -->
+        <link rel="stylesheet" href="/estilos/sistema.css"> <!-- SISTEMA -->
 
-    <link rel="stylesheet" href="../../estilos/consulta.css">
+        <link rel="stylesheet" href="/estilos/exportar.css"> <!-- MENU EXPORTAR -->
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-25..200&display=block"/>
+        <link rel="stylesheet" href="/estilos/consulta.css"> <!-- CONSULTA -->
 
-    <link rel="stylesheet" href="../../estilos/icones.css">
+        <link rel="stylesheet" href="/estilos/documentos.css"> <!-- DOCUMENTO -->
+
+        <link rel="stylesheet" href="/estilos/grafico.css"> <!-- GRÁFICO --> 
 </head>
 
 <body id="bv">
@@ -31,109 +32,25 @@
             <h1>Business Valuation</h1>
 
             <div class="formularios">
-                <div class="area-boxes">
-                    <div class="box-duplo">
-                        <div class="base-box">
-                            <h2>Dados de Contato (Cliente)</h2>
-                            <div class="base-boxcampos">
-                                <div class="campo">
-                                    <div class="label">
-                                        <label class="label-campo" for="i-telefone">Telefone</label>
-                                    </div>
-                                    <input class="input" id="i-telefone" placeholder="(00) 90000-0000">
-                                </div>
-
-                                <div class="campo">
-                                    <div class="label">
-                                        <label class="label-campo" for="i-email">E-mail</label>
-                                    </div>
-                                    <input class="input" id="i-email" placeholder="email@exemplo.com">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="base-box">
-                            <h2>Gráfico de Faturamento</h2>
-                            <div class="base-boxcampos">
-                                <div class="campo">
-                                    <div class="label">
-                                        <label class="label-campo receita" for="i-receita1">Receita (Mês 1)</label>
-                                    </div>
-                                    <input class="input receita" id="i-receita1" placeholder="Valor">
-                                </div>
-
-                                <div class="campo">
-                                    <div class="label">
-                                        <label class="label-campo receita" for="i-receita2">Receita (Mês 2)</label>
-                                    </div>
-                                    <input class="input receita" id="i-receita2" placeholder="Valor">
-                                </div>
-
-                                <div class="campo">
-                                    <div class="label">
-                                        <label class="label-campo receita" for="i-receita3">Receita (Mês 3)</label>
-                                    </div>
-                                    <input class="input receita" id="i-receita3" placeholder="Valor">
-                                </div>
-
-                                <div class="campos-divisoria" id="calculo-div"></div>
-
-                                <div class="campo" id="calculos-resultados">
-                                    <div class="label">
-                                        <label class="label-campo" for="calculo-grafico">Dados da Empresa</label>
-                                    </div>
-                                    <div class="campo-texto">
-                                        <p id="calculo-grafico">
-                                            Receita Total (Anual): R$ <span id="receita-anual"></span>
-                                            <br>
-                                            Valor dos 5 Anos: R$ <span id="calculo-5anos"></span>
-                                            <br>
-                                            Valor de Perpetuidade: R$ <span id="calculo-perpetuidade"></span>
-                                            <br>
-                                            Valor Total da Empresa: R$ <span id="calculo-valortotalempresa"></span>
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="campos-divisoria"></div>
-
-                                <div class="campo">
-                                    <div class="label">
-                                        <label class="label-campo" for="select-mes">Mês 1 do Gráfico</label>
-                                        <span class="material-symbols-rounded" title="É o mês de referência para o gráfico (inicia a partir do mês informado).">info</span>
-                                    </div>
-                                    <select id="select-mes">
-                                        <option value="[MÊS 01]" disabled="" selected="">Selecione uma opção</option>
-                                        <option value="Janeiro">Janeiro</option>
-                                        <option value="Fevereiro">Fevereiro</option>
-                                        <option value="Março">Março</option>
-                                        <option value="Abril">Abril</option>
-                                        <option value="Maio">Maio</option>
-                                        <option value="Junho">Junho</option>
-                                        <option value="Julho">Julho</option>
-                                        <option value="Agosto">Agosto</option>
-                                        <option value="Setembro">Setembro</option>
-                                        <option value="Outubro">Outubro</option>
-                                        <option value="Novembro">Novembro</option>
-                                        <option value="Dezembro">Dezembro</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="area-boxes grid3">
 
                     <div class="box-duplo">
 
                         <div class="base-box">
                             <div class="h2-ativar" id="h2-versaomanual">
                                 <h2>Versão Manual</h2>
-                                <input type="checkbox" id="i-versaomanual">
+                                <label class="md-switch">
+                                    <input type="checkbox" id="i-versaomanual">
+                                    <span class="track">
+                                        <span class="thumb"></span>
+                                    </span>
+                                </label>
                             </div>
                             <div class="base-boxcampos" id="versaomanual">
                                 <div class="campo">
                                     <div class="label">
                                         <label class="label-campo" for="i-cnpj">CNPJ</label>
-                                        <span class="material-symbols-rounded" title="Utilize somente números, pois o sistema irá pontuar automaticamente.">info</span>
+                                        <span class="material-symbols-rounded tooltip" data-tooltip="Utilize somente números, pois o sistema irá pontuar automaticamente.">info</span>
                                     </div>
                                     <input class="input" id="i-cnpj" placeholder="00.000.000/0000-00">
                                 </div>
@@ -189,60 +106,103 @@
                             </div>
                         </div>
 
-                        <div class="base-box" id="consulta">
-                            <h2>Consulta</h2>
+                        <div class="base-box" id="consulta"></div>
+                        
+                        <div class="base-box" id="resultado-consulta"></div>
+                    </div>
+
+                    <div class="box-duplo">
+                        <div class="base-box">
+                            <h2>Dados de Contato (Cliente)</h2>
                             <div class="base-boxcampos">
                                 <div class="campo">
                                     <div class="label">
-                                        <label class="label-campo" for="i-consulta">CNPJ</label>
-                                        <span class="material-symbols-rounded" title="Utilize somente números, pois o sistema irá pontuar automaticamente.">info</span>
+                                        <label class="label-campo" for="i-telefone">Telefone</label>
                                     </div>
-                                    <input class="input" id="i-consulta" placeholder="00.000.000/0000-00">
+                                    <input class="input" id="i-telefone" placeholder="(00) 90000-0000">
                                 </div>
 
-                                <div class="campo" id="campo-iframe">
-                                    <div class="label">
-                                        <label class="label-campo" for="iframe">Base de Dados</label>
-                                    </div>
-                                    <iframe id="iframe"></iframe>
-                                </div>
-                                
-                                <div class="campo" id="verificacao">
-                                    <div class="label">
-                                        <label class="label-campo" for="i-code">Verificação</label>
-                                    </div>
-                                    <textarea id="i-code" placeholder="Copie o código exibido no campo preto e cole-o aqui."></textarea>
-                                    <button class="consulta" id="verificar">
-                                        <span class="material-symbols-rounded">frame_inspect</span>
-                                        <span>Verificar Dados</span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="base-box" id="resultado-consulta">
-                            <h2>Resultado da Consulta</h2>
-                            <div class="base-boxcampos">
                                 <div class="campo">
                                     <div class="label">
-                                        <label class="label-campo" for="dadosdaempresa">Dados da Empresa</label>
+                                        <label class="label-campo" for="i-email">E-mail</label>
                                     </div>
-                                    <div class="campo-texto">
-                                        <p id="dadosdaempresa">
-                                            CNPJ: <span id="resultado-cnpj"></span>
-                                            <br>
-                                            Razão Social: <span id="resultado-rs"></span>
-                                        </p>
-                                    </div>
-                                    <button class="consulta" id="preencher">
-                                        <span class="material-symbols-rounded">edit_document</span>
-                                        <span>Inserir no Documento</span>
-                                    </button>
+                                    <input class="input" id="i-email" placeholder="email@exemplo.com">
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
+
+                    <div class="box-duplo">
+                        <div class="base-box">
+                            <h2>Gráfico de Faturamento</h2>
+                            <div class="base-boxcampos">
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo receita" for="i-receita1">Receita (Mês 1)</label>
+                                    </div>
+                                    <input class="input receita" id="i-receita1" placeholder="Valor">
+                                </div>
+
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo receita" for="i-receita2">Receita (Mês 2)</label>
+                                    </div>
+                                    <input class="input receita" id="i-receita2" placeholder="Valor">
+                                </div>
+
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo receita" for="i-receita3">Receita (Mês 3)</label>
+                                    </div>
+                                    <input class="input receita" id="i-receita3" placeholder="Valor">
+                                </div>
+
+                                <div class="campos-divisoria" id="calculo-div"></div>
+
+                                <div class="campo" id="calculos-resultados">
+                                    <div class="label">
+                                        <div class="label-campo" for="calculo-grafico">Dados da Empresa</div>
+                                    </div>
+                                    <div class="campo-texto">
+                                        <p id="calculo-grafico">
+                                            Receita Total (Anual): R$ <span id="receita-anual"></span>
+                                            <br>
+                                            Valor dos 5 Anos: R$ <span id="calculo-5anos"></span>
+                                            <br>
+                                            Valor de Perpetuidade: R$ <span id="calculo-perpetuidade"></span>
+                                            <br>
+                                            Valor Total da Empresa: R$ <span id="calculo-valortotalempresa"></span>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="campos-divisoria"></div>
+
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="select-mes">Mês 1 do Gráfico</label>
+                                        <span class="material-symbols-rounded tooltip" data-tooltip="É o mês de referência para o gráfico (inicia a partir do mês informado).">info</span>
+                                    </div>
+                                    <select id="select-mes">
+                                        <option value="[MÊS 01]" disabled="" selected="">Selecione uma opção</option>
+                                        <option value="Janeiro">Janeiro</option>
+                                        <option value="Fevereiro">Fevereiro</option>
+                                        <option value="Março">Março</option>
+                                        <option value="Abril">Abril</option>
+                                        <option value="Maio">Maio</option>
+                                        <option value="Junho">Junho</option>
+                                        <option value="Julho">Julho</option>
+                                        <option value="Agosto">Agosto</option>
+                                        <option value="Setembro">Setembro</option>
+                                        <option value="Outubro">Outubro</option>
+                                        <option value="Novembro">Novembro</option>
+                                        <option value="Dezembro">Dezembro</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             <div class="menu-inferior">
                 <div class="confirmacao">
@@ -251,15 +211,12 @@
                     </label>
                 </div>
                 
-                <button id="exportar">
-                    <span class="material-symbols-rounded">download</span>
-                    Exportar
-                </button>
+                <button id="exportar"></button>
             </div>
             </div>
         </div>
     </div>
-    <div id="documento">
+    <div id="documento" style="display: none;">
         <div class="capa">
             <header>
                 <img src="../../sistema/logo-ass.svg" alt="Logo da Assessoria">
@@ -375,33 +332,26 @@
             </footer>
         </div>
     </div>
-    
-    <!--SISTEMA-->
-    <script src="../../scripts/navdrawer.js"></script>
-    <script src="../../scripts/assessoria.js"></script>
 
-    <!--EXPORTAÇÃO-->
-    <script src="../../scripts/titulo.js"></script>
+    <!-- CONSULTA -->
+        <script src="/scripts/consulta.js"></script>
 
-    <script src="../../scripts/exportar.js"></script>
-    <script src="../../scripts/impressao.js"></script>
+    <!-- EXPORTAÇÃO -->
+        <script src="/scripts/exportacao/exportar.js"></script>
+        <script src="/scripts/exportacao/impressao.js"></script>
+        <script src="/scripts/exportacao/titulo.js"></script>
 
-    <!--OPCIONAIS-->
-    <script src="../../scripts/hoje.js"></script>
+    <!-- OPCIONAIS -->
+        <script src="/scripts/formatacao/cnpj.js"></script>
+        <script src="/scripts/formatacao/telefone.js"></script>
+        <script src="/scripts/formatacao/email.js"></script>
 
-    <script src="../../scripts/formatacao/cnpj.js"></script>
-    <script src="../../scripts/formatacao/telefone.js"></script>
-    <script src="../../scripts/formatacao/email.js"></script>
+    <!-- PERSONALIZADO -->
+        <script src="./inputs.js"></script>
 
-    <!--PERSONALIZADO-->
-    <script src="./inputs.js"></script>
-
-    <!--CONSULTA-->
-    <script src="../../scripts/consulta.js"></script>
-
-    <!--GRÁFICO-->
-    <script src="../../scripts/grafico.js"></script>
-    <script src="../../scripts/grafico-mes.js"></script>
+    <!-- GRÁFICO -->
+        <script src="/scripts/grafico.js"></script>
+        <script src="/scripts/grafico-mes.js"></script>
 </body>
 
 </html>
