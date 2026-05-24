@@ -1,4 +1,4 @@
-const BASE_URL = window.location.pathname.includes('github.io')
+const BASE_URL = window.location.hostname.includes('github.io')
   ? '/SistemaAssessoria/'
   : '/';
 
