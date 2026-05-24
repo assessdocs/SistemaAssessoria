@@ -1,16 +1,10 @@
-const BASE_URL = window.location.hostname.includes('github.io')
-    ? '/SistemaAssessoria/'
-    : '/';
-
-window.BASE_URL = BASE_URL;
-
 export const menuConfig = {
   top: [
     {
       icon: 'home',
       text: 'Painel Inicial',
       path: '',
-      href: '${BASE_URL}'
+      href: '/'
     },
 
     'divider',
@@ -19,31 +13,31 @@ export const menuConfig = {
       icon: 'request_quote',
       text: 'Orçamento',
       path: 'documentos/orcamento/',
-      href: '${BASE_URL}documentos/orcamento/'
+      href: '/documentos/orcamento/'
     },
     {
       icon: 'insert_chart',
       text: 'EVE e SWOT',
       path: 'documentos/eve/',
-      href: '${BASE_URL}documentos/eve/'
+      href: '/documentos/eve/'
     },
     {
       icon: 'bid_landscape',
       text: 'Business',
       path: 'documentos/business/',
-      href: '${BASE_URL}documentos/business/'
+      href: '/documentos/business/'
     },
     {
       icon: 'table',
       text: 'DMPL',
       path: 'documentos/dmpl/',
-      href: '${BASE_URL}documentos/dmpl/'
+      href: '/documentos/dmpl/'
     },
     {
       icon: 'receipt_long',
       text: 'Nota Fiscal',
       path: 'documentos/notafiscal/',
-      href: '${BASE_URL}documentos/notafiscal/'
+      href: '/documentos/notafiscal/'
     },
 
     'divider',
@@ -52,19 +46,19 @@ export const menuConfig = {
       icon: 'splitscreen_landscape',
       text: 'Conciliação',
       path: 'documentos/conciliacao/',
-      href: '${BASE_URL}documentos/conciliacao/'
+      href: '/documentos/conciliacao/'
     },
     {
       icon: 'account_balance',
       text: 'GovBR',
       path: 'documentos/govbr/',
-      href: '${BASE_URL}documentos/govbr/'
+      href: '/documentos/govbr/'
     },
     {
       icon: 'speed',
       text: 'Score',
       path: 'documentos/score/',
-      href: '${BASE_URL}documentos/score/'
+      href: '/documentos/score/'
     },
     {
       icon: 'table_chart_view',
