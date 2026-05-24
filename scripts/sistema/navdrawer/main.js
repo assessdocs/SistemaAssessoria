@@ -1,9 +1,9 @@
-import { inserirNavdrawer } from '/scripts/sistema/navdrawer/build.js';
-import { ativarMenuAtual } from '/scripts/sistema/navdrawer/ativo.js';
+import { inserirNavdrawer } from './build.js';
+import { ativarMenuAtual } from './ativo.js';
 
 document.addEventListener('DOMContentLoaded',() => {
 
   inserirNavdrawer();
   ativarMenuAtual();
-  
+
 });

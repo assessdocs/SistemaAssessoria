@@ -1,4 +1,4 @@
-import { menuConfig } from '/scripts/sistema/navdrawer/dados.js';
+import { menuConfig } from './dados.js';
 
 function criarItem(item) {
 
@@ -33,7 +33,7 @@ function gerarNavdrawer() {
 
         <div class="logo">
           <img
-            src="/sistema/logo.svg"
+            src="${BASE_URL}sistema/logo.svg"
             id="logo"
             alt="Logo"
           >
