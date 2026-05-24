@@ -70,7 +70,7 @@ export const menuConfig = {
       icon: 'table_chart_view',
       text: 'Varredura',
       path: 'documentos/varredura/',
-      href: '${BASE_URL}documentos/varredura/'
+      href: '/documentos/varredura/'
     }
   ],
 
@@ -81,13 +81,13 @@ export const menuConfig = {
       icon: 'help',
       text: 'Ajuda',
       path: 'ajuda/',
-      href: '${BASE_URL}ajuda/'
+      href: '/ajuda/'
     },
     {
       icon: 'settings',
       text: 'Configurações',
       path: 'configuracoes/',
-      href: '${BASE_URL}configuracoes/'
+      href: '/configuracoes/'
     },
     {
       icon: 'logout',
