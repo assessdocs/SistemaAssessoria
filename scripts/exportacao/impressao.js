@@ -9,14 +9,14 @@ document.addEventListener('DOMContentLoaded', function () {
         const navdrawer = document.getElementById('navdrawer');
 
         if (navdrawer) {
-            navdrawer.style.display = 'flex';
+            navdrawer.style.display = 'flex'; // alterar para flex após editar
         }
 
         sistema.style.display = 'flex';
     }
     
     function doc() {
-        documento.style.display = 'none'; //alterar para none após editar
+        documento.style.display = 'none'; // alterar para none após editar
     }
 
     base();
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (exportar) {
         exportar.addEventListener('click', () => {
-            if (exportar.classList.contains('ativo')) {
+            if (exportar.classList.contains('enabled')) {
                 
                 basePRINT();
                 docPRINT();
