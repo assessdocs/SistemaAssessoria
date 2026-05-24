@@ -338,7 +338,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function atualizarModo() {
 
-        if (el.checkboxManual.checked) {
+        if (el.checkboxManual.selected) {
 
             ativarModoManual();
 
@@ -498,7 +498,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     el.inputConsulta.addEventListener('input', () => {
 
-        if (el.checkboxManual.checked) return;
+        if (el.checkboxManual.selected) return;
 
         el.inputConsulta.value =
             formatarCNPJ(el.inputConsulta.value);
@@ -513,7 +513,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     el.btnVerificar.addEventListener('click', () => {
 
-        if (el.checkboxManual.checked) return;
+        if (el.checkboxManual.selected) return;
 
         const jsonData =
             parseJSON(el.inputCode.value);
@@ -536,7 +536,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     el.btnInserir.addEventListener('click', () => {
 
-        if (el.checkboxManual.checked) return;
+        if (el.checkboxManual.selected) return;
 
         const jsonData =
             parseJSON(el.inputCode.value);

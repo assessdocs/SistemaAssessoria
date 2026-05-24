@@ -4,8 +4,6 @@
 <head>
     <title>Nota Fiscal | WebDOCs</title>
 
-    <script type="module" src="https://esm.run/@material/web/checkbox/checkbox.js"></script>
-
     <!-- SCRIPT -->
         <script>
             window.BASE_URL = location.hostname.includes('github.io')
@@ -38,6 +36,22 @@
             `)
         </script>
 
+    <!-- MATERIAL WEB -->
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+        <script type="importmap">
+            {
+            "imports": {
+                "@material/web/": "https://esm.run/@material/web/"
+            }
+            }
+        </script>
+        <script type="module">
+            import '@material/web/all.js';
+            import {styles as typescaleStyles} from '@material/web/typography/md-typescale-styles.js';
+
+            document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
+        </script>
+
     <!-- ESTILOS -->
         <link rel="stylesheet" href="notafiscal.css"> <!-- DOCUMENTO -->
 </head>
@@ -57,12 +71,7 @@
                         <div class="base-box">
                             <div class="h2-ativar" id="h2-versaomanual">
                                 <h2>Versão Manual</h2>
-                                <label class="md-switch">
-                                    <input type="checkbox" id="i-versaomanual">
-                                    <span class="track">
-                                        <span class="thumb"></span>
-                                    </span>
-                                </label>
+                                <md-switch icons show-only-selected-icon id="i-versaomanual"></md-switch>
                             </div>
                             <div class="base-boxcampos" id="versaomanual">
                                 <div class="campo">
@@ -185,6 +194,7 @@
                                     </div>
                                     <input class="input" id="i-telefone" placeholder="(00) 90000-0000" type="tel">
                                 </div>
+
                             </div>
                         </div>
                     </div>
@@ -192,6 +202,7 @@
                     <div class="base-box">
                             <h2>Serviços</h2>
                             <div class="base-boxcampos">
+
                                 <div class="campo-duplo" id="c-servico1">
                                     <div class="campo">
                                         <div class="label">
@@ -206,6 +217,7 @@
                                         <input class="input" id="i-valor1" placeholder="Valor do Serviço">
                                     </div>
                                 </div>
+
                                 <div class="campo-duplo" id="c-servico2">
                                     <div class="campo">
                                         <div class="label">
@@ -220,6 +232,7 @@
                                         <input class="input" id="i-valor2" placeholder="Valor do Serviço">
                                     </div>
                                 </div>
+
                                 <div class="campo-duplo" id="c-servico3">
                                     <div class="campo">
                                         <div class="label">
@@ -234,6 +247,7 @@
                                         <input class="input" id="i-valor3" placeholder="Valor do Serviço">
                                     </div>
                                 </div>
+
                                 <div class="campo-duplo" id="c-servico4">
                                     <div class="campo">
                                         <div class="label">
@@ -248,6 +262,7 @@
                                         <input class="input" id="i-valor4" placeholder="Valor do Serviço">
                                     </div>
                                 </div>
+
                                 <div class="campo-duplo" id="c-servico5">
                                     <div class="campo">
                                         <div class="label">
@@ -262,6 +277,7 @@
                                         <input class="input" id="i-valor5" placeholder="Valor do Serviço">
                                     </div>
                                 </div>
+
                                 <div class="campo-duplo" id="c-servico6">
                                     <div class="campo">
                                         <div class="label">
@@ -276,6 +292,7 @@
                                         <input class="input" id="i-valor6" placeholder="Valor do Serviço">
                                     </div>
                                 </div>
+
                                 <div class="campo-duplo" id="c-servico7">
                                     <div class="campo">
                                         <div class="label">
@@ -290,6 +307,7 @@
                                         <input class="input" id="i-valor7" placeholder="Valor do Serviço">
                                     </div>
                                 </div>
+
                                 <button class="filled" id="adicionar">
                                     <span class="material-symbols-rounded" id="icone-adicionar">add_circle</span>
                                     <span id="texto-adicionar">Adicionar</span>
@@ -312,6 +330,7 @@
             
         </div>
     </div>
+
     <div id="documento" style="display: none;">
         <div class="pagina" id="pagina1">
             <div class="nota">
