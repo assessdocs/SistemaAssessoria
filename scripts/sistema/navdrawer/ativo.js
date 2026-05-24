@@ -3,24 +3,28 @@ export function ativarMenuAtual() {
 
   const links = document.querySelectorAll('.navdrawer-option');
 
+  links.forEach(link => link.classList.remove('ativo'));
+
   let encontrouAtivo = false;
 
   links.forEach(link => {
-    link.classList.remove('ativo');
-
     const href = new URL(link.href).pathname.toLowerCase();
 
-    if (
-      href !== '/' &&
-      href !== '/SistemaAssessoria/' &&
-      currentPath.startsWith(href)
-    ) {
+    const isHome =
+      href === '/' ||
+      href === '/SistemaAssessoria/';
+
+    if (!isHome && currentPath.startsWith(href)) {
       link.classList.add('ativo');
       encontrouAtivo = true;
     }
   });
 
-  if (!encontrouAtivo) {
+  const estaNaHome =
+    currentPath === '/' ||
+    currentPath === '/SistemaAssessoria/';
+
+  if (!encontrouAtivo && estaNaHome) {
     links[0]?.classList.add('ativo');
   }
 }
