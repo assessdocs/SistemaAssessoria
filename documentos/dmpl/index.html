@@ -36,6 +36,22 @@
             `)
         </script>
 
+    <!-- MATERIAL WEB -->
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+        <script type="importmap">
+            {
+            "imports": {
+                "@material/web/": "https://esm.run/@material/web/"
+            }
+            }
+        </script>
+        <script type="module">
+            import '@material/web/all.js';
+            import {styles as typescaleStyles} from '@material/web/typography/md-typescale-styles.js';
+
+            document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
+        </script>
+
     <!-- ESTILOS -->
         <link rel="stylesheet" href="./tabela.css"> <!-- TABELA -->
 </head>
@@ -54,12 +70,7 @@
                     <div class="base-box">
                         <div class="h2-ativar" id="h2-versaomanual">
                             <h2>Versão Manual</h2>
-                            <label class="md-switch">
-                                <input type="checkbox" id="i-versaomanual">
-                                <span class="track">
-                                    <span class="thumb"></span>
-                                </span>
-                            </label>
+                            <md-switch icons show-only-selected-icon id="i-versaomanual"></md-switch>
                         </div>
                         <div class="base-boxcampos" id="versaomanual">
                             <div class="campo">
@@ -115,7 +126,8 @@
                 <div class="menu-inferior">
                     <div class="confirmacao">
                         <label for="confirmacao" class="label-confirmacao">
-                            Todos os campos foram preenchidos?<input type="checkbox" id="confirmacao">
+                            Todos os campos foram preenchidos?
+                            <md-checkbox touch-target="wrapper" id="confirmacao"></md-checkbox>
                         </label>
                     </div>
                     
