@@ -1,4 +1,4 @@
-const BASE_URL = window.location.pathname.includes('/SistemaAssessoria/')
+const BASE_URL = window.location.pathname.includes('github.io')
   ? '/SistemaAssessoria/'
   : '/';
 
@@ -8,7 +8,7 @@ export const menuConfig = {
       icon: 'home',
       text: 'Painel Inicial',
       path: '',
-      href: '${BASE_URL}'
+      href: `${BASE_URL}`
     },
 
     'divider',
@@ -17,31 +17,31 @@ export const menuConfig = {
       icon: 'request_quote',
       text: 'Orçamento',
       path: 'documentos/orcamento/',
-      href: '${BASE_URL}documentos/orcamento/'
+      href: `${BASE_URL}documentos/orcamento/`
     },
     {
       icon: 'insert_chart',
       text: 'EVE e SWOT',
       path: 'documentos/eve/',
-      href: '${BASE_URL}documentos/eve/'
+      href: `${BASE_URL}documentos/eve/`
     },
     {
       icon: 'bid_landscape',
       text: 'Business',
       path: 'documentos/business/',
-      href: '${BASE_URL}documentos/business/'
+      href: `${BASE_URL}documentos/business/`
     },
     {
       icon: 'table',
       text: 'DMPL',
       path: 'documentos/dmpl/',
-      href: '${BASE_URL}documentos/dmpl/'
+      href: `${BASE_URL}documentos/dmpl/`
     },
     {
       icon: 'receipt_long',
       text: 'Nota Fiscal',
       path: 'documentos/notafiscal/',
-      href: '${BASE_URL}documentos/notafiscal/'
+      href: `${BASE_URL}documentos/notafiscal/`
     },
 
     'divider',
@@ -50,25 +50,25 @@ export const menuConfig = {
       icon: 'splitscreen_landscape',
       text: 'Conciliação',
       path: 'documentos/conciliacao/',
-      href: '${BASE_URL}documentos/conciliacao/'
+      href: `${BASE_URL}documentos/conciliacao/`
     },
     {
       icon: 'account_balance',
       text: 'GovBR',
       path: 'documentos/govbr/',
-      href: '${BASE_URL}documentos/govbr/'
+      href: `${BASE_URL}documentos/govbr/`
     },
     {
       icon: 'speed',
       text: 'Score',
       path: 'documentos/score/',
-      href: '${BASE_URL}documentos/score/'
+      href: `${BASE_URL}documentos/score/`
     },
     {
       icon: 'table_chart_view',
       text: 'Varredura',
       path: 'documentos/varredura/',
-      href: '${BASE_URL}documentos/varredura/'
+      href: `${BASE_URL}documentos/varredura/`
     }
   ],
 
@@ -79,13 +79,13 @@ export const menuConfig = {
       icon: 'help',
       text: 'Ajuda',
       path: 'ajuda/',
-      href: '${BASE_URL}ajuda/'
+      href: `${BASE_URL}ajuda/`
     },
     {
       icon: 'settings',
       text: 'Configurações',
       path: 'configuracoes/',
-      href: '${BASE_URL}configuracoes/'
+      href: `${BASE_URL}configuracoes/`
     },
     {
       icon: 'logout',
