@@ -1,38 +1,26 @@
 export function ativarMenuAtual() {
+  const currentPath = location.pathname.toLowerCase();
 
-  const currentPath =
-    location.pathname.toLowerCase();
-
-  const links =
-    document.querySelectorAll(
-      '.navdrawer-option[data-path]'
-    );
+  const links = document.querySelectorAll('.navdrawer-option');
 
   let encontrouAtivo = false;
 
   links.forEach(link => {
-
     link.classList.remove('ativo');
 
-    const path =
-      link.dataset.path.toLowerCase();
+    const href = new URL(link.href).pathname.toLowerCase();
 
-    if (!path) return;
-
-    if (currentPath.includes(`/${path}`)) {
-
+    if (
+      href !== '/' &&
+      href !== '/SistemaAssessoria/' &&
+      currentPath.startsWith(href)
+    ) {
       link.classList.add('ativo');
-
       encontrouAtivo = true;
     }
   });
 
   if (!encontrouAtivo) {
-
-    document
-      .querySelector(
-        '.navdrawer-option[data-path=""]'
-      )
-      ?.classList.add('ativo');
+    links[0]?.classList.add('ativo');
   }
 }

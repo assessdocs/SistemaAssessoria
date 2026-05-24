@@ -7,15 +7,10 @@ function criarItem(item) {
   }
 
   return `
-    <a
-      class="navdrawer-option"
-      href="${item.href}"
-      data-path="${item.path ?? ''}"
-    >
+    <a class="navdrawer-option" href="${item.href}"    >
       <span class="material-symbols-rounded">
         ${item.icon}
       </span>
-
       ${item.text}
     </a>
   `;
@@ -32,26 +27,18 @@ function gerarNavdrawer() {
       <div class="sistema-logo">
 
         <div class="logo">
-          <img
-            src="${BASE_URL}sistema/logo.svg"
-            id="logo"
-            alt="Logo"
-          >
+          <img src="${BASE_URL}sistema/logo.svg" id="logo" alt="Logo">
         </div>
 
         <div class="logo-div"></div>
-
+        
       </div>
 
       <div class="sistema-navdrawer">
 
-        <div class="up-side">
-          ${gerarGrupo(menuConfig.top)}
-        </div>
+        <div class="up-side">${gerarGrupo(menuConfig.top)}</div>
 
-        <div class="down-side">
-          ${gerarGrupo(menuConfig.bottom)}
-        </div>
+        <div class="down-side">${gerarGrupo(menuConfig.bottom)}</div>
 
       </div>
 
