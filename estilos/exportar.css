@@ -20,15 +20,13 @@
 
     justify-content: space-between;
 
-    position: absolute;
+    position: sticky;
 
-    bottom: 24px;
-    left: 24px;
-    right: 24px;
+    margin-top: 24px;
     
     width: 692px;
 
-    justify-self: center;
+    align-self: center;
 }
 
 .confirmacao {
@@ -51,17 +49,8 @@
     align-items: center;
     display: flex;
     flex-direction: row;
-    gap: 8px;
 
     margin-left: 8px;
-}
-
-input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
-    accent-color: #0F9D58;
-
-    cursor: pointer;
 }
 
 button#exportar {
@@ -103,6 +92,10 @@ button#exportar.disabled {
     color: rgb(from var(--md-sys-color-on-surface) r g b / 0.38);
 }
 
+/* CHECKBOX */
+
+
+
 /* MEDIA */
 
 @media (max-width: 1100px) {
@@ -110,8 +103,6 @@ button#exportar.disabled {
         position: relative;
 
         width: 100%;
-        left: 0px;
-        bottom: 0px;
 
         margin-top: 12px;
     }

@@ -4,6 +4,8 @@
 <head>
     <title>Nota Fiscal | WebDOCs</title>
 
+    <script type="module" src="https://esm.run/@material/web/checkbox/checkbox.js"></script>
+
     <!-- SCRIPT -->
         <script>
             window.BASE_URL = location.hostname.includes('github.io')
@@ -50,7 +52,7 @@
             <h1>Nota Fiscal</h1>
             
             <div class="formularios">
-                <div class="area-boxes">
+                <div class="area-boxes grid3">
                     <div class="box-duplo">
                         <div class="base-box">
                             <div class="h2-ativar" id="h2-versaomanual">
@@ -158,6 +160,7 @@
 
                         <div class="base-box" id="resultado-consulta"></div>
                     </div>
+
                     <div class="box-duplo">
                         <div class="base-box">
                             <h2>Documento</h2>
@@ -184,7 +187,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="base-box">
+                    </div>
+                    
+                    <div class="base-box">
                             <h2>Serviços</h2>
                             <div class="base-boxcampos">
                                 <div class="campo-duplo" id="c-servico1">
@@ -291,19 +296,20 @@
                                 </button>
                             </div>
                         </div>
-                    </div>
-                </div>
-            
-            </div>
-            <div class="menu-inferior">
-                <div class="confirmacao">
-                    <label for="confirmacao" class="label-confirmacao">
-                        Todos os campos foram preenchidos?<input type="checkbox" id="confirmacao">
-                    </label>
                 </div>
                 
-                <button id="exportar"></button>
+                <div class="menu-inferior">
+                    <div class="confirmacao">
+                        <label for="confirmacao" class="label-confirmacao">
+                            Todos os campos foram preenchidos?
+                            <md-checkbox touch-target="wrapper" id="confirmacao"></md-checkbox>
+                        </label>
+                    </div>
+                    
+                    <button id="exportar"></button>
+                </div>
             </div>
+            
         </div>
     </div>
     <div id="documento" style="display: none;">

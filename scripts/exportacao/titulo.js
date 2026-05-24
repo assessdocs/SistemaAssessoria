@@ -12,6 +12,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const orcamento = document.getElementById('orcamento');
     const bv = document.getElementById('bv');
     const dmpl = document.getElementById('dmpl');
+    
+    const notafiscal = document.getElementById('notafiscal');
+    const conciliacao = document.getElementById('conciliacao');
+    const govbr = document.getElementById('govbr');
+    const score = document.getElementById('score');
+    const varredura = document.getElementById('varredura');
+
     const contrato = document.getElementById('contrato');
 
     function obterCNPJ() {
@@ -52,6 +59,26 @@ document.addEventListener('DOMContentLoaded', () => {
         else if (notafiscal) {
             document.title =
                 `${assessoriaNome} - Nota Fiscal Eletrônica (NFe) [${obterCNPJ()}]`;
+        }
+
+        else if (conciliacao) {
+            document.title =
+                `${assessoriaNome} - Conciliação Fiscal [${obterCNPJ()}]`;
+        }
+
+        else if (govbr) {
+            document.title =
+                `${assessoriaNome} - GovBR [${obterCNPJ()}]`;
+        }
+
+        else if (score) {
+            document.title =
+                `${assessoriaNome} - Score [${obterCNPJ()}]`;
+        }
+
+        else if (varredura) {
+            document.title =
+                `${assessoriaNome} - Varredura [${obterCNPJ()}]`;
         }
     }
 
