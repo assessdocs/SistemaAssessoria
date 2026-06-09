@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+    
     const elementosTexto = [
         { class: 'assessoria-cnpj', texto: '31.000.873/0001-28' },
 

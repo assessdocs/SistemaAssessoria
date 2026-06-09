@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('.assessoria-nome')?.textContent || 'Creta Assessoria';
 
     const cnpj = document.getElementById('cnpj');
-    const total = document.getElementById('total');
     const confirmacao = document.getElementById('confirmacao');
 
     const orcamento = document.getElementById('orcamento');
@@ -37,6 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (orcamento) {
+            const total = document.getElementById('total');
             document.title =
                 `${assessoriaNome} [Orçamento de R$ ${obterTotal()}] - ${obterCNPJ()}`;
         }
