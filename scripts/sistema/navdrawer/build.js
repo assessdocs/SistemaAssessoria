@@ -7,11 +7,16 @@ function criarItem(item) {
   }
 
   return `
-    <a class="navdrawer-option" href="${item.href}"    >
+    <a class="navdrawer-option" href="${item.href}">
+      <span class="navdrawer-state-layer"></span>
+
       <span class="material-symbols-rounded">
         ${item.icon}
       </span>
-      ${item.text}
+      
+      <span class="navdrawer-text">
+        ${item.text}
+      </span>
     </a>
   `;
 }
@@ -24,13 +29,19 @@ function gerarNavdrawer() {
   return `
     <header id="navdrawer">
 
-      <div class="sistema-logo">
+      <div class="sistema-header">
 
-        <div class="logo">
-          <img src="${BASE_URL}sistema/logo.svg" id="logo" alt="Logo">
+        <div class="navdrawer-menu" id="navdrawer-menu">
+          <span class="menu-state-layer"></span>
+
+          <span class="material-symbols-rounded" id="navdrawer-menu-icon">
+            menu
+          </span>
         </div>
 
-        <div class="logo-div"></div>
+        <div class="logo" id="navdrawer-logo">
+          <img src="${BASE_URL}sistema/logo-alt.svg" id="logo" alt="Logo">
+        </div>
         
       </div>
 

@@ -17,10 +17,7 @@
                 <script src="${window.BASE_URL}scripts/sistema/tooltip.js"><\/script> <!-- TOOLTIP -->
 
                 <link rel="stylesheet" href="${window.BASE_URL}estilos/sistema.css"> <!-- SISTEMA -->
-                <link rel="stylesheet" href="${window.BASE_URL}estilos/exportar.css"> <!-- MENU EXPORTAR -->
-                <link rel="stylesheet" href="${window.BASE_URL}estilos/consulta.css"> <!-- CONSULTA -->
                 <link rel="stylesheet" href="${window.BASE_URL}estilos/documentos.css"> <!-- DOCUMENTO -->
-                <link rel="stylesheet" href="${window.BASE_URL}estilos/grafico.css"> <!-- GRÁFICO -->
             `);
 
             document.write(`
@@ -45,25 +42,24 @@
     <!-- MATERIAL WEB -->
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
         <script type="importmap">
-            {
-            "imports": {
-                "@material/web/": "https://esm.run/@material/web/"
-            }
-            }
+            {"imports":{"@material/web/": "https://esm.run/@material/web/"}}
         </script>
         <script type="module">
             import '@material/web/all.js';
             import {styles as typescaleStyles} from '@material/web/typography/md-typescale-styles.js';
-
             document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
         </script>
 </head>
 
 <body id="eve">
     <div class="conteudo" id="conteudo">
+
         <header id="pagina">
+            <div class="cabecalho-div"></div>
+
             <span id="sistema-assessoria" class="assessoria-nome"></span>
         </header>
+        
         <div class="sistema-pagina">
 
             <select id="select-h1">
@@ -169,79 +165,56 @@
                     <div class="box-duplo">
                         <div class="base-box">
                             <h2>Gráfico de Faturamento</h2>
-                            <div class="base-boxcampos">
+                            <div class="base-boxcampos grupo">
                                 <div class="campo-duplo">
                                     <div class="campo">
                                         <div class="label">
-                                            <label class="label-campo receita" for="i-receita1">Receita (Mês 1)</label>
+                                            <label class="label-campo receita" for="i-receita1">Receitas</label>
                                         </div>
-                                        <input class="input receita" id="i-receita1" placeholder="Valor">
+                                        <input class="input top-left" id="i-receita1" placeholder="Valor (Mês 1)">
                                     </div>
                                     <div class="campo">
                                         <div class="label">
-                                            <label class="label-campo despesa" for="i-despesa1">Despesa (Mês 1)</label>
+                                            <label class="label-campo despesa" for="i-despesa1">Despesas</label>
                                         </div>
-                                        <input class="input despesa" id="i-despesa1" placeholder="Valor">
+                                        <input class="input top-right" id="i-despesa1" placeholder="Valor (Mês 1)">
                                     </div>
                                 </div>
 
                                 <div class="campo-duplo">
                                     <div class="campo">
-                                        <div class="label">
-                                            <label class="label-campo receita" for="i-receita2">Receita (Mês 2)</label>
-                                        </div>
-                                        <input class="input receita" id="i-receita2" placeholder="Valor">
+                                        <input class="input center" id="i-receita2" placeholder="Valor (Mês 2)">
                                     </div>
                                     <div class="campo">
-                                        <div class="label">
-                                            <label class="label-campo despesa" for="i-despesa2">Despesa (Mês 2)</label>
-                                        </div>
-                                        <input class="input despesa" id="i-despesa2" placeholder="Valor">
+                                        <input class="input center" id="i-despesa2" placeholder="Valor (Mês 2)">
                                     </div>
                                 </div>
 
                                 <div class="campo-duplo">
                                     <div class="campo">
-                                        <div class="label">
-                                            <label class="label-campo receita" for="i-receita3">Receita (Mês 3)</label>
-                                        </div>
-                                        <input class="input receita" id="i-receita3" placeholder="Valor">
+                                        <input class="input center" id="i-receita3" placeholder="Valor (Mês 3)">
                                     </div>
                                     <div class="campo">
-                                        <div class="label">
-                                            <label class="label-campo despesa" for="i-despesa3">Despesa (Mês 3)</label>
-                                        </div>
-                                        <input class="input despesa" id="i-despesa3" placeholder="Valor">
+                                        <input class="input center" id="i-despesa3" placeholder="Valor (Mês 3)">
                                     </div>
                                 </div>
 
                                 <div class="campo-duplo">
                                     <div class="campo">
-                                        <div class="label">
-                                            <label class="label-campo receita" for="i-receita4">Receita (Mês 4)</label>
-                                        </div>
-                                        <input class="input receita" id="i-receita4" placeholder="Valor">
+                                        <input class="input center" id="i-receita4" placeholder="Valor (Mês 4)">
                                     </div>
                                     <div class="campo">
-                                        <div class="label">
-                                            <label class="label-campo despesa" for="i-despesa4">Despesa (Mês 4)</label>
-                                        </div>
-                                        <input class="input despesa" id="i-despesa4" placeholder="Valor">
+
+                                        <input class="input center" id="i-despesa4" placeholder="Valor (Mês 4)">
                                     </div>
                                 </div>
 
                                 <div class="campo-duplo">
                                     <div class="campo">
-                                        <div class="label">
-                                            <label class="label-campo receita" for="i-receita5">Receita (Mês 5)</label>
-                                        </div>
-                                        <input class="input receita" id="i-receita5" placeholder="Valor">
+                                        <input class="input bot-left" id="i-receita5" placeholder="Valor (Mês 5)">
                                     </div>
                                     <div class="campo">
-                                        <div class="label">
-                                            <label class="label-campo despesa" for="i-despesa5">Despesa (Mês 5)</label>
-                                        </div>
-                                        <input class="input despesa" id="i-despesa5" placeholder="Valor">
+                                        <input class="input bot-right" id="i-despesa5" placeholder="Valor (Mês 5)">
                                     </div>
                                 </div>
 

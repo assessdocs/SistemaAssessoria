@@ -17,8 +17,6 @@
                 <script src="${window.BASE_URL}scripts/sistema/tooltip.js"><\/script> <!-- TOOLTIP -->
 
                 <link rel="stylesheet" href="${window.BASE_URL}estilos/sistema.css"> <!-- SISTEMA -->
-                <link rel="stylesheet" href="${window.BASE_URL}estilos/exportar.css"> <!-- MENU EXPORTAR -->
-                <link rel="stylesheet" href="${window.BASE_URL}estilos/consulta.css"> <!-- CONSULTA -->
                 <link rel="stylesheet" href="${window.BASE_URL}estilos/documentos.css"> <!-- DOCUMENTO -->
             `);
 
@@ -39,16 +37,11 @@
     <!-- MATERIAL WEB -->
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
         <script type="importmap">
-            {
-            "imports": {
-                "@material/web/": "https://esm.run/@material/web/"
-            }
-            }
+            {"imports":{"@material/web/": "https://esm.run/@material/web/"}}
         </script>
         <script type="module">
             import '@material/web/all.js';
             import {styles as typescaleStyles} from '@material/web/typography/md-typescale-styles.js';
-
             document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
         </script>
 
@@ -58,9 +51,13 @@
 
 <body id="dmpl">
     <div class="conteudo" id="conteudo">
+        
         <header id="pagina">
+            <div class="cabecalho-div"></div>
+
             <span id="sistema-assessoria" class="assessoria-nome"></span>
         </header>
+
         <div class="sistema-pagina">
 
             <h1>DMPL</h1>

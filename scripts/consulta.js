@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <textarea id="i-code" placeholder="Copie o código exibido no campo preto e cole-o aqui."></textarea>
                 
                 <button class="filled" id="verificar">
+                    <span class="button-state-layer"></span>
                     <span class="material-symbols-rounded">frame_inspect</span>
                     <span>Verificar Dados</span>
                 </button>
@@ -56,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
 
                 <button class="filled" id="preencher">
+                    <span class="button-state-layer"></span>
                     <span class="material-symbols-rounded">edit_document</span>
                     <span>Inserir no Documento</span>
                 </button>
