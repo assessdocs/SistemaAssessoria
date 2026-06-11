@@ -30,6 +30,7 @@
                     <script src="${window.BASE_URL}scripts/exportacao/titulo.js"><\/script>
 
                 <!-- OPCIONAIS -->
+                    <script src="${window.BASE_URL}scripts/hoje.js"><\/script>
                     <script src="${window.BASE_URL}scripts/formatacao/cnpj.js"><\/script>
             `)
         </script>
@@ -133,6 +134,7 @@
             </div>
         </div>
     </div>
+
     <div id="documento" style="display: none;">
         <div class="capa">
             <header>
@@ -145,6 +147,7 @@
                 EMITIDO EM <span id="dia">[DIA]</span> DE <span id="mes">[MÊS]</span> DE <span id="ano1">[ANO]</span>
             </footer>
         </div>
+
         <div class="pagina" id="pagina1">
             <header></header>
 
@@ -208,34 +211,6 @@
                 </section>
             </div>
 
-            <footer class="footer-direita">1</footer>
-        </div>
-        <div class="pagina" id="pagina2">
-            <header></header>
-            
-            <div class="conteudo-doc">
-                <section>
-                    <h1>VARIÁVEIS ADICIONAIS</h1>
-                    <p>Taxa de Desconto: <span>20%</span></p>
-                    <p>Crescimento na Perpetuidade: <span>3,00%</span></p>
-                    <p>IPCA Projetado: <span>5,00%</span></p>
-                </section>
-                <div class="pagina-divisoria"></div>
-                <section>
-                    <h1>FLUXO DE CAIXA DESCONTADO</h1>
-                    <p>Valor dos 5 Anos: <span>R$ <span id="5anos">[VALOR 5 ANOS]</span></span></p>
-                    <p>Valor de Perpetuidade: <span>R$ <span id="perpetuidade">[PERPETUIDADE]</span></span></p>
-                    <p>Valot Total da Empresa: <span>R$ <span id="valortotalempresa">[VALOR TOTAL]</span></span></p>
-                </section>
-                <div class="pagina-divisoria"></div>
-                <section>
-                    <h1>ANÁLISE GERAL</h1>
-                    <p><span id="analise">
-                        Neste contexto, os benefícios transcendem os meros ganhos financeiros. O investimento estratégico proposto tem o potencial de fortalecer a posição competitiva da empresa, desbravar novos horizontes de mercado e consolidar laços com os stakeholders. Ao fomentar a inovação e aprimorar a eficiência operacional, esse investimento também pode impulsionar a sustentabilidade ambiental e social da empresa, gerando impactos positivos além do aspecto financeiro. Em síntese, optar por prosseguir com este investimento não só está em sintonia com a busca pela rentabilidade, mas também com a garantia da sustentabilidade e sucesso duradouros da sua empresa.
-                    </span></p>
-                </section>
-            </div>
-
             <div id="selo">
                 SELO DE<br>AUTENTICAÇÃO
                 <div id="selo-qr">
@@ -246,8 +221,9 @@
                 </div>
             </div>
 
-            <footer class="footer-esquerda">2</footer>
+            <footer class="footer-direita">1</footer>
         </div>
+
         <div class="contracapa">
             <img src="../../sistema/logo-ass-branca.svg" alt="Logo da Assessoria">
             <footer>
