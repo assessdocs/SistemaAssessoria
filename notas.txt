@@ -1,0 +1,12 @@
+- Adicionar Conciliacao
+- Adicionar GovBR
+- Adicionar Score
+- Adicionar Varredura
+- Adicionar comprovante GovBR
+
+- Corrigir sistema de abertura da navdrawer ("lembrar" quando deve ficar aberta ou fechada)
+- Melhorar página de Configurações (modo escuro)
+- Melhorar página de Ajuda
+- Melhorar página de Início
+- Responsividade para mobile
+- Recurso para trocar de assessoria dentro do próprio sistema

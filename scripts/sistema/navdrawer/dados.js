@@ -42,22 +42,22 @@ export const menuConfig = {
 
     {
       icon: 'splitscreen_landscape',
-      text: 'Conciliação',
+      text: 'Conciliação (>Não<)',
       href: `${BASE_URL}documentos/conciliacao/`
     },
     {
       icon: 'account_balance',
-      text: 'GovBR',
+      text: 'GovBR (>Não<)',
       href: `${BASE_URL}documentos/govbr/`
     },
     {
       icon: 'speed',
-      text: 'Score',
+      text: 'Score (>Não<)',
       href: `${BASE_URL}documentos/score/`
     },
     {
       icon: 'table_chart_view',
-      text: 'Varredura',
+      text: 'Varredura (>Não<)',
       href: `${BASE_URL}documentos/varredura/`
     }
   ],

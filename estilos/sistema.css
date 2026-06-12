@@ -1027,6 +1027,7 @@ iframe {
     border: none;
     border-radius: 8px;
     height: 96px;
+    width: 100%;
 }
 
 textarea {
