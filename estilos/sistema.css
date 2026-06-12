@@ -999,6 +999,7 @@ button:active .button-state-layer {
     opacity: 0;
 
     pointer-events: none;
+    z-index: 0;
 
     transition: opacity 0.2s;
 }
@@ -1012,6 +1013,11 @@ button:active .button-state-layer {
     background-color: rgb(from var(--md-sys-color-on-surface) r g b / 0.1);
 
     color: rgb(from var(--md-sys-color-on-surface) r g b / 0.38);
+}
+
+#exportar > * {
+    position: relative;
+    z-index: 1;
 }
 
 /* CONSULTA */
@@ -1103,6 +1109,8 @@ textarea::placeholder {
     text-align: left;
     text-decoration: none;
     line-height: 20px;
+
+    position: relative;
 }
 
 .input-home .material-symbols-rounded {
@@ -1120,6 +1128,31 @@ textarea::placeholder {
 
 .input-home.bot {
     border-radius: 4px 4px 16px 16px;
+}
+
+.input-home::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    border-radius: inherit;
+
+    background-color: var(--md-sys-color-on-surface);
+    opacity: 0;
+
+    pointer-events: none;
+    z-index: 0;
+
+    transition: opacity 0.2s;
+}
+
+.input-home:hover::before {
+    opacity: var(--md-sys-state-hover-state-layer-opacity);
+}
+
+.input-home > * {
+    position: relative;
+    z-index: 1;
 }
 
 /* RESPONSIVIDADE */

@@ -13,7 +13,7 @@ function criarItem(item) {
       <span class="material-symbols-rounded">
         ${item.icon}
       </span>
-      
+
       <span class="navdrawer-text">
         ${item.text}
       </span>
@@ -27,39 +27,39 @@ function gerarGrupo(itens) {
 
 function gerarNavdrawer() {
   return `
-    <header id="navdrawer">
+    <div class="sistema-header">
 
-      <div class="sistema-header">
+      <div class="navdrawer-menu" id="navdrawer-menu">
+        <span class="menu-state-layer"></span>
 
-        <div class="navdrawer-menu" id="navdrawer-menu">
-          <span class="menu-state-layer"></span>
-
-          <span class="material-symbols-rounded" id="navdrawer-menu-icon">
-            menu
-          </span>
-        </div>
-
-        <div class="logo" id="navdrawer-logo">
-          <img src="${BASE_URL}sistema/logo-alt.svg" id="logo" alt="Logo">
-        </div>
-        
+        <span class="material-symbols-rounded" id="navdrawer-menu-icon">
+          menu
+        </span>
       </div>
 
-      <div class="sistema-navdrawer">
-
-        <div class="up-side">${gerarGrupo(menuConfig.top)}</div>
-
-        <div class="down-side">${gerarGrupo(menuConfig.bottom)}</div>
-
+      <div class="logo" id="navdrawer-logo">
+        <img src="${BASE_URL}sistema/logo-alt.svg" id="logo" alt="Logo">
       </div>
 
-    </header>
+    </div>
+
+    <div class="sistema-navdrawer">
+
+      <div class="up-side">${gerarGrupo(menuConfig.top)}</div>
+
+      <div class="down-side">${gerarGrupo(menuConfig.bottom)}</div>
+
+    </div>
   `;
 }
 
 export function inserirNavdrawer() {
-  document.body.insertAdjacentHTML(
-    'afterbegin',
-    gerarNavdrawer()
-  );
+  const navdrawer = document.getElementById('navdrawer');
+
+  if (!navdrawer) {
+    console.error('Elemento #navdrawer não encontrado.');
+    return;
+  }
+
+  navdrawer.innerHTML = gerarNavdrawer();
 }
