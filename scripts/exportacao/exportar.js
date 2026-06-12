@@ -1,4 +1,18 @@
 document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById('menu-inferior').innerHTML = `
+        <div class="confirmacao">
+            <label for="confirmacao" class="label-confirmacao">
+                Todos os campos foram preenchidos?
+            </label>
+            <md-checkbox touch-target="wrapper" id="confirmacao"></md-checkbox>
+        </div>
+                        
+        <button id="exportar">
+            <span class="material-symbols-rounded icon">download</span>
+            <span>Baixar</span>
+        </button>
+    `;
+
     const confirmacao = document.getElementById("confirmacao");
     const exportar = document.getElementById("exportar");
 
@@ -19,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // garante estado inicial
     atualizarBotao();
 
-    document.getElementById('exportar').innerHTML = `
-        <span class="material-symbols-rounded icon">download</span>Baixar
-    `;
+    if (document.getElementById("dmpl")) {
+        document.getElementById("menu-inferior").classList.add("mono");
+    }
 });

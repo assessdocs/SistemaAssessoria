@@ -91,49 +91,40 @@
 
                         <div class="base-box" id="consulta"></div>
                     </div>
-                <div class="box-duplo">
-                    <div class="base-box" id="resultado-consulta"></div>
+                    <div class="box-duplo">
+                        <div class="base-box" id="resultado-consulta"></div>
 
-                    <div class="base-box">
-                        <h2>Documento</h2>
-                        <div class="base-boxcampos">
-                            <div class="campo">
-                                <div class="label">
-                                    <label class="label-campo" for="i-orcamentode">Orçamento de:</label>
-                                    <span class="material-symbols-rounded tooltip" data-tooltip="É o documento que está sendo orçado, como EVE, BV, DMPL, etc.">info</span>
+                        <div class="base-box">
+                            <h2>Documento</h2>
+                            <div class="base-boxcampos">
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-orcamentode">Orçamento de:</label>
+                                        <span class="material-symbols-rounded tooltip" data-tooltip="É o documento que está sendo orçado, como EVE, BV, DMPL, etc.">info</span>
+                                    </div>
+                                    <input class="input" id="i-orcamentode" placeholder="Documento">
                                 </div>
-                                <input class="input" id="i-orcamentode" placeholder="Documento">
-                            </div>
 
-                            <div class="campo">
-                                <div class="label">
-                                    <label class="label-campo" for="i-valortotal">Valor Total</label>
-                                    <span class="material-symbols-rounded tooltip" data-tooltip="Utilize somente números e vírgulas. OBS: Esse é o valor TOTAL do orçamento, ou seja, o valor final que é cobrado, pois o sistema irá calcular os 'Tributos' automaticamente.">info</span>
-                                </div>                            
-                                <input class="input" id="i-valortotal" placeholder="1.000,00" type="text">
-                            </div>
-                            
-                            <div class="campo">
-                                <div class="label">
-                                    <label class="label-campo" for="i-telefone">Telefone do Cliente (WhatsApp)</label>
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-valortotal">Valor Total</label>
+                                        <span class="material-symbols-rounded tooltip" data-tooltip="Utilize somente números e vírgulas. OBS: Esse é o valor TOTAL do orçamento, ou seja, o valor final que é cobrado, pois o sistema irá calcular os 'Tributos' automaticamente.">info</span>
+                                    </div>                            
+                                    <input class="input" id="i-valortotal" placeholder="1.000,00" type="text">
                                 </div>
-                                <input class="input" id="i-telefone" placeholder="(00) 90000-0000">
+                                
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-telefone">Telefone do Cliente (WhatsApp)</label>
+                                    </div>
+                                    <input class="input" id="i-telefone" placeholder="(00) 90000-0000">
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
             
-                <div class="menu-inferior">
-                    <div class="confirmacao">
-                        <label for="confirmacao" class="label-confirmacao">
-                            Todos os campos foram preenchidos?
-                            <md-checkbox touch-target="wrapper" id="confirmacao"></md-checkbox>
-                        </label>
-                    </div>
-                    
-                    <button id="exportar"></button>
-                </div>
+                <div class="menu-inferior" id="menu-inferior"></div>
             </div>
         </div>
     </div>

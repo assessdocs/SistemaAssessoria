@@ -458,6 +458,8 @@ h2 {
 
     display: flex;
     align-items: center;
+
+    text-wrap: nowrap;
 }
 
 input.input {
@@ -946,6 +948,11 @@ button:active .button-state-layer {
     flex-direction: row;
 
     align-items: center;
+    justify-content: flex-start;
+
+    height: 36px;
+
+    gap: 4px;
 }
 
 .label-confirmacao {
@@ -956,18 +963,14 @@ button:active .button-state-layer {
 
     overflow-wrap: break-word;
 
-    height: 34px;
-
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-
     margin-left: 8px;
+    line-height: 18px;
 }
 
 #exportar {
     height: 56px;
     width: min-content;
+    box-sizing: border-box;
 
     display: flex;
     flex-direction: row;
@@ -980,7 +983,7 @@ button:active .button-state-layer {
     align-items: center;
 
     border: 0px;
-    padding: 0px 24px 0px 24px;
+    padding: 16px 24px;
 
     border-radius: 28px;
 
@@ -1254,16 +1257,39 @@ textarea::placeholder {
 }
 
 @media (max-width: 760px) {
+    .confirmacao {
+        justify-content: flex-start;
+    }
+
+    .label-confirmacao {
+        min-width: 136px;
+    }
+}
+
+@media (max-width: 628px) {
+    .label-confirmacao {
+        width: min-content;
+    }
+}
+
+@media (max-width: 504px) {
     .menu-inferior {
         flex-direction: column;
         gap: 12px;
     }
 
-    .label-confirmacao {
-        margin-left: 0px;
+    .confirmacao {
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 4px;
+        margin-bottom: 4px;
     }
 
     #exportar {
         width: 100%;
     }
+}
+
+@media (max-width: 486px) {
+    
 }
