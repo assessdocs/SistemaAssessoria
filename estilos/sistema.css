@@ -36,6 +36,8 @@ body.expanded {
     background-color: var(--md-sys-color-surface-container);
 
     transition: all 0.2s ease-in-out;
+
+    user-select: none;
 }
 
 #navdrawer.expanded {
@@ -492,6 +494,7 @@ input.input:focus {
 input::placeholder {
   color: var(--md-sys-color-outline-variant);
   font-weight: 500;
+  user-select: none;
 }
 
 .campo-texto {
@@ -667,6 +670,7 @@ input::placeholder {
     transition: all 0.1s ease-in-out;
     
     position: relative;
+    user-select: none;
 }
 
 button .material-symbols-rounded {
@@ -843,6 +847,7 @@ button:active .button-state-layer {
     align-items: center;
 
     overflow: visible;
+    user-select: none;
 }
 
 .tooltip::before {
