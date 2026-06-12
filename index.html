@@ -17,8 +17,12 @@
                 <script src="${window.BASE_URL}scripts/sistema/tooltip.js"><\/script> <!-- TOOLTIP -->
 
                 <link rel="stylesheet" href="${window.BASE_URL}estilos/sistema.css"> <!-- SISTEMA -->
-                <link rel="stylesheet" href="${window.BASE_URL}estilos/inicio.css">
             `);
+
+            document.write(`
+                <!-- CONSULTA -->
+                    <script src="${window.BASE_URL}scripts/consulta-home.js"><\/script>
+            `)
         </script>
 
     <!-- MATERIAL WEB -->
@@ -44,24 +48,41 @@
 
         <div class="sistema-pagina">
             <h1>Painel Inicial</h1>
-            <div class="sistema-conteudo">
+            <div class="formularios">
                 <div class="area-boxes">
                     <div class="base-box">
                         <div class="box-header">
                             <span class="material-symbols-rounded">keep</span>
                             <h2>Acesso Rápido</h2>
                         </div>
-                        <div class="area-campos">
-                            <a class="campo" href="./consulta/">
-                                Consulta<span class="material-symbols-rounded">arrow_right</span>
+
+                        <div class="base-boxcampos grupo">
+                            
+                            <a class="input-home top" href="./documentos/orcamento/">
+                                Orçamento<span class="material-symbols-rounded">arrow_right</span>
                             </a>
-                            <a class="campo" href="./documentos/aprovacao/">
-                                Aprovação<span class="material-symbols-rounded">arrow_right</span>
+
+                            <a class="input-home center" href="./documentos/eve/">
+                                EVE e SWOT<span class="material-symbols-rounded">arrow_right</span>
+                            </a>
+
+                            <a class="input-home center" href="./documentos/business/">
+                                Business<span class="material-symbols-rounded">arrow_right</span>
+                            </a>
+
+                            <a class="input-home center" href="./documentos/dmpl/">
+                                DMPL<span class="material-symbols-rounded">arrow_right</span>
+                            </a>
+
+                            <a class="input-home bot" href="./documentos/notafiscal/">
+                                Nota Fiscal<span class="material-symbols-rounded">arrow_right</span>
                             </a>
                         </div>
                     </div>
-                    <div class="base-box">
                     
+                    <div class="box-duplo">
+                        <div class="base-box" id="consulta"></div>
+                        <div class="base-box" id="resultado-consulta"></div>
                     </div>
                 </div>
             </div>

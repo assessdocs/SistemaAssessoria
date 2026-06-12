@@ -5,11 +5,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 
-:root {
-    --cor-destaque: #010080;
-    --cinza-titulos: #333;
-}
-
 html {
     overflow: hidden;
 }
@@ -108,12 +103,6 @@ body.expanded {
 
 #logo {
     height: 100%;
-}
-
-.logo-div{
-    height: 100%;
-    width: 1px;
-    background-color: white;
 }
 
 .sistema-navdrawer {
@@ -507,7 +496,7 @@ input.input:focus {
 }
 
 input::placeholder {
-  color: #bdbdbd;
+  color: var(--md-sys-color-outline-variant);
   font-weight: 500;
 }
 
@@ -670,7 +659,7 @@ input::placeholder {
 
 button .material-symbols-rounded {
     font-size: 20px;
-    font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 20;
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
 }
 
 button.filled {
@@ -966,7 +955,7 @@ button:active .button-state-layer {
     margin-left: 8px;
 }
 
-button#exportar {
+#exportar {
     height: 56px;
     width: min-content;
 
@@ -984,21 +973,41 @@ button#exportar {
     padding: 0px 24px 0px 24px;
 
     border-radius: 28px;
+
+    position: relative;
+    overflow: hidden;
 }
 
-button#exportar .icon {
+#exportar .icon {
     font-size: 24px;
-    font-variation-settings: 'fill' 0, 'wght' 500, 'grad' 0, 'opsz' 24;
+    font-variation-settings: 'fill' 0, 'wght' 400, 'grad' 0, 'opsz' 24;
 }
 
-button#exportar.enabled {
+#exportar.enabled {
     cursor: pointer;
-    background-color: #0F9D58;
+    background-color: var(--md-sys-color-primary);
 
-    color: white;
+    color: var(--md-sys-color-on-primary);
 }
 
-button#exportar.disabled {
+#exportar::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-color: var(--md-sys-color-on-primary);
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition: opacity 0.2s;
+}
+
+#exportar.enabled:hover::before {
+    opacity: var(--md-sys-state-hover-state-layer-opacity);
+}
+
+#exportar.disabled {
     cursor: not-allowed;
     background-color: rgb(from var(--md-sys-color-on-surface) r g b / 0.1);
 
@@ -1046,6 +1055,71 @@ textarea:focus {
 textarea::placeholder {
   color: var(--md-sys-color-outline);
   font-weight: 500;
+}
+
+/* HOME */
+
+.box-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 6px;
+
+    color: var(--md-sys-color-on-primary-container);
+    font-family: 'Inter';
+    font-size: 16px;
+    font-weight: 600;
+
+    text-align: left;
+
+    line-height: 14px;
+
+    margin-bottom: 20px;
+}
+
+.box-header h2 {
+    margin: 0px;
+}
+
+.input-home {
+    cursor: pointer;
+
+    background-color: var(--md-sys-color-surface);
+    width: 100%;
+    height: 48px;
+    padding: 16px 10px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: space-between;
+
+    color: var(--md-sys-color-on-surface);
+    font-family: 'Inter';
+    font-size: 14px;
+    font-weight: 500;
+    text-align: left;
+    text-decoration: none;
+    line-height: 20px;
+}
+
+.input-home .material-symbols-rounded {
+    font-size: 20px;
+    font-variation-settings: 'fill' 1, 'wght' 400, 'grad' 0, 'opsz' 20;
+}
+
+.input-home.top {
+    border-radius: 16px 16px 4px 4px;
+}
+
+.input-home.center {
+    border-radius: 4px 4px 4px 4px;
+}
+
+.input-home.bot {
+    border-radius: 4px 4px 16px 16px;
 }
 
 /* RESPONSIVIDADE */
@@ -1130,7 +1204,7 @@ textarea::placeholder {
         margin-left: 0px;
     }
 
-    button#exportar {
+    #exportar {
         width: 100%;
     }
 }
