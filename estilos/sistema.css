@@ -670,7 +670,9 @@ input::placeholder {
     transition: all 0.1s ease-in-out;
     
     position: relative;
+
     user-select: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 button .material-symbols-rounded {
@@ -847,7 +849,9 @@ button:active .button-state-layer {
     align-items: center;
 
     overflow: visible;
+    
     user-select: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .tooltip::before {
@@ -1296,5 +1300,5 @@ textarea::placeholder {
 }
 
 @media (max-width: 486px) {
-    teste
+    
 }
