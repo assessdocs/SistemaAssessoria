@@ -8,19 +8,35 @@ document.addEventListener('DOMContentLoaded', () => {
         { inputId: 'i-telefone', targetId: 'telefone', originalText: '[TELEFONE]' },
     ];
 
+    function formatarData(valor) {
+        if (!valor) return '';
+
+        const [ano, mes, dia] = valor.split('-');
+
+        if (!ano || !mes || !dia) return valor;
+
+        return `${dia}/${mes}/${ano}`;
+    }
+
     configurations.forEach(config => {
         const inputElement = document.getElementById(config.inputId);
         const targetElement = document.getElementById(config.targetId);
 
-        // Initialize the target element with the original text
         targetElement.textContent = config.originalText;
 
         inputElement.addEventListener('input', () => {
             if (inputElement.value.trim() === '') {
                 targetElement.textContent = config.originalText;
-            } else {
-                targetElement.textContent = inputElement.value;
+                return;
             }
+
+            let valor = inputElement.value;
+
+            if (config.inputId === 'i-data') {
+                valor = formatarData(valor);
+            }
+
+            targetElement.textContent = valor;
         });
     });
 });
