@@ -43,7 +43,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('resultado-consulta').innerHTML = `
-        <h2>Resultado da Consulta</h2>
+        <div class="box-header">
+            <span class="material-symbols-rounded">search_check_2</span>
+            <h2>Resultado da Consulta</h2>
+        </div>
 
         <div class="base-boxcampos">
             <div class="campo">
