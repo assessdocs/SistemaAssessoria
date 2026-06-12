@@ -80,6 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // BOXES
         consultaBox: document.getElementById('consulta'),
         versaoManualBox: document.getElementById('versaomanual'),
+        boxManual: document.getElementById('box-manual'),
 
         // CABEÇALHO
         headerManual: document.getElementById('h2-versaomanual'),
@@ -322,6 +323,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         el.headerManual.classList.add('ativo');
 
+        // remove secondary quando ativado
+        el.consultaBox.classList.remove('secondary');
+        el.boxManual.classList.remove('secondary');
+
         resetarDocumento();
 
     }
@@ -333,6 +338,12 @@ document.addEventListener('DOMContentLoaded', () => {
         ui.esconder(el.versaoManualBox);
 
         el.headerManual.classList.remove('ativo');
+
+        // adiciona secondary quando desativado
+        el.consultaBox.classList.add('secondary');
+        el.boxManual.classList.add('secondary');
+        el.resultado.classList.add('secondary');
+
 
         verificarConsulta();
 
@@ -563,6 +574,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==================================================
 
     resetarDocumento();
+
+    el.consultaBox.classList.add('secondary');
+    el.boxManual.classList.add('secondary');
+    el.resultado.classList.add('secondary');
 
     atualizarModo();
 

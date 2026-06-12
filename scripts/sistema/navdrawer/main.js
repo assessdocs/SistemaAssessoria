@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('navdrawer'),
     document.getElementById('pagina'),
     ...document.querySelectorAll(
-      '.sistema-header, .sistema-navdrawer, .navdrawer-text, .navdrawer-div'
+      '.sistema-navdrawer, .navdrawer-text, .navdrawer-div'
     ),
   ];
 
