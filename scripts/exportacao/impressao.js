@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
             navdrawer.style.display = 'flex'; // alterar para flex após editar
         }
 
-        sistema.style.display = 'flex';
+        sistema.style.display = 'flex'; // alterar para flex após editar
     }
     
     function doc() {

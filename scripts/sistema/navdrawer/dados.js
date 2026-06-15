@@ -42,7 +42,7 @@ export const menuConfig = {
 
     {
       icon: 'splitscreen_landscape',
-      text: 'Conciliação (>Não<)',
+      text: 'Conciliação',
       href: `${BASE_URL}documentos/conciliacao/`
     },
     {
