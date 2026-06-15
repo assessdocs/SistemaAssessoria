@@ -727,12 +727,7 @@ button:active .button-state-layer {
 }
 
 .botao-input {
-    max-width: min-content;
-
-    border-top-left-radius: 2px;
-    border-top-right-radius: 8px;
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 8px;
+    max-width: max-content;
 }
 
 /* SWITCH (não está em uso) */
