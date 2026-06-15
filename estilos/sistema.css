@@ -643,6 +643,13 @@ input::placeholder {
     height: 40px;
 }
 
+.input-com-botao {
+    display: flex;
+    flex-direction: row;
+
+    gap: 2px;
+}
+
 /* BOTÕES */
 
 .sistema-pagina button{
@@ -717,6 +724,15 @@ button:active .button-state-layer {
     opacity: var(--md-sys-state-pressed-state-layer-opacity);
 
     border-radius: 10px;
+}
+
+.botao-input {
+    max-width: min-content;
+
+    border-top-left-radius: 2px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 8px;
 }
 
 /* SWITCH (não está em uso) */

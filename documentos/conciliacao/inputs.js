@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { inputId: 'i-agencia', targetId: 'agencia', originalText: '[AGÊNCIA]' },
         { inputId: 'i-conta', targetId: 'conta', originalText: '[CONTA]' },
         { inputId: 'i-instituicao', targetId: 'instituicao', originalText: '[INSTITUIÇÃO]' },
-        { inputId: 'i-chave-pix', targetId: 'chave-pix', originalText: '[CHAVE PIX]' },
+        { inputId: 'i-chave', targetId: 'chave', originalText: '[CHAVE]' },
         { inputId: 'i-data', targetId: 'data', originalText: '[DATA]' },
     ];
 

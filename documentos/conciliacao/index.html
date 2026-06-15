@@ -131,9 +131,17 @@
 
                                 <div class="campo">
                                     <div class="label">
-                                        <label class="label-campo" for="i-chave-pix">Chave PIX</label>
+                                        <label class="label-campo" for="i-chave">Chave</label>
                                     </div>
-                                    <input class="input" id="i-chave-pix" placeholder="CPF, CNPJ, Email, Telefone ou aleatória" type="text">
+
+                                    <div class="input-com-botao">
+                                        <input class="input" id="i-chave" placeholder="####-####-####-####-####-####" type="text">
+
+                                        <button class="filled botao-input" id="gerar">
+                                            <span class="material-symbols-rounded">autorenew</span>
+                                            <span id="texto-adicionar">Gerar</span>
+                                        </button>
+                                    </div>
                                 </div>
 
                                 <div class="campo">
@@ -294,7 +302,7 @@
                                 <div class="container">
                                     <div class="campos">
                                         <div class="campos-titulo">CHAVE</div>
-                                        <span id="chave-pix" class="campos-entrada">[CHAVE PIX]</span>
+                                        <span id="chave" class="campos-entrada">[CHAVE]</span>
                                     </div>
                                     <div class="campos">
                                         <div class="campos-titulo">DATA</div>
@@ -318,6 +326,7 @@
 
     <!--PERSONALIZADO-->
         <script src="./inputs.js"></script>
+        <script src="./chave.js"></script>
 </body>
 
 </html>
