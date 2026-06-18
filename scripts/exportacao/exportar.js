@@ -7,8 +7,8 @@ document.addEventListener("DOMContentLoaded", function () {
             <md-checkbox touch-target="wrapper" id="confirmacao"></md-checkbox>
         </div>
                         
-        <button id="exportar">
-            <span class="material-symbols-rounded icon">download</span>
+        <button class="medium filled" id="exportar">
+            <span class="material-symbols-rounded p24">download</span>
             <span>Baixar</span>
         </button>
     `;

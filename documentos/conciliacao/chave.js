@@ -16,12 +16,15 @@ document.addEventListener('DOMContentLoaded', () => {
         inputChave.value = valor;
     });
 
-    // Geração de código numérico de 24 dígitos
+    // Geração de código alfanumérico de 24 caracteres
     btnGerar.addEventListener('click', () => {
+        const caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
         let codigo = '';
 
         for (let i = 0; i < 24; i++) {
-            codigo += Math.floor(Math.random() * 10);
+            codigo += caracteres.charAt(
+                Math.floor(Math.random() * caracteres.length)
+            );
         }
 
         inputChave.value = codigo.match(/.{1,4}/g).join('-');

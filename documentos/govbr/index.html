@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>GovBR | WebDOCs</title>
+
+    <!-- SCRIPT -->
+        <script>
+            window.BASE_URL = location.hostname.includes('github.io')
+                ? '/SistemaAssessoria/'
+                : '/';
+
+            document.write(`
+                <script type="module" src="${window.BASE_URL}scripts/sistema/head.js"><\/script> <!-- HEAD, FAVICON E ÍCONES -->
+                <script type="module" src="${window.BASE_URL}scripts/sistema/navdrawer/main.js"><\/script> <!-- NAVDRAWER -->
+                <script src="${window.BASE_URL}scripts/sistema/assessoria.js"><\/script> <!-- DADOS DA ASSESSORIA -->
+                <script src="${window.BASE_URL}scripts/sistema/tooltip.js"><\/script> <!-- TOOLTIP -->
+
+                <link rel="stylesheet" href="${window.BASE_URL}estilos/sistema.css"> <!-- SISTEMA -->
+            `);
+
+            document.write(`
+                <!-- CONSULTA -->
+                    <script src="${window.BASE_URL}scripts/consulta.js"><\/script>
+
+                <!-- EXPORTAÇÃO -->
+                    <script src="${window.BASE_URL}scripts/exportacao/exportar.js"><\/script>
+                    <script src="${window.BASE_URL}scripts/exportacao/impressao.js"><\/script>
+                    <script src="${window.BASE_URL}scripts/exportacao/titulo.js"><\/script>
+
+                <!-- OPCIONAIS -->
+                    <script src="${window.BASE_URL}scripts/formatacao/cpf-cnpj.js"><\/script>
+            `)
+        </script>
+
+    <!-- MATERIAL WEB -->
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+        <script type="importmap">
+            {"imports":{"@material/web/": "https://esm.run/@material/web/"}}
+        </script>
+        <script type="module">
+            import '@material/web/all.js';
+            import {styles as typescaleStyles} from '@material/web/typography/md-typescale-styles.js';
+            document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
+        </script>
+
+    <!-- FONT AWESOME -->
+        <script src="https://kit.fontawesome.com/4033899e8e.js" crossorigin="anonymous"></script>
+
+    <!-- ESTILOS -->
+        <link rel="stylesheet" href="./govbr.css"> <!-- DOCUMENTO -->
+        <link rel="stylesheet" href="./font-awesome/fontawesome.css"> <!-- FONT-RESERVA -->
+</head>
+
+<body id="govbr">
+    <header id="navdrawer"></header>
+    
+    <div class="conteudo" id="conteudo">
+        
+        <header id="pagina">
+            <div class="cabecalho-div"></div>
+
+            <span id="sistema-assessoria" class="assessoria-nome"></span>
+        </header>
+
+        <div class="sistema-pagina">
+
+            <h1>GovBR (horizontal)</h1>
+            
+            <div class="formularios">
+                <div class="area-boxes">
+                    <div class="box-coluna">
+                        <div class="base-box" id="box-manual">
+                            <div class="h2-ativar" id="h2-versaomanual">
+                                <h2>Versão Manual</h2>
+                                <md-switch icons show-only-selected-icon id="i-versaomanual"></md-switch>
+                            </div>
+                            <div class="base-boxcampos" id="versaomanual">
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-cnpj">CNPJ</label>
+                                        <span class="material-symbols-rounded tooltip" data-tooltip="Utilize somente números, pois o sistema irá pontuar automaticamente.">info</span>
+                                    </div>
+                                    <input class="input" id="i-cnpj" placeholder="00.000.000/0000-00">
+                                </div>
+                                
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-razaosocial">Razão Social</label>
+                                    </div>
+                                    <input class="input" id="i-razaosocial" placeholder="Nome da Empresa">
+                                </div>
+
+                            </div>
+                        </div>
+                        
+                        <div class="base-box" id="consulta"></div>
+
+                        <div class="base-box" id="resultado-consulta"></div>
+                    </div>
+
+                    <div class="box-coluna">
+                        <div class="base-box" id="i-card1">
+                            <h2>Card 1</h2>
+
+                            <div class="base-boxcampos">
+                                <div class="campo-duplo">
+                                    <div class="campo">
+                                        <div class="label">
+                                            <label class="label-campo" for="i-titulo1">Título</label>
+                                        </div>
+
+                                        <input class="input" id="i-titulo1" placeholder="Tipo do Card" type="text">
+                                    </div>
+                                    
+                                    <div class="campo min"  style="margin-left: 2px;">
+                                        <div class="label">
+                                            <div class="label-campo">Ícone</div>
+                                        </div>
+
+                                        <button class="filled icon wide" id="i-icone1">
+                                            <span class="button-state-layer"></span>
+                                            <span class="material-symbols-rounded p24 fill" id="icone1">priority</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="campo">
+                                    <div class="label" >
+                                        <label class="label-campo" for="i-c1-linha1">Informações</label>
+                                    </div>
+
+                                    <input class="input" id="i-c1-linha1" placeholder="Linha 1" type="text">
+                                </div>
+
+                                <div class="campo grupo" id="container-c1-linha2">
+                                    <div class="input-com-botao">
+                                        <input class="input bot" id="i-c1-linha2" placeholder="Linha 2" type="text">
+
+                                        <button class="standard icon inline" id="delete1" style="right: 0px;">
+                                            <span class="button-state-layer"></span>
+                                            <span class="material-symbols-rounded">delete</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="campo grupo" id="container-add-linha1">
+                                    <button class="grupo text" id="add-linha1">
+                                        <span class="button-state-layer"></span>
+                                        <span class="material-symbols-rounded">add_row_below</span>
+                                        <span>Adicionar linha</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="base-box" id="i-card2">
+                        
+                            <h2>Card 2</h2>
+
+                            <button class="standard icon inline" id="close2" style="top: 10px; right: 10px;">
+                                <span class="button-state-layer"></span>
+                                <span class="material-symbols-rounded">close</span>
+                            </button>
+
+                            <div class="base-boxcampos">
+                                <div class="campo-duplo">
+                                    <div class="campo">
+                                        <div class="label">
+                                            <label class="label-campo" for="i-titulo2">Título</label>
+                                        </div>
+
+                                        <input class="input" id="i-titulo2" placeholder="Tipo do Card" type="text">
+                                    </div>
+                                    
+                                    <div class="campo min"  style="margin-left: 2px;">
+                                        <div class="label">
+                                            <div class="label-campo">Ícone</div>
+                                        </div>
+
+                                        <button class="filled icon wide" id="i-icone2">
+                                            <span class="button-state-layer"></span>
+                                            <span class="material-symbols-rounded p24 fill" id="icone2">priority</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="campo">
+                                    <div class="label" >
+                                        <label class="label-campo" for="i-c2-linha1">Informações</label>
+                                    </div>
+
+                                    <input class="input" id="i-c2-linha1" placeholder="Linha 1" type="text">
+                                </div>
+
+                                <div class="campo grupo" id="container-c2-linha2">
+                                    <div class="input-com-botao">
+                                        <input class="input bot" id="i-c2-linha2" placeholder="Linha 2" type="text">
+                                        
+                                        </input>
+
+                                        <button class="standard icon inline" id="delete2" style="right: 0px;">
+                                            <span class="button-state-layer"></span>
+                                            <span class="material-symbols-rounded">delete</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="campo grupo" id="container-add-linha2">
+                                    <button class="grupo text" id="add-linha2">
+                                        <span class="button-state-layer"></span>
+                                        <span class="material-symbols-rounded">add_row_below</span>
+                                        <span>Adicionar linha</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="base-box" id="i-card3">
+                        
+                            <h2>Card 3</h2>
+
+                            <button class="standard icon inline" id="close3" style="top: 10px; right: 10px;">
+                                <span class="button-state-layer"></span>
+                                <span class="material-symbols-rounded">close</span>
+                            </button>
+
+                            <div class="base-boxcampos">
+                                <div class="campo-duplo">
+                                    <div class="campo">
+                                        <div class="label">
+                                            <label class="label-campo" for="i-titulo3">Título</label>
+                                        </div>
+
+                                        <input class="input" id="i-titulo3" placeholder="Tipo do Card" type="text">
+                                    </div>
+                                    
+                                    <div class="campo min"  style="margin-left: 2px;">
+                                        <div class="label">
+                                            <div class="label-campo">Ícone</div>
+                                        </div>
+
+                                        <button class="filled icon wide" id="i-icone3">
+                                            <span class="button-state-layer"></span>
+                                            <span class="material-symbols-rounded p24 fill" id="icone3">priority</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="campo">
+                                    <div class="label" >
+                                        <label class="label-campo" for="i-c3-linha1">Informações</label>
+                                    </div>
+
+                                    <input class="input" id="i-c3-linha1" placeholder="Linha 1" type="text">
+                                </div>
+
+                                <div class="campo grupo" id="container-c3-linha2">
+                                    <div class="input-com-botao">
+                                        <input class="input bot" id="i-c3-linha2" placeholder="Linha 2" type="text">
+                                        
+                                        </input>
+
+                                        <button class="standard icon inline" id="delete3" style="right: 0px;">
+                                            <span class="button-state-layer"></span>
+                                            <span class="material-symbols-rounded">delete</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="campo grupo" id="container-add-linha3">
+                                    <button class="grupo text" id="add-linha3">
+                                        <span class="button-state-layer"></span>
+                                        <span class="material-symbols-rounded">add_row_below</span>
+                                        <span>Adicionar linha</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="base-box" id="i-card4">
+                        
+                            <h2>Card 4</h2>
+
+                            <button class="standard icon inline" id="close4" style="top: 10px; right: 10px;">
+                                <span class="button-state-layer"></span>
+                                <span class="material-symbols-rounded">close</span>
+                            </button>
+
+                            <div class="base-boxcampos">
+                                <div class="campo-duplo">
+                                    <div class="campo">
+                                        <div class="label">
+                                            <label class="label-campo" for="i-titulo4">Título</label>
+                                        </div>
+
+                                        <input class="input" id="i-titulo4" placeholder="Tipo do Card" type="text">
+                                    </div>
+                                    
+                                    <div class="campo min"  style="margin-left: 2px;">
+                                        <div class="label">
+                                            <div class="label-campo">Ícone</div>
+                                        </div>
+
+                                        <button class="filled icon wide" id="i-icone4">
+                                            <span class="button-state-layer"></span>
+                                            <span class="material-symbols-rounded p24 fill" id="icone4">priority</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="campo">
+                                    <div class="label" >
+                                        <label class="label-campo" for="i-c4-linha1">Informações</label>
+                                    </div>
+
+                                    <input class="input" id="i-c4-linha1" placeholder="Linha 1" type="text">
+                                </div>
+
+                                <div class="campo grupo" id="container-c4-linha2">
+                                    <div class="input-com-botao">
+                                        <input class="input bot" id="i-c4-linha2" placeholder="Linha 2" type="text">
+                                        
+                                        </input>
+
+                                        <button class="standard icon inline" id="delete4" style="right: 0px;">
+                                            <span class="button-state-layer"></span>
+                                            <span class="material-symbols-rounded">delete</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="campo grupo" id="container-add-linha4">
+                                    <button class="grupo text" id="add-linha4">
+                                        <span class="button-state-layer"></span>
+                                        <span class="material-symbols-rounded">add_row_below</span>
+                                        <span>Adicionar linha</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="base-box" id="i-card5">
+                        
+                            <h2>Card 5</h2>
+
+                            <button class="standard icon inline" id="close5" style="top: 10px; right: 10px;">
+                                <span class="button-state-layer"></span>
+                                <span class="material-symbols-rounded">close</span>
+                            </button>
+
+                            <div class="base-boxcampos">
+                                <div class="campo-duplo">
+                                    <div class="campo">
+                                        <div class="label">
+                                            <label class="label-campo" for="i-titulo5">Título</label>
+                                        </div>
+
+                                        <input class="input" id="i-titulo5" placeholder="Tipo do Card" type="text">
+                                    </div>
+                                    
+                                    <div class="campo min"  style="margin-left: 2px;">
+                                        <div class="label">
+                                            <div class="label-campo">Ícone</div>
+                                        </div>
+
+                                        <button class="filled icon wide" id="i-icone5">
+                                            <span class="button-state-layer"></span>
+                                            <span class="material-symbols-rounded p24 fill" id="icone5">priority</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="campo">
+                                    <div class="label" >
+                                        <label class="label-campo" for="i-c5-linha1">Informações</label>
+                                    </div>
+
+                                    <input class="input" id="i-c5-linha1" placeholder="Linha 1" type="text">
+                                </div>
+
+                                <div class="campo grupo" id="container-c5-linha2">
+                                    <div class="input-com-botao">
+                                        <input class="input bot" id="i-c5-linha2" placeholder="Linha 2" type="text">
+                                        
+                                        </input>
+
+                                        <button class="standard icon inline" id="delete5" style="right: 0px;">
+                                            <span class="button-state-layer"></span>
+                                            <span class="material-symbols-rounded">delete</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="campo grupo" id="container-add-linha5">
+                                    <button class="grupo text" id="add-linha5">
+                                        <span class="button-state-layer"></span>
+                                        <span class="material-symbols-rounded">add_row_below</span>
+                                        <span>Adicionar linha</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="base-box" id="box-add-card">
+                            <button class="outline medium" id="add-card">
+                                <span class="button-state-layer"></span>
+                                <span class="material-symbols-rounded p24">add_box</span>
+                                <span>Adicionar Card</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-inferior" id="menu-inferior"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="documento" style="display: none;">
+        <div class="govbr-pagina">
+            <div class="govbr-header">
+                <img src="/sistema/govbr/govbr.svg" alt="GOV.br" style="margin-right: auto;">
+
+                <div class="header-right">
+                    <div class="menu-paginas">
+                        <span class="paginas-opcoes">Órgãos do Governo</span>
+                        <span class="paginas-opcoes">Acesso à Informação</span>
+                        <span class="paginas-opcoes">Legislação</span>
+                        <span class="paginas-opcoes">Acessibilidade</span>
+                    </div>
+
+                    <div class="menu-div"></div>
+
+                    <div class="menu-extras">
+                        <i class="fa-solid fa-cookie-bite" style="color: #1351b4; margin-left: 6px; margin-right: 6px;"></i>
+                        <i class="fa-solid fa-circle-half-stroke" style="color: #1351b4; margin-left: 6px; margin-right: 6px;"></i>
+                        <i class="fa-solid fa-th" style="color: #1351b4; margin-left: 6px; margin-right: 6px; font-family: 'Font Awesome 5 Free';"></i>
+                    </div>
+
+                    <div class="usuario">
+                        <img src="/sistema/govbr/perfil1.png" alt="Foto de Perfil" id="usuario-foto">
+                        <span class="usuario-nome assessoria-nome" id="usuario-nome"></span>
+                        <i class="fa-solid fa-caret-down" style="color: #555; margin-bottom: 0px;"></i>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="linha1">
+                <div class="receita">
+                    <div style="color: #1351b4; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; margin-right: 4px;">
+                        <i class="fa-solid fa-bars" style="color: #1351b4;"></i>
+                    </div>
+                    Receita Federal
+                </div>
+
+                <div class="pesquisa">
+                    <span class="pesquisa-texto">O que você procura?</span>
+
+                    <div class="pesquisa-right">
+                        <div class="pesquisa-voice">
+                            <i class="fa-solid fa-microphone" style="color: #1351b4; font-family: 'Font Awesome 5 Free'; font-size: 20px;"></i>
+                        </div>
+
+                        <div class="pesquisa-icone">
+                            <i class="fa-solid fa-magnifying-glass" style="color: #1351b4; font-family: 'Font Awesome 5 Free'; font-size: 20px;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="linha2">
+                <i class="fa-solid fa-home" style="color: #1351b4; font-family: 'Font Awesome 5 Free'; font-size: 16px;"></i>
+                <span style="color: #9E9D9D; font-size: 12px; font-weight: 500; margin-bottom: 3px;">></span>
+                <span style="color: #1351B4; font-weight: 500;">Serviços</span>
+                <span style="color: #9E9D9D; font-size: 12px; font-weight: 500; margin-bottom: 3px;">></span>
+                <span style="color: #333333; font-weight: 600;">Auditoria Fiscal</span>
+            </div>
+
+            <div class="divisoria"></div>
+
+            <div class="empresa">
+                <i class="fa-solid fa-store" style="color: #2670e8; font-family: 'Font Awesome 5 Free'; font-size: 42px;"></i>
+
+                <span class="empresa-rs" id="razaosocial"></span>
+
+                <div class="dados">
+                    <span id="naturezajuridica"></span>
+
+                    <span style="color: #333;">></span>
+
+                    <span id="cnpj"></span>
+                </div>
+
+            </div>
+
+            <div class="divisoria"></div>
+
+            <div class="area-cards">
+                <div class="card" id="card1">
+                    <i class="fa-solid fa-circle-info" style="color: #1351B4; position: absolute; top: 8px; right: 8px; font-size: 20px;  font-family: 'Font Awesome 5 Free';"></i>
+
+                    <div class="card-tipo">
+                        <i class="fa-solid" style="color: #0C326F; font-size: 36px; margin-top: 6px; margin-bottom: 6px; font-family: 'Font Awesome 5 Free';" id="icon1"></i>
+                        <span class="card-titulo" id="titulo1">[Título de Card]</span>
+                    </div>
+
+                    <div class="card-conteudo">
+                        <span id="c1-linha1"></span>
+                        <span id="c1-linha2"></span>
+                    </div>
+                </div>
+                <div class="card" id="card2">
+                    <i class="fa-solid fa-circle-info" style="color: #1351B4; position: absolute; top: 8px; right: 8px; font-size: 20px; font-family: 'Font Awesome 5 Free';"></i>
+
+                    <div class="card-tipo">
+                        <i class="fa-solid" style="color: #0C326F; font-size: 36px; margin-top: 6px; margin-bottom: 6px; font-family: 'Font Awesome 5 Free';" id="icon2"></i>
+                        <span class="card-titulo" id="titulo2">[Título de Card]</span>
+                    </div>
+
+                    <div class="card-conteudo">
+                        <span id="c2-linha1"></span>
+                        <span id="c2-linha2"></span>
+                    </div>
+                </div>
+                <div class="card" id="card3">
+                    <i class="fa-solid fa-circle-info" style="color: #1351B4; position: absolute; top: 8px; right: 8px; font-size: 20px; font-family: 'Font Awesome 5 Free';"></i>
+
+                    <div class="card-tipo">
+                        <i class="fa-solid" style="color: #0C326F; font-size: 36px; margin-top: 6px; margin-bottom: 6px; font-family: 'Font Awesome 5 Free';" id="icon3"></i>
+                        <span class="card-titulo" id="titulo3">[Título de Card]</span>
+                    </div>
+
+                    <div class="card-conteudo">
+                        <span id="c3-linha1"></span>
+                        <span id="c3-linha2"></span>
+                    </div>
+                </div>
+                <div class="card" id="card4">
+                    <i class="fa-solid fa-circle-info" style="color: #1351B4; position: absolute; top: 8px; right: 8px; font-size: 20px; font-family: 'Font Awesome 5 Free';"></i>
+
+                    <div class="card-tipo">
+                        <i class="fa-solid" style="color: #0C326F; font-size: 36px; margin-top: 6px; margin-bottom: 6px; font-family: 'Font Awesome 5 Free';" id="icon4"></i>
+                        <span class="card-titulo" id="titulo4">[Título de Card]</span>
+                    </div>
+
+                    <div class="card-conteudo">
+                        <span id="c4-linha1"></span>
+                        <span id="c4-linha2"></span>
+                    </div>
+                </div>
+                <div class="card" id="card5">
+                    <i class="fa-solid fa-circle-info" style="color: #1351B4; position: absolute; top: 8px; right: 8px; font-size: 20px; font-family: 'Font Awesome 5 Free';"></i>
+
+                    <div class="card-tipo">
+                        <i class="fa-solid" style="color: #0C326F; font-size: 36px; margin-top: 6px; margin-bottom: 6px; font-family: 'Font Awesome 5 Free';" id="icon5"></i>
+                        <span class="card-titulo" id="titulo5">[Título de Card]</span>
+                    </div>
+
+                    <div class="card-conteudo">
+                        <span id="c5-linha1"></span>
+                        <span id="c5-linha2"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--PERSONALIZADO-->
+        <script src="./cards.js"></script>
+</body>
+
+</html>

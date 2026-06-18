@@ -112,14 +112,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const placeholders = {
 
         cnpj: '[CNPJ]',
-        razaosocial: '[RAZAO SOCIAL]',
+        razaosocial: '[RAZÃO SOCIAL]',
         abertura: '[ABERTURA]',
         porte: '[PORTE]',
         naturezajuridica: '[NATUREZA]',
         capitalsocial: '[CAPITAL]',
 
         logradouro: '[LOGRADOURO]',
-        numero: '[NUMERO]',
+        numero: '[NÚMERO]',
         bairro: '[BAIRRO]',
         cidade: '[CIDADE]',
         estado: '[ESTADO/UF]',
@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         endereco: '[ENDERECO]',
 
-        'atv-code': '[ATV-CODIGO]',
+        'atv-code': '[ATV-CÓDIGO]',
         'atv-descricao': '[ATV-TEXTO]',
 
         atividade: '[ATIVIDADE]'

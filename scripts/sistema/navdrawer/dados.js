@@ -47,7 +47,7 @@ export const menuConfig = {
     },
     {
       icon: 'account_balance',
-      text: 'GovBR (>Não<)',
+      text: 'GovBR',
       href: `${BASE_URL}documentos/govbr/`
     },
     {
