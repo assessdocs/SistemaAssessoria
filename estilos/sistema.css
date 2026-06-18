@@ -17,6 +17,7 @@ body {
     grid-template-columns: 96px auto;
 
     transition: all 0.2s ease-out;
+    background-color: var(--md-sys-color-surface-container);
 }
 
 body.expanded {
