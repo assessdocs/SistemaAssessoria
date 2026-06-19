@@ -3,7 +3,7 @@ import { menuConfig } from './dados.js';
 function criarItem(item) {
 
   if (item === 'divider') {
-    return '<div class="navdrawer-div"></div>';
+    return '<div class="navdrawer-div expanded"></div>';
   }
 
   return `
@@ -14,7 +14,7 @@ function criarItem(item) {
         ${item.icon}
       </span>
 
-      <span class="navdrawer-text">
+      <span class="navdrawer-text expanded">
         ${item.text}
       </span>
     </a>
@@ -43,7 +43,7 @@ function gerarNavdrawer() {
 
     </div>
 
-    <div class="sistema-navdrawer">
+    <div class="sistema-navdrawer" class="expanded">
 
       <div class="up-side">${gerarGrupo(menuConfig.top)}</div>
 
