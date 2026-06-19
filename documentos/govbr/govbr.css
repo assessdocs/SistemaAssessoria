@@ -8,6 +8,10 @@ span {
     font-feature-settings: 'pnum' on, 'lnum' on;
 }
 
+body {
+    background-color: white;
+}
+
 #documento {
     background-color: white;
 }
