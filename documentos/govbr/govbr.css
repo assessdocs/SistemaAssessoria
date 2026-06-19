@@ -8,10 +8,14 @@ span {
     font-feature-settings: 'pnum' on, 'lnum' on;
 }
 
+#documento {
+    background-color: white;
+}
+
 .govbr-pagina {
     width: 1152px;
     justify-content: center;
-    margin-left: 91.5px;
+    scale: 0.90;
 }
 
 .govbr-header {
@@ -19,7 +23,7 @@ span {
     height: 72px; /* Define a altura do header */
     display: flex; /* Ativa Flexbox */
     align-items: center; /* Alinha itens verticalmente ao centro */
-    background-color: #fff; /* Cor de fundo do header (opcional) */
+    background-color: white; /* Cor de fundo do header (opcional) */
     width: 100%;
     justify-content: space-between;
 }

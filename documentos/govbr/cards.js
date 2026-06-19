@@ -243,13 +243,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
 
                 finalIcon.classList.add(iconData.class);
-
-                // Ajuste específico do ícone speed
-                finalIcon.style.marginTop =
-                    iconData.label === 'speed'
-                        ? '-2px'
-                        : '';
-
             }
 
         }

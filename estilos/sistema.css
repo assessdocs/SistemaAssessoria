@@ -418,6 +418,8 @@ h1 {
     align-items: center;
     justify-content: space-between;
 
+    height: 32px;
+
     margin-top: -4px;
     margin-bottom: -4px;
 }
@@ -925,6 +927,8 @@ button.icon {
     width: 52px;
     padding: 0px;
     min-width: 52px;
+
+    height: 40px;
 }
 
 .icon.standard {

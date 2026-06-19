@@ -27,7 +27,7 @@
     width: 792px;
     height: 1120px;
 
-    background-image: url(../sistema/mda.svg);
+    background-image: url(../../sistema/mda.svg);
 	background-size: cover;
 
     display: flex;

@@ -52,8 +52,8 @@
         <link rel="stylesheet" href="./font-awesome/fontawesome.css"> <!-- FONT-RESERVA -->
 </head>
 
-<body id="govbr">
-    <header id="navdrawer"></header>
+<body id="govbr" class="expanded">
+    <header id="navdrawer" class="expanded"></header>
     
     <div class="conteudo" id="conteudo">
         
@@ -75,7 +75,7 @@
                                 <h2>Versão Manual</h2>
                                 <md-switch icons show-only-selected-icon id="i-versaomanual"></md-switch>
                             </div>
-                            <div class="base-boxcampos" id="versaomanual">
+                            <div class="base-boxcampos" id="versaomanual" style="display: none;">
                                 <div class="campo">
                                     <div class="label">
                                         <label class="label-campo" for="i-cnpj">CNPJ</label>
@@ -96,7 +96,7 @@
                         
                         <div class="base-box" id="consulta"></div>
 
-                        <div class="base-box" id="resultado-consulta"></div>
+                        <div class="base-box" id="resultado-consulta" style="display: none;"></div>
                     </div>
 
                     <div class="box-coluna">
@@ -133,7 +133,7 @@
                                     <input class="input" id="i-c1-linha1" placeholder="Linha 1" type="text">
                                 </div>
 
-                                <div class="campo grupo" id="container-c1-linha2">
+                                <div class="campo grupo" id="container-c1-linha2"  style="display: none;">
                                     <div class="input-com-botao">
                                         <input class="input bot" id="i-c1-linha2" placeholder="Linha 2" type="text">
 
@@ -154,7 +154,7 @@
                             </div>
                         </div>
                         
-                        <div class="base-box" id="i-card2">
+                        <div class="base-box" id="i-card2" style="display: none;">
                         
                             <h2>Card 2</h2>
 
@@ -216,7 +216,7 @@
                             </div>
                         </div>
 
-                        <div class="base-box" id="i-card3">
+                        <div class="base-box" id="i-card3" style="display: none;">
                         
                             <h2>Card 3</h2>
 
@@ -278,7 +278,7 @@
                             </div>
                         </div>
 
-                        <div class="base-box" id="i-card4">
+                        <div class="base-box" id="i-card4" style="display: none;">
                         
                             <h2>Card 4</h2>
 
@@ -340,7 +340,7 @@
                             </div>
                         </div>
 
-                        <div class="base-box" id="i-card5">
+                        <div class="base-box" id="i-card5" style="display: none;">
                         
                             <h2>Card 5</h2>
 
@@ -420,7 +420,7 @@
     <div id="documento" style="display: none;">
         <div class="govbr-pagina">
             <div class="govbr-header">
-                <img src="/sistema/govbr/govbr.svg" alt="GOV.br" style="margin-right: auto;">
+                <img src="../../sistema/govbr/govbr.svg" alt="GOV.br" style="margin-right: auto;">
 
                 <div class="header-right">
                     <div class="menu-paginas">
@@ -439,7 +439,7 @@
                     </div>
 
                     <div class="usuario">
-                        <img src="/sistema/govbr/perfil1.png" alt="Foto de Perfil" id="usuario-foto">
+                        <img src="../../sistema/govbr/perfil1.png" alt="Foto de Perfil" id="usuario-foto">
                         <span class="usuario-nome assessoria-nome" id="usuario-nome"></span>
                         <i class="fa-solid fa-caret-down" style="color: #555; margin-bottom: 0px;"></i>
                     </div>

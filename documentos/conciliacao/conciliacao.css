@@ -5,6 +5,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+body {
+    background-color: #F8FAFC;
+}
+
 #documento {
     display: flex;
     flex-direction: column;
@@ -30,7 +34,7 @@
     padding-left: 20px;
     padding-right: 15px;
 
-    background: #FFF;
+    background: white;
 
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.07)
 }
@@ -78,7 +82,7 @@
 
 .barra-lateral {
     margin-top: 10px;
-    background: #fff;
+    background: white;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.07);
     display: flex;
     flex-direction: column;
@@ -172,7 +176,7 @@
 .linhas-botoes {
     height: 30px;
     width: 34px;
-    background: #fff;
+    background: white;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -186,7 +190,7 @@
     height: 32px;
     width: 424px;
     padding: 8px 12px 8px 12px;
-    background: #fff;
+    background: white;
     border: 1px solid #CCD5E0;
     border-radius: 8px;
     display: flex;
@@ -220,7 +224,7 @@
 .botao-exportar {
     border: 1px solid #CCD5E0;
     border-radius: 8px;
-    background: #fff;
+    background: white;
     height: 14px;
     padding: 8px 10px 8px 9px;
     display: flex;
@@ -315,7 +319,7 @@
     height: 357px;
     margin-left: 10px;
     margin-right: 10px;
-    background: #fff;
+    background: white;
     padding-top: 20px;
     gap: 56px;
     display: flex;
@@ -335,7 +339,7 @@
 
 .botao-finalizada {
     background: #00103B;
-    color: #fff;
+    color: white;
     padding: 10px 15px;
     text-align: center;
     font-family: 'Plus Jakarta Sans';
