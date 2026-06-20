@@ -1273,6 +1273,7 @@ iframe {
     border-radius: 8px;
     height: 84px;
     width: 100%;
+    background-color: var(--md-sys-color-surface-container-lowest);
 }
 
 textarea {

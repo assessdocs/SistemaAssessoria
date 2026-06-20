@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <label class="label-campo" for="i-code">Verificação</label>
                 </div>
 
-                <textarea id="i-code" placeholder="Copie o código exibido no campo preto e cole-o aqui."></textarea>
+                <textarea id="i-code" placeholder="Cole o código exibido na Base de Dados aqui."></textarea>
                 
                 <button class="filled" id="verificar">
                     <span class="button-state-layer"></span>
@@ -59,6 +59,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         CNPJ: <span id="resultado-cnpj"></span>
                         <br>
                         Razão Social: <span id="resultado-rs"></span>
+                        <br>
+                        Data de Abertura: <span id="resultado-abertura"></span>
                     </p>
                 </div>
             </div>
@@ -92,7 +94,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // RESULTADO
         resultado: document.getElementById('resultado-consulta'),
         resultadoCnpj: document.getElementById('resultado-cnpj'),
-        resultadoRs: document.getElementById('resultado-rs')
+        resultadoRs: document.getElementById('resultado-rs'),
+        resultadoAbertura: document.getElementById('resultado-abertura')
 
     };
 
@@ -209,6 +212,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         el.resultadoRs.textContent =
             jsonData.nome || '';
+
+        el.resultadoAbertura.textContent =
+            jsonData.abertura || '';
 
         ui.mostrar(el.resultado);
 
