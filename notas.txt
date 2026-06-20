@@ -4,7 +4,8 @@
 - Adicionar Varredura
 - Adicionar comprovante GovBR
 
-- Corrigir sistema de abertura da navdrawer ("lembrar" quando deve ficar aberta ou fechada)
+- Corrigir sistema de abertura da navdrawer ("lembrar" quando deve ficar aberta ou fechada) feito
+- Tema escuro feito
 - Recurso para trocar de assessoria dentro do próprio sistema
 
 - Melhorar página de Configurações (modo escuro)

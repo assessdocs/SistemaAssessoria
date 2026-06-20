@@ -19,12 +19,17 @@
                     <script src="${window.BASE_URL}scripts/sistema/assessoria.js"><\/script>
                 <!-- TOOLTIP -->
                     <script src="${window.BASE_URL}scripts/sistema/tooltip.js"><\/script>
-                
+                <!-- TEMA -->
+                    <script src="${window.BASE_URL}scripts/sistema/tema.js"><\/script>
+                    <script>(() => {if (localStorage.getItem('theme') === 'dark') {document.documentElement.setAttribute('data-theme', 'dark');}})();<\/script>
                 
                 <!-- SISTEMA -->
                     <link rel="stylesheet" href="${window.BASE_URL}estilos/sistema.css">
             `);
         </script>
+
+    <!-- TEMA -->
+        
     
     <!-- MATERIAL WEB -->
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -54,15 +59,19 @@
             <h1 class="mono">Configurações</h1>
 
             <div class="formularios">
-                <div class="area-boxes mono">
-
-                    <div class="base-box">
-                        <div class="box-header" style="margin-bottom: 0px;">
-                            <span class="material-symbols-rounded">construction</span>
-                            <h2>Sistema em desenvolvimento</h2>
-                        </div>
+                <div class="area-boxes mono config">
+                    <div class="base-box config top">
+                        <h3>Tema Escuro </h3>
+                        <md-switch icons id="i-tema"></md-switch>
                     </div>
-                    
+
+                    <div class="base-box config bot">
+                        <h3>Sistema em desenvolvimento </h3>
+                        <button class="filled icon">
+                            <span class="material-symbols-rounded">construction</span>
+                        </button>
+                    </div>
+
                 </div>
             </div>
 

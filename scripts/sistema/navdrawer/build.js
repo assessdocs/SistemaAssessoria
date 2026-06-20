@@ -26,6 +26,11 @@ function gerarGrupo(itens) {
 }
 
 function gerarNavdrawer() {
+
+  const logo = localStorage.getItem('theme') === 'dark'
+    ? 'logo-dark.svg'
+    : 'logo.svg';
+
   return `
     <div class="sistema-header">
       <div class="navdrawer-menu" id="navdrawer-menu">
@@ -34,7 +39,7 @@ function gerarNavdrawer() {
       </div>
 
       <div class="logo" id="navdrawer-logo">
-        <img src="${BASE_URL}sistema/logo.svg" id="logo" alt="Logo">
+        <img src="${BASE_URL}sistema/${logo}" id="logo" alt="Logo">
       </div>
     </div>
 
@@ -56,3 +61,4 @@ export function inserirNavdrawer() {
 
   navdrawer.innerHTML = gerarNavdrawer();
 }
+

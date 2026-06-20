@@ -19,7 +19,9 @@
                     <script src="${window.BASE_URL}scripts/sistema/assessoria.js"><\/script>
                 <!-- TOOLTIP -->
                     <script src="${window.BASE_URL}scripts/sistema/tooltip.js"><\/script>
-                
+                <!-- TEMA -->
+                    <script src="${window.BASE_URL}scripts/sistema/tema.js"><\/script>
+                    <script>(() => {if (localStorage.getItem('theme') === 'dark') {document.documentElement.setAttribute('data-theme', 'dark');}})();<\/script>
                 
                 <!-- SISTEMA -->
                     <link rel="stylesheet" href="${window.BASE_URL}estilos/sistema.css">

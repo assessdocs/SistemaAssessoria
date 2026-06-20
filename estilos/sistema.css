@@ -7,7 +7,18 @@
 
 html {
     overflow: hidden;
-    background-color: #efedf4;
+    background-color: var(--md-sys-color-surface-container);
+}
+
+body {
+    opacity: 0;
+    animation: fadeIn 0.2s ease forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
 }
 
 body {
@@ -17,14 +28,14 @@ body {
     display: grid;
     grid-template-columns: 96px auto;
 
-    transition: all 0.2s ease-out;
+    transition: grid-template-columns 0.2s ease-out;
     background-color: var(--md-sys-color-surface-container);
 }
 
 body.expanded {
     grid-template-columns: 240px auto;
 
-    transition: all 0.2s ease-in-out;
+    transition: grid-template-columns 0.2s ease-in-out;
 }
 
 body.ready {
@@ -41,13 +52,13 @@ body.ready {
 
     background-color: var(--md-sys-color-surface-container);
 
-    transition: all 0.2s ease-in-out;
+    transition: width 0.2s ease-in-out;
 
     user-select: none;
 }
 
 #navdrawer.expanded {
-    transition: all 0.2s ease-in-out;
+    transition: width 0.2s ease-in-out;
     width: 240px;
 }
 
@@ -435,20 +446,6 @@ h1 {
 }
 
 .h2-ativar h2 {
-    margin: 0px;
-}
-
-.h2-inline {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-
-    margin-top: -12px;
-    margin-bottom: 2px;
-}
-
-.h2-inline h2 {
     margin: 0px;
 }
 
@@ -1418,6 +1415,73 @@ textarea::placeholder {
     position: relative;
     z-index: 1;
 }
+
+/* CONFIGURAÇÕES */
+
+.area-boxes.config {
+    gap: 2px;
+}
+
+.base-box.config {
+    padding: 10px 16px;
+    height: 60px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.config.top {
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.config.bot {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+}
+
+h3 {
+    font-family: 'Inter';
+    font-size: 16px;
+    font-weight: 500;
+
+    text-align: left;
+
+    line-height: 12px;
+
+    margin: 0px;
+
+    white-space: nowrap;
+}
+
+.heading-inline {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+}
+
+[data-theme="dark"] {
+    color-scheme: dark;
+    
+    &input::-webkit-calendar-picker-indicator,
+    input::-webkit-search-cancel-button,
+    input::-webkit-inner-spin-button,
+    input::-webkit-outer-spin-button,
+    input::-webkit-clear-button,
+    input::-webkit-color-swatch,
+    input::-webkit-color-swatch-wrapper {
+        filter: invert(1);
+    }
+}
+
 
 /* RESPONSIVIDADE */
 
