@@ -588,3 +588,12 @@ span#pag-texto {
     font-weight: 600;
     font-size: 14px;
 }
+
+@media print {
+    html {
+        background-color: white !important;
+    }
+    body {
+        background-color: white !important;
+    }
+}

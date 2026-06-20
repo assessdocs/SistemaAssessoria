@@ -1338,7 +1338,7 @@ textarea::placeholder {
 .input-home {
     cursor: pointer;
 
-    background-color: var(--md-sys-color-background);
+    background-color: var(--md-sys-color-surface);
     width: 100%;
     height: 48px;
     padding: 10px 16px;
@@ -1384,7 +1384,7 @@ textarea::placeholder {
 }
 
 .input-home:hover {
-    border-radius: 16px;
+    border-radius: 12px;
 }
 
 .input-home:active {
@@ -1410,7 +1410,7 @@ textarea::placeholder {
 }
 
 .input-home:hover:not(:active)::before {
-    background-color: var(--md-sys-color-on-background);
+    background-color: var(--md-sys-color-on-surface);
     opacity: var(--md-sys-state-hover-state-layer-opacity);
 }
 

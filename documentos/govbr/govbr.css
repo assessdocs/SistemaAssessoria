@@ -8,10 +8,6 @@ span {
     font-feature-settings: 'pnum' on, 'lnum' on;
 }
 
-body {
-    background-color: white;
-}
-
 #documento {
     background-color: white;
 }
@@ -280,4 +276,13 @@ body {
     font-weight: 700;
     text-transform: uppercase;
     text-align: center;
+}
+
+@media print {
+    html {
+        background-color: white !important;
+    }
+    body {
+        background-color: white !important;
+    }
 }

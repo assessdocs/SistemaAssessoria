@@ -11,12 +11,17 @@
                 : '/';
 
             document.write(`
-                <script type="module" src="${window.BASE_URL}scripts/sistema/head.js"><\/script> <!-- HEAD, FAVICON E ÍCONES -->
-                <script type="module" src="${window.BASE_URL}scripts/sistema/navdrawer/main.js"><\/script> <!-- NAVDRAWER -->
-                <script src="${window.BASE_URL}scripts/sistema/assessoria.js"><\/script> <!-- DADOS DA ASSESSORIA -->
-                <script src="${window.BASE_URL}scripts/sistema/tooltip.js"><\/script> <!-- TOOLTIP -->
-
-                <link rel="stylesheet" href="${window.BASE_URL}estilos/sistema.css"> <!-- SISTEMA -->
+                <!-- HEAD, FAVICON E ÍCONES -->
+                    <script type="module" src="${window.BASE_URL}scripts/sistema/head.js"><\/script> 
+                <!-- NAVDRAWER -->
+                    <script type="module" src="${window.BASE_URL}scripts/sistema/navdrawer/main.js"><\/script>
+                <!-- DADOS DA ASSESSORIA -->
+                    <script src="${window.BASE_URL}scripts/sistema/assessoria.js"><\/script>
+                <!-- TOOLTIP -->
+                    <script src="${window.BASE_URL}scripts/sistema/tooltip.js"><\/script>
+                
+                <!-- SISTEMA -->
+                    <link rel="stylesheet" href="${window.BASE_URL}estilos/sistema.css">
             `);
 
             document.write(`
@@ -31,6 +36,19 @@
                 <!-- OPCIONAIS -->
                     <script src="${window.BASE_URL}scripts/formatacao/cnpj.js"><\/script>
                     <script src="${window.BASE_URL}scripts/formatacao/telefone.js"><\/script>
+
+                <!-- ESTILOS -->
+                    <link rel="stylesheet" href="notafiscal.css">
+
+                <!--PERSONALIZADO-->
+                    <script src="./inputs.js"><\/script>
+
+                    <script src="./scripts/chavedeacesso.js"><\/script>
+                    <script src="./scripts/numeronota.js"><\/script>
+                    <script src="./scripts/produto.js"><\/script>
+                    <script src="./scripts/protocolo.js"><\/script>
+                    <script src="./scripts/segundos.js"><\/script>
+                    <script src="./scripts/servicos.js"><\/script>
             `)
         </script>
 
@@ -44,10 +62,7 @@
             import {styles as typescaleStyles} from '@material/web/typography/md-typescale-styles.js';
             document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
         </script>
-
-    <!-- ESTILOS -->
-        <link rel="stylesheet" href="notafiscal.css"> <!-- DOCUMENTO -->
-    </head>
+</head>
 
 <body id="notafiscal" class="expanded">
     <header id="navdrawer" class="expanded"></header>
@@ -740,16 +755,6 @@
             </div>
         </div>
     </div>
-    
-    <!--PERSONALIZADO-->
-        <script src="./inputs.js"></script>
-
-        <script src="./scripts/chavedeacesso.js"></script>
-        <script src="./scripts/numeronota.js"></script>
-        <script src="./scripts/produto.js"></script>
-        <script src="./scripts/protocolo.js"></script>
-        <script src="./scripts/segundos.js"></script>
-        <script src="./scripts/servicos.js"></script>
 </body>
 
 </html>

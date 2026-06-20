@@ -21,7 +21,15 @@ document.addEventListener('DOMContentLoaded', () => {
   ];
 
   function atualizarEstadoTela() {
-    const expandido = window.innerWidth >= 920;
+
+    let expandido;
+
+    if (window.innerWidth < 920) {
+      expandido = false;
+    } else {
+      const salvo = localStorage.getItem('navdrawerExpandido');
+      expandido = salvo === null ? true : salvo === 'true';
+    }
 
     itensExpandiveis.forEach(item => {
       if (!item) return;
@@ -42,15 +50,18 @@ document.addEventListener('DOMContentLoaded', () => {
   menuButton?.addEventListener('click', () => {
 
     const expandido = document.body.classList.contains('expanded');
+    const novoEstado = !expandido;
 
     itensExpandiveis.forEach(item => {
       if (!item) return;
-      item.classList.toggle('expanded', !expandido);
+      item.classList.toggle('expanded', novoEstado);
     });
 
-    menuIcon.textContent = expandido
-      ? 'menu'
-      : 'menu_open';
+    menuIcon.textContent = novoEstado
+      ? 'menu_open'
+      : 'menu';
+
+    localStorage.setItem('navdrawerExpandido', novoEstado);
 
   });
 

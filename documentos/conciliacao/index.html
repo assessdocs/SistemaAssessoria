@@ -11,12 +11,18 @@
                 : '/';
 
             document.write(`
-                <script type="module" src="${window.BASE_URL}scripts/sistema/head.js"><\/script> <!-- HEAD, FAVICON E ÍCONES -->
-                <script type="module" src="${window.BASE_URL}scripts/sistema/navdrawer/main.js"><\/script> <!-- NAVDRAWER -->
-                <script src="${window.BASE_URL}scripts/sistema/assessoria.js"><\/script> <!-- DADOS DA ASSESSORIA -->
-                <script src="${window.BASE_URL}scripts/sistema/tooltip.js"><\/script> <!-- TOOLTIP -->
-
-                <link rel="stylesheet" href="${window.BASE_URL}estilos/sistema.css"> <!-- SISTEMA -->
+                <!-- HEAD, FAVICON E ÍCONES -->
+                    <script type="module" src="${window.BASE_URL}scripts/sistema/head.js"><\/script> 
+                <!-- NAVDRAWER -->
+                    <script type="module" src="${window.BASE_URL}scripts/sistema/navdrawer/main.js"><\/script>
+                <!-- DADOS DA ASSESSORIA -->
+                    <script src="${window.BASE_URL}scripts/sistema/assessoria.js"><\/script>
+                <!-- TOOLTIP -->
+                    <script src="${window.BASE_URL}scripts/sistema/tooltip.js"><\/script>
+                
+                
+                <!-- SISTEMA -->
+                    <link rel="stylesheet" href="${window.BASE_URL}estilos/sistema.css">
             `);
 
             document.write(`
@@ -30,6 +36,13 @@
 
                 <!-- OPCIONAIS -->
                     <script src="${window.BASE_URL}scripts/formatacao/cpf-cnpj.js"><\/script>
+
+                <!-- ESTILOS -->
+                    <link rel="stylesheet" href="./conciliacao.css">
+
+                <!-- PERSONALIZADO -->
+                    <script src="./inputs.js"><\/script>
+                    <script src="./chave.js"><\/script>
             `)
         </script>
 
@@ -43,9 +56,6 @@
             import {styles as typescaleStyles} from '@material/web/typography/md-typescale-styles.js';
             document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
         </script>
-
-    <!-- ESTILOS -->
-        <link rel="stylesheet" href="./conciliacao.css"> <!-- DOCUMENTO -->
 </head>
 
 <body id="conciliacao" class="expanded">
@@ -323,10 +333,6 @@
                     </div>
                 </div>
     </div>
-
-    <!--PERSONALIZADO-->
-        <script src="./inputs.js"></script>
-        <script src="./chave.js"></script>
 </body>
 
 </html>

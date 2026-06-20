@@ -11,12 +11,18 @@
                 : '/';
 
             document.write(`
-                <script type="module" src="${window.BASE_URL}scripts/sistema/head.js"><\/script> <!-- HEAD, FAVICON E ÍCONES -->
-                <script type="module" src="${window.BASE_URL}scripts/sistema/navdrawer/main.js"><\/script> <!-- NAVDRAWER -->
-                <script src="${window.BASE_URL}scripts/sistema/assessoria.js"><\/script> <!-- DADOS DA ASSESSORIA -->
-                <script src="${window.BASE_URL}scripts/sistema/tooltip.js"><\/script> <!-- TOOLTIP -->
-
-                <link rel="stylesheet" href="${window.BASE_URL}estilos/sistema.css"> <!-- SISTEMA -->
+                <!-- HEAD, FAVICON E ÍCONES -->
+                    <script type="module" src="${window.BASE_URL}scripts/sistema/head.js"><\/script> 
+                <!-- NAVDRAWER -->
+                    <script type="module" src="${window.BASE_URL}scripts/sistema/navdrawer/main.js"><\/script>
+                <!-- DADOS DA ASSESSORIA -->
+                    <script src="${window.BASE_URL}scripts/sistema/assessoria.js"><\/script>
+                <!-- TOOLTIP -->
+                    <script src="${window.BASE_URL}scripts/sistema/tooltip.js"><\/script>
+                
+                
+                <!-- SISTEMA -->
+                    <link rel="stylesheet" href="${window.BASE_URL}estilos/sistema.css">
             `);
 
             document.write(`
@@ -30,6 +36,12 @@
 
                 <!-- OPCIONAIS -->
                     <script src="${window.BASE_URL}scripts/formatacao/cpf-cnpj.js"><\/script>
+
+                 <!-- ESTILOS -->
+                    <link rel="stylesheet" href="./govbr.css">
+
+                <!--PERSONALIZADO-->
+                    <script src="./cards.js"><\/script>
             `)
         </script>
 
@@ -46,10 +58,8 @@
 
     <!-- FONT AWESOME -->
         <script src="https://kit.fontawesome.com/4033899e8e.js" crossorigin="anonymous"></script>
-
-    <!-- ESTILOS -->
-        <link rel="stylesheet" href="./govbr.css"> <!-- DOCUMENTO -->
-        <link rel="stylesheet" href="./font-awesome/fontawesome.css"> <!-- FONT-RESERVA -->
+    <!-- FONT-RESERVA -->
+        
 </head>
 
 <body id="govbr" class="expanded">
@@ -566,9 +576,6 @@
             </div>
         </div>
     </div>
-
-    <!--PERSONALIZADO-->
-        <script src="./cards.js"></script>
 </body>
 
 </html>

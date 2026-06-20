@@ -11,12 +11,18 @@
                 : '/';
 
             document.write(`
-                <script type="module" src="${window.BASE_URL}scripts/sistema/head.js"><\/script> <!-- HEAD, FAVICON E ÍCONES -->
-                <script type="module" src="${window.BASE_URL}scripts/sistema/navdrawer/main.js"><\/script> <!-- NAVDRAWER -->
-                <script src="${window.BASE_URL}scripts/sistema/assessoria.js"><\/script> <!-- DADOS DA ASSESSORIA -->
-                <script src="${window.BASE_URL}scripts/sistema/tooltip.js"><\/script> <!-- TOOLTIP -->
-
-                <link rel="stylesheet" href="${window.BASE_URL}estilos/sistema.css"> <!-- SISTEMA -->
+                <!-- HEAD, FAVICON E ÍCONES -->
+                    <script type="module" src="${window.BASE_URL}scripts/sistema/head.js"><\/script> 
+                <!-- NAVDRAWER -->
+                    <script type="module" src="${window.BASE_URL}scripts/sistema/navdrawer/main.js"><\/script>
+                <!-- DADOS DA ASSESSORIA -->
+                    <script src="${window.BASE_URL}scripts/sistema/assessoria.js"><\/script>
+                <!-- TOOLTIP -->
+                    <script src="${window.BASE_URL}scripts/sistema/tooltip.js"><\/script>
+                
+                
+                <!-- SISTEMA -->
+                    <link rel="stylesheet" href="${window.BASE_URL}estilos/sistema.css">
             `);
         </script>
 
