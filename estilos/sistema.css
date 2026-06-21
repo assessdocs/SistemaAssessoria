@@ -418,6 +418,10 @@ h1 {
     position: relative;
 }
 
+.grid3 .base-box {
+    max-width: 340px;
+}
+
 .base-box.secondary {
     background-color: var(--md-sys-color-secondary-container);
     color: var(--md-sys-color-on-secondary-container);
@@ -598,6 +602,11 @@ input::placeholder {
 
     box-sizing: border-box;
     width: 100%;
+}
+
+.grid3 .box-linha {
+    display: grid;
+    grid-template-columns: calc(50% - 6px) calc(50% - 6px)
 }
 
 .campo-duplo {
@@ -1486,7 +1495,7 @@ h3 {
 
 /* RESPONSIVIDADE */
 
-@media (max-width: 1350px) {
+@media (max-width: 1336px) {
     .area-boxes.grid3 {
         grid-template-columns: calc(33% - 6px) calc(66%);
     }
@@ -1504,6 +1513,15 @@ h3 {
 
     .box-linha {
         flex-direction: column;
+    }
+
+    .grid3 .box-linha {
+        display: flex;
+        width: 100%;
+    }
+
+    .grid3 .base-box {
+        max-width: 100%;
     }
 
     .menu-inferior {
