@@ -198,6 +198,10 @@ span {
     width: 100%;
     line-height: 56px;
     margin-top: 2px;
+
+    overflow: hidden; /* esconde qualquer conteúdo que ultrapasse a largura */
+    white-space: nowrap; /* faz com que o texto não quebre para a próxima linha */
+    text-overflow: ellipsis; /* adiciona "..." para indicar que o texto foi truncado */
 }
 
 .dados {
@@ -260,6 +264,10 @@ span {
     font-family: 'Raleway';
     font-weight: 600;
     text-align: center;
+
+    overflow: hidden; /* esconde qualquer conteúdo que ultrapasse a largura */
+    white-space: nowrap; /* faz com que o texto não quebre para a próxima linha */
+    text-overflow: ellipsis; /* adiciona "..." para indicar que o texto foi truncado */
 }
 
 .card-conteudo {
@@ -276,6 +284,10 @@ span {
     font-weight: 700;
     text-transform: uppercase;
     text-align: center;
+
+    overflow: hidden; /* esconde qualquer conteúdo que ultrapasse a largura */
+    white-space: nowrap; /* faz com que o texto não quebre para a próxima linha */
+    text-overflow: ellipsis; /* adiciona "..." para indicar que o texto foi truncado */
 }
 
 @media print {

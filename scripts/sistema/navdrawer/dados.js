@@ -52,7 +52,7 @@ export const menuConfig = {
     },
     {
       icon: 'speed',
-      text: 'Score (>Não<)',
+      text: 'Score',
       href: `${BASE_URL}documentos/score/`
     },
     {

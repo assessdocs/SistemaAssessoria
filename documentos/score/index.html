@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Score | WebDOCs</title>
+
+    <!-- SCRIPT -->
+        <script>
+            window.BASE_URL = location.hostname.includes('github.io')
+                ? '/SistemaAssessoria/'
+                : '/';
+
+            document.write(`
+                <!-- HEAD, FAVICON E ÍCONES -->
+                    <script type="module" src="${window.BASE_URL}scripts/sistema/head.js"><\/script> 
+                <!-- NAVDRAWER -->
+                    <script type="module" src="${window.BASE_URL}scripts/sistema/navdrawer/main.js"><\/script>
+                <!-- DADOS DA ASSESSORIA -->
+                    <script src="${window.BASE_URL}scripts/sistema/assessoria.js"><\/script>
+                <!-- TOOLTIP -->
+                    <script src="${window.BASE_URL}scripts/sistema/tooltip.js"><\/script>
+                <!-- TEMA -->
+                    <script src="${window.BASE_URL}scripts/sistema/tema.js"><\/script>
+                    <script>(() => {if (localStorage.getItem('theme') === 'dark') {document.documentElement.setAttribute('data-theme', 'dark');}})();<\/script>
+                
+                <!-- SISTEMA -->
+                    <link rel="stylesheet" href="${window.BASE_URL}estilos/sistema.css">
+            `);
+
+            document.write(`
+                <!-- CONSULTA -->
+                    <script src="${window.BASE_URL}scripts/consulta.js"><\/script>
+
+                <!-- EXPORTAÇÃO -->
+                    <script src="${window.BASE_URL}scripts/exportacao/exportar.js"><\/script>
+                    <script src="${window.BASE_URL}scripts/exportacao/impressao.js"><\/script>
+                    <script src="${window.BASE_URL}scripts/exportacao/titulo.js"><\/script>
+
+                <!-- OPCIONAIS -->
+                    <script src="${window.BASE_URL}scripts/formatacao/cpf-cnpj.js"><\/script>
+
+                <!-- ESTILOS -->
+                    <link rel="stylesheet" href="./score.css">
+
+                <!-- PERSONALIZADO -->
+                    <script src="./inputs.js"><\/script>
+                    <script src="./score.js"><\/script>
+                    <script src="./tipo-id.js"><\/script>
+                    <script src="./tipo-score.js"><\/script>
+            `)
+        </script>
+
+    <!-- MATERIAL WEB -->
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+        <script type="importmap">
+            {"imports":{"@material/web/": "https://esm.run/@material/web/"}}
+        </script>
+        <script type="module">
+            import '@material/web/all.js';
+            import {styles as typescaleStyles} from '@material/web/typography/md-typescale-styles.js';
+            document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
+        </script>
+</head>
+
+<body id="score" class="expanded">
+    <header id="navdrawer" class="expanded"></header>
+    
+    <div class="conteudo" id="conteudo">
+        
+        <header id="pagina" class="expanded">
+            <div class="cabecalho-div"></div>
+
+            <span id="sistema-assessoria" class="assessoria-nome"></span>
+        </header>
+
+        <div class="sistema-pagina">
+
+            <h1>Score (horizontal)</h1>
+            
+            <div class="formularios">
+                <div class="area-boxes">
+                    <div class="box-coluna">
+                        <div class="base-box" id="box-manual">
+                            <div class="h2-ativar" id="h2-versaomanual">
+                                <h2>Versão Manual</h2>
+                                <md-switch icons show-only-selected-icon id="i-versaomanual"></md-switch>
+                            </div>
+                            <div class="base-boxcampos" id="versaomanual" style="display: none;">
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-cnpj">CPF / CNPJ</label>
+                                        <span class="material-symbols-rounded tooltip" data-tooltip="Utilize somente números, pois o sistema irá pontuar automaticamente.">info</span>
+                                    </div>
+                                    <input class="input" id="i-cnpj" placeholder="000.000.000-00 ou 00.000.000/0000-00">
+                                </div>
+                                
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-razaosocial">Nome Completo / Razão Social</label>
+                                    </div>
+                                    <input class="input" id="i-razaosocial" placeholder="Nome da Pessoa ou Empresa">
+                                </div>
+
+                            </div>
+                        </div>
+                        
+                        <div class="base-box" id="consulta"></div>
+
+                        <div class="base-box" id="resultado-consulta" style="display: none;"></div>
+                    </div>
+
+                    <div class="base-box">
+                        <h2>Documento</h2>
+                        <div class="base-boxcampos">
+
+                            <div class="campo">
+                                <div class="label">
+                                    <div class="label-campo">Importante</div>
+                                </div>
+                                <div class="campo-texto">
+                                    <p>Caso queira um Score PF, ative a versão manual. A versão PJ funciona em ambas (manual e Consulta).</p>
+                                </div>
+                            </div>
+
+                            <div class="campo">
+                                <div class="label">
+                                    <div class="label-campo">Identificação</div>
+                                </div>
+
+                                <div class="segmented-button">
+                                    <input type="radio" name="tipo-id" id="tipo-cnpj" value="cnpj" checked>
+                                        <label class="left" for="tipo-cnpj">CNPJ</label>
+                                    <input type="radio" name="tipo-id" id="tipo-cpf" value="cpf">
+                                        <label class="right" for="tipo-cpf">CPF</label>
+                                </div>
+                            </div>
+
+                            <div class="campo">
+                                <div class="label">
+                                    <div class="label-campo">Tipo de Score</div>
+                                </div>
+
+                                <div class="segmented-button">
+                                    <input type="radio" name="tipo-score" id="tipo-consulta" value="consulta" checked>
+                                        <label class="left" for="tipo-consulta">Consulta</label>
+                                    <input type="radio" name="tipo-score" id="tipo-aumento" value="aumento">
+                                        <label class="right" for="tipo-aumento">Aumento</label>
+                                </div>
+                            </div>
+
+                            <div class="campo">
+                                <div class="label">
+                                    <label class="label-campo" for="i-pontuacao">Pontuação</label>
+                                    <span class="material-symbols-rounded tooltip" data-tooltip="Valor fictício do Score.">info</span>
+                                </div>
+                                <input class="input" id="i-pontuacao" placeholder="0 a 1000" type="number">
+                            </div>
+
+                            <div class="campo">
+                                <div class="label">
+                                    <label class="label-campo" for="i-limite">Limite</label>
+                                    <span class="material-symbols-rounded tooltip" data-tooltip="Valor do limite a ser liberado pelo BC.">info</span>
+                                </div>
+                                <input class="input" id="i-limite" placeholder="100.000" type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-inferior" id="menu-inferior"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="documento" style="display: none;">
+        <div class="score-doc">
+            <div class="lateral">
+                <div class="score-logo">
+                    <img src="../../sistema/score/serasa.svg" alt="Serasa Experian">            
+                </div>
+                <div class="score-menu">
+                    <div class="score-opcao">
+                        <span class="material-symbols-rounded">home</span>
+                        <div class="score-menu-texto">Início</div>
+                    </div>
+                    <div class="score-opcao">
+                        <span class="material-symbols-rounded">stethoscope</span>
+                        <div class="score-menu-texto">Saúde do seu Negócio</div>
+                    </div>
+                    <div class="score-opcao select">
+                        <span class="material-symbols-rounded">find_in_page</span>
+                        <div class="score-menu-texto">Consulta CPF/CNPJ</div>
+                    </div>
+                    <div class="score-opcao">
+                        <span class="material-symbols-rounded">radar</span>
+                        <div class="score-menu-texto">Monitore Clientes</div>
+                    </div>
+                    <div class="score-opcao">
+                        <span class="material-symbols-rounded">monetization_on</span>
+                        <div class="score-menu-texto">Recuperação de Dívidas</div>
+                    </div>
+                </div>
+            </div>
+            <div class="score-pagina">
+                <div class="score-cabecalho">
+                    <div class="score-left-side">
+                        <span class="material-symbols-rounded">menu</span>
+                        <div class="score-titulo">Consulta CPF/CNPJ</div>
+                    </div>
+                    <div class="score-right-side">
+                        <span class="material-symbols-rounded">person</span>
+                    </div>
+                </div>
+                <div class="consulta-completa">
+                    <div class="consulta-cabecalho">
+                        <div class="consulta-secao1">
+                            <div class="secao1-texto">Você realizou uma consulta completa</div>
+                            <div class="secao1-botoes">
+                                <div class="botao-nova botao-texto" style="color: white;">Nova consulta</div>
+                                <div class="botao-historico botao-texto">Histórico de consultas</div>
+                                <div class="botao-imprimir">
+                                    <span class="material-symbols-outlined" style="font-size: 20px;">print</span>
+                                    <span class="botao-texto">Imprimir</span>
+                                </div>
+                                <div class="botao-pdf">
+                                    <span class="material-symbols-outlined" style="font-size: 20px;">picture_as_pdf</span>
+                                    <span class="botao-texto">Baixar PDF</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="consulta-secao2">
+                            <span class="razao-social" id="razaosocial"></span>
+                            <div class="cnpj-area">
+                                <span class="cnpj-tag" id="identificacao">CNPJ:</span>
+                                <span class="cnpj" id="cnpj"></span>
+                            </div>
+                        </div>
+                        <div class="consulta-secao3">
+                            <div class="opcao-on">
+                                <div class="opcao-ativa">
+                                    <span class="material-symbols-outlined" style="color: #1D4F91;">speed</span>
+                                    <div class="opcao-texto">Serasa Score</div>
+                                </div>
+                                <div class="borda"></div>
+                            </div>
+                            <div class="opcao">
+                                <span class="material-symbols-outlined" style="color: #828588;">insert_chart</span>
+                                <div class="opcao-texto">Detalhes financeiros</div>
+                            </div>
+                            <div class="opcao">
+                                <span class="material-symbols-outlined" style="color: #828588;">paid</span>
+                                <div class="opcao-texto">Dívidas em aberto</div>
+                            </div>
+                            <div class="opcao">
+                                <span class="material-symbols-outlined" style="color: #828588;">content_paste_search</span>
+                                <div class="opcao-texto">Consultas à Serasa</div>
+                            </div>
+                            <div class="opcao">
+                                <span class="material-symbols-outlined" style="color: #828588;">group</span>
+                                <div class="opcao-texto">Controle societário</div>
+                            </div>
+                            <div class="opcao">
+                                <span class="material-symbols-outlined" style="color: #828588;">playlist_add_check</span>
+                                <div class="opcao-texto">Informações cadastrais</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="score-area">
+                        <div class="score-grafico">
+                            <div class="score-titulos" id="score-titulo">Score do CNPJ consultado</div>
+
+                            <div class="grafico-area">
+                                <div class="grafico-info">
+                                    <span class="material-symbols-outlined">info</span>
+                                </div>
+
+                                <div class="grafico">
+                                    <img src="../../sistema/score/inativo.svg" alt="Score" id="score-medidor">
+                                </div>
+
+                                <div class="grafico-score">
+                                    <div class="score" id="pontuacao">?</div>
+                                    <div class="score-mil">/1000</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="score-sobre">
+                            <div class="score-titulos">Sobre esta consulta</div>
+
+                            <div class="sobre-botoes">
+                                <div class="solicitar" id="caixa1">
+                                    <div class="solicitar-left">
+                                        <span class="material-symbols-outlined" style="font-size: 32px; color: white;" id="caixa1-icone">keyboard_double_arrow_up</span>
+                                        <span class="solicitar-descricao" id="caixa1-texto">Solicitar aumento de Score</span>
+                                    </div>
+
+                                    <span class="solicitar-botao" id="caixa1-botao">Solicitar</span>
+                                </div>
+
+                                <div class="sobre-simples1">
+                                    <div class="simples-left">
+                                        <span class="material-symbols-outlined" style="font-size: 32px; color: #A779AD;">check_circle</span>
+
+                                        <span class="simples-descricao" id="caixa2-texto">Para esta negociação considere a solicitação de aumento de Score.</span>
+                                    </div>
+                                </div>
+
+                                <div class="sobre-simples2">
+                                    <div class="simples-left">
+                                        <span class="material-symbols-outlined" style="font-size: 32px; color: #A779AD;">auto_graph</span>
+
+                                        <span class="simples-descricao">Este Score está em conformidade com as análises do Serasa.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="obs">O resultado acima não é uma opinião ou sugestão da Serasa Experian, representa apenas a prática de mercado a partir de análises estatísticas que consideram informações constantes em sua base de dados. A avaliação e decisão de fazer ou não negócios é responsabilidade exclusiva do cliente.</div>
+
+                    <div class="detalhes-area">
+                        <div class="detalhes-cabecalho">
+                            <div class="cabecalho-left">
+                                <span class="material-symbols-outlined" style="font-size: 32px; color: #1D4F91;">insert_chart</span>
+                                <span>Detalhes financeiros</span>
+                            </div>
+
+                            <span class="material-symbols-outlined" style="font-size: 28px; color: #828588;">keyboard_arrow_up</span>
+                        </div>
+
+                        <div class="detalhes-div"></div>
+
+                        <div class="limite-area">
+                            <span class="material-symbols-outlined" style="color: #1D4F91;">monetization_on</span>
+
+                            <div class="limite-conteudo">
+                                <span>Limite de crédito disponível: R$</span>
+
+                                <span id="limite"></span>
+
+                                <span class="material-symbols-outlined" style="color: #839EC3; font-size: 18px; font-variation-settings: 'FILL' 1;">info</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

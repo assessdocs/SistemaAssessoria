@@ -1,6 +1,9 @@
 - Adicionar Conciliacao feito
 - Adicionar GovBR feito
-- Adicionar Score
+- Adicionar Score feito
+
+- Corrigir para que caso seja CPF na versão manual, ele formate caso cnpj seja apagado para que seja cpf
+
 - Adicionar Varredura
 - Adicionar comprovante GovBR
 

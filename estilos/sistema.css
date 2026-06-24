@@ -974,6 +974,125 @@ button.icon {
     max-width: max-content;
 }
 
+/* SEGMENTED BUTTON */
+
+.segmented-button {
+    display: flex;
+    flex-direction: row;
+    gap: 2px;
+}
+
+.segmented-button input[type="radio"] {
+    display: none;
+}
+
+.segmented-button label {
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    font-family: 'Inter';
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    text-wrap: nowrap;
+    line-height: 16px;
+
+    height: 40px;
+    width: 100%;
+    padding: 10px 16px;
+    box-sizing: border-box;
+    
+    position: relative;
+
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+
+    overflow: hidden;
+
+    transition: border-radius 0.1s ease;
+
+    background-color: var(--md-sys-color-secondary-container);
+    color: var(--md-sys-color-on-secondary-container);
+}
+
+.segmented-button label.left {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 8px;
+}
+
+.segmented-button label.right {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 20px;
+}
+
+.segmented-button input[type="radio"]:checked + label {
+    border-radius: 20px;
+    background-color: var(--md-sys-color-secondary);
+    color: var(--md-sys-color-on-secondary);
+}
+
+.segmented-button label.left:hover {
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.segmented-button label.right:hover {
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+.segmented-button label::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-color: var(--md-sys-color-on-secondary-container);
+    opacity: 0;
+
+    pointer-events: none;
+    z-index: 0;
+
+    transition: opacity 0.2s;
+}
+
+.segmented-button label:hover::after {
+    opacity: var(--md-sys-state-hover-state-layer-opacity);
+}
+
+.segmented-button label:active::after {
+    opacity: var(--md-sys-state-pressed-state-layer-opacity);
+}
+
+.segmented-button input[type="radio"]:checked + label:after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-color: var(--md-sys-color-on-secondary);
+    opacity: 0;
+
+    pointer-events: none;
+    z-index: 0;
+
+    transition: opacity 0.2s;
+}
+
+.segmented-button input[type="radio"]:checked + label:hover::after {
+    opacity: var(--md-sys-state-hover-state-layer-opacity);
+}
+
+.segmented-button input[type="radio"]:checked + label:active::after {
+    opacity: var(--md-sys-state-pressed-state-layer-opacity);
+}
+
 /* SWITCH (não está em uso) */
 
 .md-switch {
