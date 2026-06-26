@@ -72,7 +72,19 @@
             return v.length <= 11
                 ? rules.cpf(value)
                 : rules.cnpj(value);
-        }
+        },
+
+        date: (value) => {
+            if (!value) return '';
+
+            const [ano, mes, dia] = value.split('-');
+
+            if (!ano || !mes || !dia) return value;
+
+            return `${dia}/${mes}/${ano}`;
+        },
+
+        time: (value) => value
     };
 
     function applyRules(value, tags = []) {
@@ -93,19 +105,22 @@
         }
 
         input.addEventListener('input', () => {
-            let value = input.value;
+            let inputValue = input.value;
+            let displayValue = applyRules(inputValue, tags);
 
-            value = applyRules(value, tags);
-
-            if (value !== input.value) {
-                input.value = value;
+            // Só altera o value do input se NÃO for um input nativo de data/hora
+            if (
+                input.type !== 'date' &&
+                input.type !== 'time' &&
+                displayValue !== inputValue
+            ) {
+                input.value = displayValue;
             }
 
             if (target) {
-                target.textContent =
-                    value.trim() === ''
-                        ? (originalText ?? '')
-                        : value;
+                target.textContent = displayValue.trim() === ''
+                    ? (originalText ?? '')
+                    : displayValue;
             }
         });
     }

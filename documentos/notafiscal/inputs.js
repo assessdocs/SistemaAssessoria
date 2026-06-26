@@ -1,42 +1,87 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const configurations = [
-        { inputId: 'i-data', targetId: 'data1', originalText: '[DATA 1]' },
-        { inputId: 'i-data', targetId: 'data2', originalText: '[DATA 2]' },
-        { inputId: 'i-data', targetId: 'data3', originalText: '[DATA 3]' },
-        { inputId: 'i-hora', targetId: 'hora1', originalText: '[HORA 1]' },
-        { inputId: 'i-hora', targetId: 'hora2', originalText: '[HORA 2]' },
-        { inputId: 'i-telefone', targetId: 'telefone', originalText: '[TELEFONE]' },
-    ];
 
-    function formatarData(valor) {
-        if (!valor) return '';
+    Formatacao.bindFields([
+        {
+            inputId: 'i-cnpj',
+            tags: ['cnpj']
+        },
 
-        const [ano, mes, dia] = valor.split('-');
+        {
+            inputId: 'i-data',
+            targetId: 'data1',
+            originalText: '[DATA 1]',
+            tags: ['date']
+        },
+        
+        {
+            inputId: 'i-data',
+            targetId: 'data2',
+            originalText: '[DATA 2]',
+            tags: ['date']
+        },
 
-        if (!ano || !mes || !dia) return valor;
+        {
+            inputId: 'i-data',
+            targetId: 'data3',
+            originalText: '[DATA 3]',
+            tags: ['date']
+        },
 
-        return `${dia}/${mes}/${ano}`;
-    }
+        {
+            inputId: 'i-hora',
+            targetId: 'hora1',
+            originalText: '[HORA 1]',
+            tags: ['time']
+        },
 
-    configurations.forEach(config => {
-        const inputElement = document.getElementById(config.inputId);
-        const targetElement = document.getElementById(config.targetId);
+        {
+            inputId: 'i-hora',
+            targetId: 'hora2',
+            originalText: '[HORA 2]',
+            tags: ['time']
+        },
 
-        targetElement.textContent = config.originalText;
+        {
+            inputId: 'i-telefone',
+            targetId: 'telefone',
+            originalText: '[TELEFONE]',
+            tags: ['phone']
+        },
 
-        inputElement.addEventListener('input', () => {
-            if (inputElement.value.trim() === '') {
-                targetElement.textContent = config.originalText;
-                return;
-            }
+        {
+            inputId: 'i-valor1',
+            tags: ['money']
+        },
 
-            let valor = inputElement.value;
+        {
+            inputId: 'i-valor2',
+            tags: ['money']
+        },
 
-            if (config.inputId === 'i-data') {
-                valor = formatarData(valor);
-            }
+        {
+            inputId: 'i-valor3',
+            tags: ['money']
+        },
 
-            targetElement.textContent = valor;
-        });
-    });
+        {
+            inputId: 'i-valor4',
+            tags: ['money']
+        },
+
+        {
+            inputId: 'i-valor5',
+            tags: ['money']
+        },
+
+        {
+            inputId: 'i-valor6',
+            tags: ['money']
+        },
+
+        {
+            inputId: 'i-valor7',
+            tags: ['money']
+        },
+    ]);
+
 });

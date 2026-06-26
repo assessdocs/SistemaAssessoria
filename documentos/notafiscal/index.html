@@ -22,12 +22,10 @@
                 <!-- TEMA -->
                     <script src="${window.BASE_URL}scripts/sistema/tema.js"><\/script>
                     <script>(() => {if (localStorage.getItem('theme') === 'dark') {document.documentElement.setAttribute('data-theme', 'dark');}})();<\/script>
-
+                
                 <!-- SISTEMA -->
                     <link rel="stylesheet" href="${window.BASE_URL}estilos/sistema.css">
-            `);
 
-            document.write(`
                 <!-- CONSULTA -->
                     <script src="${window.BASE_URL}scripts/consulta.js"><\/script>
 
@@ -36,14 +34,15 @@
                     <script src="${window.BASE_URL}scripts/exportacao/impressao.js"><\/script>
                     <script src="${window.BASE_URL}scripts/exportacao/titulo.js"><\/script>
 
-                <!-- OPCIONAIS -->
-                    <script src="${window.BASE_URL}scripts/formatacao/cnpj.js"><\/script>
-                    <script src="${window.BASE_URL}scripts/formatacao/telefone.js"><\/script>
+                <!-- FORMATAÇÃO -->
+                    <script src="${window.BASE_URL}scripts/formatacao.js"><\/script>
+            `);
 
+            document.write(`
                 <!-- ESTILOS -->
-                    <link rel="stylesheet" href="notafiscal.css">
+                    <link rel="stylesheet" href="./notafiscal.css">
 
-                <!--PERSONALIZADO-->
+                <!-- PERSONALIZADO -->
                     <script src="./inputs.js"><\/script>
 
                     <script src="./scripts/chavedeacesso.js"><\/script>

@@ -25,11 +25,7 @@
                 
                 <!-- SISTEMA -->
                     <link rel="stylesheet" href="${window.BASE_URL}estilos/sistema.css">
-                <!-- DOCUMENTO -->
-                    <link rel="stylesheet" href="${window.BASE_URL}estilos/documentos.css">
-            `);
 
-            document.write(`
                 <!-- CONSULTA -->
                     <script src="${window.BASE_URL}scripts/consulta.js"><\/script>
 
@@ -38,11 +34,15 @@
                     <script src="${window.BASE_URL}scripts/exportacao/impressao.js"><\/script>
                     <script src="${window.BASE_URL}scripts/exportacao/titulo.js"><\/script>
 
-                <!-- OPCIONAIS -->
-                    <script src="${window.BASE_URL}scripts/formatacao/cnpj.js"><\/script>
-                    <script src="${window.BASE_URL}scripts/formatacao/telefone.js"><\/script>
-                    <script src="${window.BASE_URL}scripts/formatacao/email.js"><\/script>
+                <!-- FORMATAÇÃO -->
+                    <script src="${window.BASE_URL}scripts/formatacao.js"><\/script>
+            `);
 
+            document.write(`
+                <!-- ESTILOS -->
+                    <link rel="stylesheet" href="${window.BASE_URL}estilos/documentos.css">
+
+                <!-- OPCIONAIS -->
                     <script src="${window.BASE_URL}scripts/hoje.js"><\/script>
 
                 <!-- GRÁFICO -->

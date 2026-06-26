@@ -1,23 +1,27 @@
-- Adicionar Conciliação feito
-- Adicionar GovBR feito
-- Adicionar Score feito
+TAREFAS:
+    - Adicionar BACEN
+        > Varredura em andamento
+            > melhorar input i-cnpj-varredura
+        > Pendências em andamento
+            > corrigir inserção do textarea i-pendencia
+        
+    - Adicionar comprovante GovBR (inserir dentro da página do GovBR, usando segmented button)
 
-- Corrigir para que caso seja CPF na versão manual, ele formate caso cnpj seja apagado para que seja cpf feito
+    - Recurso para trocar de assessoria dentro do próprio sistema
 
-- Adicionar Varredura em andamento
-- Adicionar BACEN em andamento
-> corrigir inserção do textarea i-pendencia
-> melhorar input i-cnpj-varredura
+    - Conciliação segmented button PF/PJ
+    - Analisar possibilidade de documentos da assessoria ficarem na mesma página (usar segmented button)
 
-> melhorar design da página do Score (segmented button)
+    - Melhorar página de Ajuda
+    - Melhorar página de Início
+    - Responsividade para mobile (não é possível no momento)
 
-- Adicionar comprovante GovBR (inserir dentro da página do GovBR, usando segmented button)
+FEITO
+- Adicionar Conciliação
+- Adicionar GovBR
+- Adicionar Score
+    > melhorar design da página do Score (segmented button)
 
-- Corrigir sistema de abertura da navdrawer ("lembrar" quando deve ficar aberta ou fechada) feito
-- Tema escuro feito
-- Recurso para trocar de assessoria dentro do próprio sistema
-
-- Melhorar página de Configurações (modo escuro)
-- Melhorar página de Ajuda
-- Melhorar página de Início
-- Responsividade para mobile (não é possível no momento)
+- Adicionar Configurações
+    > Tema escuro
+    > Corrigir sistema de abertura da navdrawer ("lembrar" quando deve ficar aberta ou fechada)

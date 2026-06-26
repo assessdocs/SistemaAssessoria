@@ -1,22 +1,28 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const configurations = [
-        { inputId: 'i-orcamentode', targetId: 'orcamentode', originalText: '[DOCUMENTO]' },
-        { inputId: 'i-telefone', targetId: 'telefone', originalText: '[TELEFONE]' },
-    ];
 
-    configurations.forEach(config => {
-        const inputElement = document.getElementById(config.inputId);
-        const targetElement = document.getElementById(config.targetId);
+    Formatacao.bindFields([
+        {
+            inputId: 'i-cnpj',
+            tags: ['cnpj']
+        },
 
-        // Initialize the target element with the original text
-        targetElement.textContent = config.originalText;
+        {
+            inputId: 'i-orcamentode',
+            targetId: 'orcamentode',
+            originalText: '[DOCUMENTO]'
+        },
 
-        inputElement.addEventListener('input', () => {
-            if (inputElement.value.trim() === '') {
-                targetElement.textContent = config.originalText;
-            } else {
-                targetElement.textContent = inputElement.value;
-            }
-        });
-    });
+        {
+            inputId: 'i-valortotal',
+            tags: ['money']
+        },
+        
+        {
+            inputId: 'i-telefone',
+            targetId: 'telefone',
+            originalText: '[TELEFONE]',
+            tags: ['phone']
+        },
+    ]);
+
 });

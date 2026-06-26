@@ -1,42 +1,41 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const configurations = [
-        { inputId: 'i-agencia', targetId: 'agencia', originalText: '[AGÊNCIA]' },
-        { inputId: 'i-conta', targetId: 'conta', originalText: '[CONTA]' },
-        { inputId: 'i-instituicao', targetId: 'instituicao', originalText: '[INSTITUIÇÃO]' },
-        { inputId: 'i-chave', targetId: 'chave', originalText: '[CHAVE]' },
-        { inputId: 'i-data', targetId: 'data', originalText: '[DATA]' },
-    ];
 
-    function formatarData(valor) {
-        if (!valor) return '';
+    Formatacao.bindFields([
+        {
+            inputId: 'i-cnpj',
+            tags: ['cpfCnpj']
+        },
 
-        const [ano, mes, dia] = valor.split('-');
+        {
+            inputId: 'i-agencia',
+            targetId: 'agencia',
+            originalText: '[AGÊNCIA]'
+        },
 
-        if (!ano || !mes || !dia) return valor;
+        {
+            inputId: 'i-conta',
+            targetId: 'conta',
+            originalText: '[CONTA]'
+        },
 
-        return `${dia}/${mes}/${ano}`;
-    }
+        {
+            inputId: 'i-instituicao',
+            targetId: 'instituicao',
+            originalText: '[INSTITUIÇÃO]'
+        },
 
-    configurations.forEach(config => {
-        const inputElement = document.getElementById(config.inputId);
-        const targetElement = document.getElementById(config.targetId);
+        {
+            inputId: 'i-chave',
+            targetId: 'chave',
+            originalText: '[CHAVE]'
+        },
 
-        if (!inputElement || !targetElement) return;
+        {
+            inputId: 'i-data',
+            targetId: 'data',
+            originalText: '[DATA]',
+            tags: ['date']
+        },
+    ]);
 
-        targetElement.textContent = config.originalText;
-
-        inputElement.addEventListener('input', () => {
-            const valorInput = inputElement.value.trim();
-
-            if (!valorInput) {
-                targetElement.textContent = config.originalText;
-                return;
-            }
-
-            targetElement.textContent =
-                config.inputId === 'i-data'
-                    ? formatarData(valorInput)
-                    : valorInput;
-        });
-    });
 });
