@@ -1026,6 +1026,13 @@ button.icon {
     border-bottom-right-radius: 8px;
 }
 
+.segmented-button label.center {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
 .segmented-button label.right {
     border-top-left-radius: 8px;
     border-top-right-radius: 20px;
@@ -1042,6 +1049,10 @@ button.icon {
 .segmented-button label.left:hover {
     border-top-right-radius: 12px;
     border-bottom-right-radius: 12px;
+}
+
+.segmented-button label.center:hover {
+    border-radius: 12px;
 }
 
 .segmented-button label.right:hover {
@@ -1091,6 +1102,21 @@ button.icon {
 
 .segmented-button input[type="radio"]:checked + label:active::after {
     opacity: var(--md-sys-state-pressed-state-layer-opacity);
+}
+
+.segmented-button.h1 {
+    margin-top: -6px;
+    margin-bottom: -6px;
+}
+
+.segmented-button label .material-symbols-rounded {
+    font-size: 20px;
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.segmented-button input[type="radio"]:checked + label .material-symbols-rounded {
+    font-size: 20px;
+    font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 204;
 }
 
 /* SWITCH (não está em uso) */

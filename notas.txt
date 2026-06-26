@@ -1,11 +1,17 @@
-- Adicionar Conciliacao feito
+- Adicionar Conciliação feito
 - Adicionar GovBR feito
 - Adicionar Score feito
 
-- Corrigir para que caso seja CPF na versão manual, ele formate caso cnpj seja apagado para que seja cpf
+- Corrigir para que caso seja CPF na versão manual, ele formate caso cnpj seja apagado para que seja cpf feito
 
-- Adicionar Varredura
-- Adicionar comprovante GovBR
+- Adicionar Varredura em andamento
+- Adicionar BACEN em andamento
+> corrigir inserção do textarea i-pendencia
+> melhorar input i-cnpj-varredura
+
+> melhorar design da página do Score (segmented button)
+
+- Adicionar comprovante GovBR (inserir dentro da página do GovBR, usando segmented button)
 
 - Corrigir sistema de abertura da navdrawer ("lembrar" quando deve ficar aberta ou fechada) feito
 - Tema escuro feito
@@ -14,4 +20,4 @@
 - Melhorar página de Configurações (modo escuro)
 - Melhorar página de Ajuda
 - Melhorar página de Início
-- Responsividade para mobile
+- Responsividade para mobile (não é possível no momento)

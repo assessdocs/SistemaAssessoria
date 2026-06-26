@@ -3,19 +3,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const identificacao = document.getElementById('identificacao');
     const scoreTitulo = document.getElementById('score-titulo');
-    const versaoManual = document.getElementById('i-versaomanual');
+
+    const colunaConsulta = document.getElementById('coluna-consulta');
+    const boxDados = document.getElementById('box-dados');
+
+    const cnpjSpan = document.getElementById('cnpj');
+    const razaoSpan = document.getElementById('razaosocial');
+    const cpfSpan = document.getElementById('cpf');
+    const nomeSpan = document.getElementById('nomecompleto');
 
     function cpf() {
         identificacao.textContent = 'CPF:';
         scoreTitulo.textContent = 'Score do CPF consultado';
 
-        versaoManual.selected = true;
-        versaoManual.dispatchEvent(new Event('change', { bubbles: true }));
+        colunaConsulta.style.display = 'none';
+        boxDados.style.display = '';
+        
+        cnpjSpan.style.display = 'none';
+        razaoSpan.style.display = 'none';
+        cpfSpan.style.display = '';
+        nomeSpan.style.display = '';
     }
 
     function cnpj() {
         identificacao.textContent = 'CNPJ:';
         scoreTitulo.textContent = 'Score do CNPJ consultado';
+
+        colunaConsulta.style.display = '';
+        boxDados.style.display = 'none';
+        
+        cnpjSpan.style.display = '';
+        razaoSpan.style.display = '';
+        cpfSpan.style.display = 'none';
+        nomeSpan.style.display = 'none';
     }
 
     function atualizarTipoId() {

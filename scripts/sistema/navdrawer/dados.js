@@ -56,9 +56,9 @@ export const menuConfig = {
       href: `${BASE_URL}documentos/score/`
     },
     {
-      icon: 'table_chart_view',
-      text: 'Varredura (>Não<)',
-      href: `${BASE_URL}documentos/varredura/`
+      icon: 'paid',
+      text: 'BACEN',
+      href: `${BASE_URL}documentos/bacen/`
     }
   ],
 

@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>BACEN | WebDOCs</title>
+
+    <!-- SCRIPT -->
+        <script>
+            window.BASE_URL = location.hostname.includes('github.io')
+                ? '/SistemaAssessoria/'
+                : '/';
+
+            document.write(`
+                <!-- HEAD, FAVICON E ÍCONES -->
+                    <script type="module" src="${window.BASE_URL}scripts/sistema/head.js"><\/script> 
+                <!-- NAVDRAWER -->
+                    <script type="module" src="${window.BASE_URL}scripts/sistema/navdrawer/main.js"><\/script>
+                <!-- DADOS DA ASSESSORIA -->
+                    <script src="${window.BASE_URL}scripts/sistema/assessoria.js"><\/script>
+                <!-- TOOLTIP -->
+                    <script src="${window.BASE_URL}scripts/sistema/tooltip.js"><\/script>
+                <!-- TEMA -->
+                    <script src="${window.BASE_URL}scripts/sistema/tema.js"><\/script>
+                    <script>(() => {if (localStorage.getItem('theme') === 'dark') {document.documentElement.setAttribute('data-theme', 'dark');}})();<\/script>
+                
+                <!-- SISTEMA -->
+                    <link rel="stylesheet" href="${window.BASE_URL}estilos/sistema.css">
+            `);
+
+            document.write(`
+                <!-- CONSULTA -->
+                    <script src="${window.BASE_URL}scripts/consulta.js"><\/script>
+
+                <!-- EXPORTAÇÃO -->
+                    <script src="${window.BASE_URL}scripts/exportacao/exportar.js"><\/script>
+                    <script src="${window.BASE_URL}scripts/exportacao/impressao.js"><\/script>
+                    <script src="${window.BASE_URL}scripts/exportacao/titulo.js"><\/script>
+
+                <!-- OPCIONAIS -->
+                    <script src="${window.BASE_URL}scripts/formatacao/cnpj.js"><\/script>
+                        <script src="${window.BASE_URL}scripts/formatacao/cpf.js"><\/script>
+
+                <!-- ESTILOS -->
+                    <link rel="stylesheet" href="./bacen.css">
+
+                <!-- PERSONALIZADO -->
+                    <script src="./inputs.js"><\/script>
+                    <script src="./tipo.js"><\/script>
+            `)
+        </script>
+
+    <!-- MATERIAL WEB -->
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+        <script type="importmap">
+            {"imports":{"@material/web/": "https://esm.run/@material/web/"}}
+        </script>
+        <script type="module">
+            import '@material/web/all.js';
+            import {styles as typescaleStyles} from '@material/web/typography/md-typescale-styles.js';
+            document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
+        </script>
+</head>
+
+<body id="bacen" class="expanded">
+    <header id="navdrawer" class="expanded"></header>
+    
+    <div class="conteudo" id="conteudo">
+        
+        <header id="pagina" class="expanded">
+            <div class="cabecalho-div"></div>
+
+            <span id="sistema-assessoria" class="assessoria-nome"></span>
+        </header>
+
+        <div class="sistema-pagina">
+
+            <div class="segmented-button h1">
+                <input type="radio" name="tipo-bacen" id="tipo-varredura" value="varredura" checked>
+                    <label class="left" for="tipo-varredura">
+                        <span class="material-symbols-rounded">table_chart_view</span>
+                        Varredura
+                    </label>
+                <input type="radio" name="tipo-bacen" id="tipo-verificacao" value="verificacao">
+                    <label class="right" for="tipo-verificacao">
+                        <span class="material-symbols-rounded">contract_delete</span>
+                        Pendências
+                    </label>
+            </div>
+            
+            <div class="formularios">
+                <div class="area-boxes" id="area-boxes">
+                    <div class="box-coluna" id="coluna-consulta">
+                        <div class="base-box" id="box-manual">
+                            <div class="h2-ativar" id="h2-versaomanual">
+                                <h2>Versão Manual</h2>
+                                <md-switch icons show-only-selected-icon id="i-versaomanual"></md-switch>
+                            </div>
+                            <div class="base-boxcampos" id="versaomanual" style="display: none;">
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-cnpj">CNPJ</label>
+                                        <span class="material-symbols-rounded tooltip" data-tooltip="Utilize somente números, pois o sistema irá pontuar automaticamente.">info</span>
+                                    </div>
+                                    <input class="input" id="i-cnpj" placeholder="00.000.000/0000-00">
+                                </div>
+
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-razaosocial">Razão Social</label>
+                                    </div>
+                                    <input class="input" id="i-razaosocial" placeholder="Nome da Empresa">
+                                </div>
+
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-abertura">Data de Abertura</label>
+                                    </div>
+                                    <input class="input" id="i-abertura" placeholder="dd/mm/aaaa">
+                                </div>
+
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-naturezajuridica">Natureza Jurídica</label>
+                                    </div>
+                                    <input class="input" id="i-naturezajuridica" placeholder="Natureza Jurídica">
+                                </div>
+
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-atividade">Atividade (CNAES)</label>
+                                    </div>
+                                    <input class="input" id="i-atividade" placeholder="00.00-0-00 - Atividade">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="base-box" id="consulta"></div>
+                    </div>
+
+                    <div class="base-box" id="box-varredura">
+                        <h2>Varredura de Expansão</h2>
+                        <div class="base-boxcampos">
+                            <div class="campo">
+                                <div class="label">
+                                    <label class="label-campo" for="i-cpf">CPF</label>
+                                    <span class="material-symbols-rounded tooltip" data-tooltip="Utilize somente números, pois o sistema irá pontuar automaticamente.">info</span>
+                                </div>
+                                <input class="input" id="i-cpf" placeholder="000.000.000-00">
+                            </div>
+
+                            <div class="campo">
+                                <div class="label">
+                                    <label class="label-campo" for="i-nomecompleto">Nome Completo</label>
+                                </div>
+                                <input class="input" id="i-nomecompleto" placeholder="Nome do Cliente">
+                            </div>
+
+                            <div class="campo">
+                                <div class="label">
+                                    <label class="label-campo" for="i-cnpj-varredura">CNPJ (opcional)</label>
+                                    <span class="material-symbols-rounded tooltip" data-tooltip="Utilize somente números, pois o sistema irá pontuar automaticamente.">info</span>
+                                </div>
+                                <input class="input" id="i-cnpj-varredura" placeholder="00.000.000/0000-00">
+                            </div>
+
+                            <div class="campo">
+                                <div class="label">
+                                    <label class="label-campo" for="i-agencia">Agência</label>
+                                </div>
+                                <input class="input" id="i-agencia" placeholder="0000" type="text">
+                            </div>
+
+                            <div class="campo">
+                                <div class="label">
+                                    <label class="label-campo" for="i-conta">Conta</label>
+                                </div>
+                                <input class="input" id="i-conta" placeholder="0000000-0" type="text">
+                            </div>
+
+                            <div class="campo">
+                                <div class="label">
+                                    <label class="label-campo" for="i-instituicao">Instituição</label>
+                                </div>
+                                <input class="input" id="i-instituicao" placeholder="000 - Razão Social da Instituição" type="text">
+                            </div>
+
+                            <div class="campo">
+                                <div class="label">
+                                    <label class="label-campo" for="i-valor">Limite</label>
+                                    <span class="material-symbols-rounded tooltip" data-tooltip="Valor do limite a ser liberado pelo BC.">info</span>
+                                </div>
+                                <input class="input" id="i-valor" placeholder="100.000" type="text">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box-coluna">
+                        <div class="base-box" id="resultado-consulta" style="display: none;"></div>
+
+                        <div class="base-box" id="box-pendencias">
+                            <h2>Pendências</h2>
+                            <div class="base-boxcampos">
+                                <div class="campo">
+                                    <textarea class="input" id="i-pendencia" placeholder="Digite aqui" type="text"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-inferior" id="menu-inferior"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="documento" style="display: none;">
+        <div class="tela-gov">
+            <header class="header">
+                <div class="header-gov">
+                    <img src="../../sistema/bacen/govbr.svg">
+                    <div class="gov-menu">
+                        <div class="gov-menu-divisoria"></div>
+                        <div class="gov-menu-opcao">Acesso à informação</div>
+                        <div class="gov-menu-divisoria"></div>
+                        <div class="gov-menu-opcao">Participe</div>
+                        <div class="gov-menu-divisoria"></div>
+                        <div class="gov-menu-opcao">Legislação</div>
+                        <div class="gov-menu-divisoria"></div>
+                        <div class="gov-menu-opcao">Órgãos do governo</div>
+                    </div>
+                </div>
+                <div class="header-logo">
+                    <img src="../../sistema/bacen/bcb.svg" id="logo-bcb">
+                    <div class="acessibilidade">
+                        <div class="acessibilidade-texto">Acessibilidade</div>
+                        <div class="acessibilidade-texto">Alto Contraste</div>
+                        <div class="acessibilidade-texto" style="font-style: italic;">English</div>
+                    </div>
+                </div>
+                <div class="header-menu">
+                    <div class="detalhe-header">
+                        <div class="detalhe-header-left"></div>
+                        <div class="detalhe-header-right"></div>
+                    </div>
+                    <div class="header-menu-opcoes">
+                        <div class="header-menu-left">
+                            <div style="margin-left: 44.797px">Acesso à<br>informação</div>
+                            <div>Política<br>monetária</div>
+                            <div>Estabilidade<br>financeira</div> 
+                        </div>
+                        <div class="header-menu-right">
+                            <div>Estatísticas</div>
+                            <div>Cédulas e<br>moedas</div>
+                            <div style="margin-right: -16px">Publicações e<br>pesquisa</div>
+                            <span class="material-icons-bacen">search</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="bacen-conteudo">
+                <div class="bcb-background" id="bacen-background">
+                    <h1 id="bacen-h1"></h1>
+
+                    <div class="paineis" id="bacen-pendencia" style="display: none;">
+                        <div id="painel1">
+                            <header>
+                                <img src="../../sistema/bacen/borda1.svg">
+                                <div class="header-painel1">
+                                    <span class="material-symbols-outlined">quick_reference</span>
+                                    Dados da Empresa
+                                </div>
+                            </header>
+                            <div id="painel1-infos">
+                                <div class="painel1-item">
+                                    <div class="painel1-titulo">Razão Social</div>
+                                    <span class="painel1-input" id="razaosocial"></span>
+                                </div>
+                                <div class="painel1-div"></div>
+                                <div class="painel1-duplo">
+                                    <div class="painel1-item">
+                                        <div class="painel1-titulo">CNPJ</div>
+                                        <span class="painel1-input" id="cnpj"></span>
+                                    </div>
+                                    <div class="painel1-item">
+                                        <div class="painel1-titulo">Data de Abertura</div>
+                                        <span class="painel1-input" id="abertura"></span>
+                                    </div>
+                                </div>
+                                <div class="painel1-div"></div>
+                                <div class="painel1-item">
+                                    <div class="painel1-titulo">Natureza Jurídica</div>
+                                    <span class="painel1-input" id="naturezajuridica"></span>
+                                </div>
+                                <div class="painel1-div"></div>
+                                <div class="painel1-item">
+                                    <div class="painel1-titulo">CNAES</div>
+                                    <span class="painel1-cnaes" id="atividade">[ATIVIDADE]</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="painel2" style="margin-left: -1px;">
+                            <header>
+                                <img src="../../sistema/bacen/borda2.svg">
+                                <div class="header-painel2">
+                                    <span class="material-symbols-outlined">contract_delete</span>
+                                    Análise de Pendências
+                                </div>
+                            </header>
+                            <div id="painel2-infos">
+                                <div class="painel2-item">
+                                    <div class="painel2-titulo">Pendências</div>
+                                </div>
+                                <span class="painel2-input" id="pendencia"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="doc-area" id="bacen-varredura">
+                        <div class="doc-menu">
+                            <div class="menu-option">
+                                <div class="cut">
+                                    <img src="../../sistema/bacen/cut.svg" alt="Cut" class="cut-inativo-svg">
+                                    <div class="cut-inativo"></div>
+                                </div>
+                                <div class="menu-notext-area">
+                                    <div class="menu-notext">Cidadão</div>
+                                </div>
+                            </div>
+
+                            <div class="menu-option">
+                                <div class="cut">
+                                    <img src="../../sistema/bacen/cutselect.svg" alt="Cut" class="cut-ativo-svg">
+                                    <div class="cut-ativo"></div>
+                                </div>
+                                <div class="menu-text-area">
+                                    <span class="material-symbols-outlined menu-icon">feature_search</span>
+                                    <div class="menu-text">Varredura<br>de Expansão</div>
+                                </div>
+                            </div>
+
+                            <div class="menu-option">
+                                <div class="cut">
+                                    <img src="../../sistema/bacen/cut.svg" alt="Cut" class="cut-inativo-svg">
+                                    <div class="cut-inativo"></div>
+                                </div>
+                                <div class="menu-notext-area">
+                                    <div class="menu-notext">Análise de<br>Elegibilidade</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="paineis">
+                            <div class="painel1">
+                                <div class="painel1-divs">
+                                    <div class="azul1"></div>
+                                    <div class="branco"></div>
+                                    <div class="azul2"></div>
+                                </div>
+                                <div class="painel1-area">
+                                    <div class="campo-base">
+                                        <div class="titulos">Nome do titular</div>
+                                        <span class="campos" id="nomecompleto"></span>
+                                    </div>
+                                    <div class="paineis-div"></div>
+                                    <div class="campo-split">
+                                        <div class="campo-base">
+                                            <div class="titulos">CPF</div>
+                                            <span class="campos" id="cpf"></span>
+                                        </div>
+                                        <div class="campo-base" id="campo-cnpj" style="display: flex;">
+                                            <div class="titulos">CNPJ</div>
+                                            <span class="campos" id="cnpj-varredura"></span>
+                                        </div>
+                                    </div>
+                                    <div class="paineis-div"></div>
+                                    <div class="campo-base">
+                                        <div class="titulos">Instituição bancária</div>
+                                        <span class="campos" id="instituicao"></span>
+                                    </div>
+                                    <div class="paineis-div"></div>
+                                    <div class="campo-split">
+                                        <div class="campo-base">
+                                            <div class="titulos">Agência</div>
+                                            <span class="campos" id="agencia"></span>
+                                        </div>
+                                        <div class="campo-base">
+                                            <div class="titulos">Conta</div>
+                                            <span class="campos" id="conta"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="painel2">
+                                <div class="campo-base">
+                                    <div class="titulos">Status da Varredura</div>
+                                    <div class="concluida">CONCLUÍDA</div>
+                                </div>
+                                <div class="paineis-div"></div>
+                                <div class="campo-base">
+                                    <div class="titulos">Modalidades de recebimento</div>
+                                    <div class="campos">PIX, TED E DOC</div>
+                                </div>
+                                <div class="paineis-div"></div>
+                                <div class="campo-base">
+                                    <div class="titulos">Capacidade permitida em conta</div>
+                                    <div class="valor">
+                                        <div class="valor-texto">R$</div>
+                                        <span class="valor-texto" id="valor"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="painel3">
+                                <div class="painel3-content">
+                                    <div class="titulos">Escala de expansão</div>
+                                    <img src="../../sistema/bacen/grafico.svg" alt="Gráfico">
+                                </div>
+                            </div>
+                            <div class="cut">
+                                <div class="finalizador-fill"></div>
+                                <img src="../../sistema/bacen/side.svg" alt="Finalizador">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
