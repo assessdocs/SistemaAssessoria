@@ -1002,7 +1002,7 @@ button.icon {
     line-height: 16px;
 
     height: 40px;
-    width: 100%;
+    width: min-content;
     padding: 10px 16px;
     box-sizing: border-box;
     
@@ -1017,6 +1017,10 @@ button.icon {
 
     background-color: var(--md-sys-color-secondary-container);
     color: var(--md-sys-color-on-secondary-container);
+}
+
+.segmented-button label.full {
+    width: 100%;
 }
 
 .segmented-button label.left {
@@ -1450,9 +1454,10 @@ textarea {
     border: 0px;
     border-radius: 8px;
     padding: 8px 8px 8px 8px;
-
-    overflow: hidden; /* esconde qualquer conteúdo que ultrapasse a largura */
-    text-overflow: ellipsis; /* adiciona "..." para indicar que o texto foi truncado */
+    
+    overflow-y: hidden;
+    overflow-x: hidden;
+    resize: none;
 }
 
 textarea:focus {

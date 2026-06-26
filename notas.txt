@@ -1,20 +1,20 @@
 TAREFAS:
-    - Adicionar BACEN
-        > Varredura em andamento
-            > melhorar input i-cnpj-varredura
-        > Pendências em andamento
-            > corrigir inserção do textarea i-pendencia
-        
-    - Adicionar comprovante GovBR (inserir dentro da página do GovBR, usando segmented button)
+- Adicionar BACEN
+    > Varredura em andamento
+        > melhorar input i-cnpj-varredura
+    > Pendências em andamento
+        > corrigir inserção do textarea i-pendencia
 
-    - Recurso para trocar de assessoria dentro do próprio sistema
+- Adicionar comprovante GovBR (inserir dentro da página do GovBR, usando segmented button)
 
-    - Conciliação segmented button PF/PJ
-    - Analisar possibilidade de documentos da assessoria ficarem na mesma página (usar segmented button)
+- Recurso para trocar de assessoria dentro do próprio sistema
 
-    - Melhorar página de Ajuda
-    - Melhorar página de Início
-    - Responsividade para mobile (não é possível no momento)
+- Conciliação segmented button PF/PJ
+- Analisar possibilidade de documentos da assessoria ficarem na mesma página (usar segmented button)
+
+- Melhorar página de Ajuda
+- Melhorar página de Início
+- Responsividade para mobile (não é possível no momento)
 
 FEITO
 - Adicionar Conciliação
