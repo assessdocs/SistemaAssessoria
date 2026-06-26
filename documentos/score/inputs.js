@@ -1,26 +1,36 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const configurations = [
-        { inputId: 'i-nomecompleto', targetId: 'nomecompleto', originalText: '[NOME]' },
-        { inputId: 'i-cpf', targetId: 'cpf', originalText: '[CPF]' },
-        { inputId: 'i-pontuacao', targetId: 'pontuacao', originalText: '[?]' },
-        { inputId: 'i-limite', targetId: 'limite', originalText: '[LIMITE]' },
-    ];
 
-    configurations.forEach(config => {
-        const inputElement = document.getElementById(config.inputId);
-        const targetElement = document.getElementById(config.targetId);
+    Formatacao.bindFields([
+        {
+            inputId: 'i-cnpj',
+            tags: ['cnpj']
+        },
 
-        targetElement.textContent = config.originalText;
+        {
+            inputId: 'i-nomecompleto',
+            targetId: 'nomecompleto',
+            originalText: '[NOME]',
+        },
 
-        inputElement.addEventListener('input', () => {
-            // Permite apenas números, pontos e vírgulas
-            inputElement.value = inputElement.value.replace(/[^0-9.,]/g, '');
+        {
+            inputId: 'i-cpf',
+            targetId: 'cpf',
+            originalText: '[CPF]',
+            tags: ['cpf']
+        },
 
-            if (inputElement.value.trim() === '') {
-                targetElement.textContent = config.originalText;
-            } else {
-                targetElement.textContent = inputElement.value;
-            }
-        });
-    });
+        {
+            inputId: 'i-pontuacao',
+            targetId: 'pontuacao',
+            originalText: '[?]',
+        },
+        
+        {
+            inputId: 'i-limite',
+            targetId: 'limite',
+            originalText: '[LIMITE]',
+            tags: ['money']
+        }
+    ]);
+
 });

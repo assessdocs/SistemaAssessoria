@@ -1,28 +1,61 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const configurations = [
-        { inputId: 'i-nomecompleto', targetId: 'nomecompleto', originalText: '[NOME]' },
-        { inputId: 'i-cpf', targetId: 'cpf', originalText: '[CPF]' },
-        { inputId: 'i-cnpj-varredura', targetId: 'cnpj-varredura', originalText: '[CNPJ]' },
-        { inputId: 'i-instituicao', targetId: 'instituicao', originalText: '[INSTITUIÇÃO]' },
-        { inputId: 'i-agencia', targetId: 'agencia', originalText: '[AGÊNCIA]' },
-        { inputId: 'i-conta', targetId: 'conta', originalText: '[CONTA]' },
-        { inputId: 'i-valor', targetId: 'valor', originalText: '[VALOR]' },
-        { inputId: 'i-pendencia', targetId: 'pendencia', originalText: '[PENDÊNCIA]'}
-    ];
 
-    configurations.forEach(config => {
-        const inputElement = document.getElementById(config.inputId);
-        const targetElement = document.getElementById(config.targetId);
+    Formatacao.bindFields([
+        {
+            inputId: 'i-cnpj',
+            tags: ['cnpj']
+        },
 
-        // Initialize the target element with the original text
-        targetElement.textContent = config.originalText;
+        {
+            inputId: 'i-nomecompleto',
+            targetId: 'nomecompleto',
+            originalText: '[NOME]'
+        },
+        
+        {
+            inputId: 'i-cpf',
+            targetId: 'cpf',
+            originalText: '[CPF]',
+            tags: ['cpf']
+        },
 
-        inputElement.addEventListener('input', () => {
-            if (inputElement.value.trim() === '') {
-                targetElement.textContent = config.originalText;
-            } else {
-                targetElement.textContent = inputElement.value;
-            }
-        });
-    });
+        {
+            inputId: 'i-cnpj-varredura',
+            targetId: 'cnpj-varredura',
+            originalText: '[CNPJ]',
+            tags: ['cnpj']
+        },
+
+        {
+            inputId: 'i-instituicao',
+            targetId: 'instituicao',
+            originalText: '[INSTITUIÇÃO]'
+        },
+
+        {
+            inputId: 'i-agencia',
+            targetId: 'agencia',
+            originalText: '[AGÊNCIA]'
+        },
+
+        {
+            inputId: 'i-conta',
+            targetId: 'conta',
+            originalText: '[CONTA]'
+        },
+
+        {
+            inputId: 'i-valor',
+            targetId: 'valor',
+            originalText: '[VALOR]',
+            tags: ['money']
+        },
+
+        {
+            inputId: 'i-pendencia',
+            targetId: 'pendencia',
+            originalText: '[PENDÊNCIA]'
+        }
+    ]);
+
 });
