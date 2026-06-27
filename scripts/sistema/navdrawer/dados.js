@@ -57,7 +57,7 @@ export const menuConfig = {
     },
     {
       icon: 'paid',
-      text: 'BACEN (>Não<)',
+      text: 'BACEN',
       href: `${BASE_URL}documentos/bacen/`
     }
   ],

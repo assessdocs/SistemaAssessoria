@@ -544,9 +544,15 @@ input.input:focus {
 }
 
 input::placeholder {
-  color: var(--md-sys-color-outline-variant);
-  font-weight: 500;
-  user-select: none;
+    color: var(--md-sys-color-outline-variant);
+    font-weight: 500;
+    user-select: none;
+}
+
+input.input.disabled {
+    background-color: var(--md-sys-color-surface-container-highest);
+    color: var(--md-sys-color-outline-variant);
+    cursor: default;
 }
 
 .campo-texto {
@@ -968,10 +974,16 @@ button.icon {
     gap: 4px;
 
     position: relative;
+    align-items: center;
 }
 
 .botao-input {
     max-width: max-content;
+}
+
+.input-com-botao md-checkbox {
+    min-width: 18px;
+    margin: 11px;
 }
 
 /* SEGMENTED BUTTON */
@@ -1442,12 +1454,13 @@ textarea {
 
     text-align: left;
 
-    height: 48px;
+    min-height: 48px;
+    max-height: 148px;
+
     width: 100%;
     min-width: 100%;
     max-width: 100%;
-    min-height: 48px;
-
+    
     box-sizing: border-box;
 
     background-color: var(--md-sys-color-surface-container-lowest);
@@ -1455,8 +1468,14 @@ textarea {
     border-radius: 8px;
     padding: 8px 8px 8px 8px;
     
-    overflow-y: hidden;
+    overflow-y: auto;
     overflow-x: hidden;
+    resize: vertical;
+}
+
+textarea#i-code {
+    max-height: 48px;
+    overflow-y: hidden;
     resize: none;
 }
 

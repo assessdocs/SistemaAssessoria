@@ -45,6 +45,7 @@
                 <!-- PERSONALIZADO -->
                     <script src="./inputs.js"><\/script>
                     <script src="./chave.js"><\/script>
+                    <script src="./tipo-id.js"><\/script>
             `)
         </script>
 
@@ -73,11 +74,16 @@
 
         <div class="sistema-pagina">
 
-            <h1>Conciliação (horizontal)</h1>
+            <div class="segmented-button h1">
+                <input type="radio" name="tipo-id" id="tipo-cnpj" value="cnpj" checked>
+                    <label class="left" for="tipo-cnpj">Conciliação PJ</label>
+                <input type="radio" name="tipo-id" id="tipo-cpf" value="cpf">
+                    <label class="right" for="tipo-cpf">Conciliação PF</label>
+            </div>
             
             <div class="formularios">
                 <div class="area-boxes">
-                    <div class="box-coluna">
+                    <div class="box-coluna" id="coluna-consulta">
                         <div class="base-box" id="box-manual">
                             <div class="h2-ativar" id="h2-versaomanual">
                                 <h2>Versão Manual</h2>
@@ -86,82 +92,94 @@
                             <div class="base-boxcampos" id="versaomanual" style="display: none;">
                                 <div class="campo">
                                     <div class="label">
-                                        <label class="label-campo" for="i-cnpj">CPF / CNPJ</label>
+                                        <label class="label-campo" for="i-cnpj">CNPJ</label>
                                         <span class="material-symbols-rounded tooltip" data-tooltip="Utilize somente números, pois o sistema irá pontuar automaticamente.">info</span>
                                     </div>
-                                    <input class="input" id="i-cnpj" placeholder="000.000.000-00 ou 00.000.000/0000-00">
+                                    <input class="input" id="i-cnpj" placeholder="00.000.000/0000-00">
                                 </div>
                                 
                                 <div class="campo">
                                     <div class="label">
-                                        <label class="label-campo" for="i-razaosocial">Nome Completo / Razão Social</label>
+                                        <label class="label-campo" for="i-razaosocial">Razão Social</label>
                                     </div>
-                                    <input class="input" id="i-razaosocial" placeholder="Nome da Pessoa ou Empresa">
+                                    <input class="input" id="i-razaosocial" placeholder="Nome da Empresa">
                                 </div>
 
                             </div>
                         </div>
                         
                         <div class="base-box" id="consulta"></div>
-
-                        <div class="base-box" id="resultado-consulta" style="display: none;"></div>
                     </div>
 
-                    <div class="base-box">
-                        <h2>Documento</h2>
+                    <div class="base-box" id="box-dados">
+                        <h2>Dados do Cliente</h2>
                         <div class="base-boxcampos">
-
                             <div class="campo">
                                 <div class="label">
-                                    <div class="label-campo">Importante</div>
+                                    <label class="label-campo" for="i-cpf">CPF</label>
+                                    <span class="material-symbols-rounded tooltip" data-tooltip="Utilize somente números, pois o sistema irá pontuar automaticamente.">info</span>
                                 </div>
-                                <div class="campo-texto">
-                                    <p>Caso queira uma conciliação PF, ative a versão manual. A versão PJ funciona em ambas (manual e Consulta).</p>
-                                </div>
-                            </div>
-                                
-                            <div class="campo">
-                                <div class="label">
-                                    <label class="label-campo" for="i-agencia">Agência</label>
-                                </div>
-                                <input class="input" id="i-agencia" placeholder="0000" type="text">
+                                <input class="input" id="i-cpf" placeholder="000.000.000-00">
                             </div>
 
                             <div class="campo">
                                 <div class="label">
-                                    <label class="label-campo" for="i-conta">Conta</label>
+                                    <label class="label-campo" for="i-nomecompleto">Nome Completo</label>
                                 </div>
-                                <input class="input" id="i-conta" placeholder="0000000-0" type="text">
+                                <input class="input" id="i-nomecompleto" placeholder="Nome do Cliente">
                             </div>
+                        </div>
+                    </div>
 
-                            <div class="campo">
-                                <div class="label">
-                                    <label class="label-campo" for="i-instituicao">Instituição</label>
+                    <div class="box-coluna">
+                        <div class="base-box" id="resultado-consulta" style="display: none;"></div>
+
+                        <div class="base-box">
+                            <h2>Documento</h2>
+                            <div class="base-boxcampos">
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-agencia">Agência</label>
+                                    </div>
+                                    <input class="input" id="i-agencia" placeholder="0000" type="text">
                                 </div>
-                                <input class="input" id="i-instituicao" placeholder="000 - Razão Social da Instituição" type="text">
-                            </div>
 
-                            <div class="campo">
-                                <div class="label">
-                                    <label class="label-campo" for="i-chave">Chave</label>
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-conta">Conta</label>
+                                    </div>
+                                    <input class="input" id="i-conta" placeholder="0000000-0" type="text">
                                 </div>
 
-                                <div class="input-com-botao">
-                                    <input class="input" id="i-chave" placeholder="####-####-####-####-####-####" type="text">
-
-                                    <button class="filled botao-input" id="gerar">
-                                        <span class="button-state-layer"></span>
-                                        <span class="material-symbols-rounded">autorenew</span>
-                                        <span id="texto-adicionar">Gerar</span>
-                                    </button>
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-instituicao">Instituição</label>
+                                    </div>
+                                    <input class="input" id="i-instituicao" placeholder="000 - Razão Social da Instituição" type="text">
                                 </div>
-                            </div>
 
-                            <div class="campo">
-                                <div class="label">
-                                    <label class="label-campo" for="i-data">Data</label>
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-chave">Chave</label>
+                                    </div>
+
+                                    <div class="input-com-botao">
+                                        <input class="input" id="i-chave" placeholder="####-####-####-####-####-####" type="text">
+
+                                        <button class="filled botao-input" id="gerar">
+                                            <span class="button-state-layer"></span>
+                                            <span class="material-symbols-rounded">autorenew</span>
+                                            <span id="texto-adicionar">Gerar</span>
+                                        </button>
+                                    </div>
                                 </div>
-                                <input class="input" id="i-data" placeholder="00/00/0000" type="date">
+
+                                <div class="campo">
+                                    <div class="label">
+                                        <label class="label-campo" for="i-data">Data</label>
+                                    </div>
+                                    <input class="input" id="i-data" placeholder="00/00/0000" type="date">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -286,23 +304,25 @@
                                 <div class="container">
                                     <div class="campos">
                                         <div class="campos-titulo">NOME / RAZÃO SOCIAL</div>
-                                        <span id="razaosocial" class="campos-entrada">[RAZÃO SOCIAL]</span>
+                                        <span class="campos-entrada" id="razaosocial"></span>
+                                        <span class="campos-entrada" id="nomecompleto"></span>
                                     </div>
                                     <div class="campos">
                                         <div class="campos-titulo">CPF / CNPJ</div>
-                                        <span id="cnpj" class="campos-entrada">[CNPJ]</span>
+                                        <span class="campos-entrada" id="cnpj"></span>
+                                        <span class="campos-entrada" id="cpf"></span>
                                     </div>
                                     <div class="campos">
                                         <div class="campos-titulo">AGÊNCIA</div>
-                                        <span id="agencia" class="campos-entrada">[AGÊNCIA]</span>
+                                        <span class="campos-entrada" id="agencia"></span>
                                     </div>
                                     <div class="campos">
                                         <div class="campos-titulo">CONTA</div>
-                                        <span id="conta" class="campos-entrada">[CONTA]</span>
+                                        <span class="campos-entrada" id="conta"></span>
                                     </div>
                                     <div class="campos">
                                         <div class="campos-titulo">INSTITUIÇÃO</div>
-                                        <span id="instituicao" class="campos-entrada">[INSTITUIÇÃO]</span>
+                                        <span class="campos-entrada" id="instituicao"></span>
                                     </div>
                                 </div>
                             </div>

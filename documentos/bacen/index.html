@@ -45,6 +45,7 @@
                 <!-- PERSONALIZADO -->
                     <script src="./inputs.js"><\/script>
                     <script src="./tipo.js"><\/script>
+                    <script src="./varredura.js"><\/script>
             `)
         </script>
 
@@ -159,7 +160,10 @@
                                     <label class="label-campo" for="i-cnpj-varredura">CNPJ (opcional)</label>
                                     <span class="material-symbols-rounded tooltip" data-tooltip="Utilize somente números, pois o sistema irá pontuar automaticamente.">info</span>
                                 </div>
-                                <input class="input" id="i-cnpj-varredura" placeholder="00.000.000/0000-00">
+                                <div class="input-com-botao">
+                                    <md-checkbox touch-target="wrapper" id="checkbox-cnpj"></md-checkbox>
+                                    <input class="input" id="i-cnpj-varredura" placeholder="00.000.000/0000-00">
+                                </div>
                             </div>
 
                             <div class="campo">
@@ -309,7 +313,7 @@
                                 <div class="painel2-item">
                                     <div class="painel2-titulo">Pendências</div>
                                 </div>
-                                <span class="painel2-input" id="pendencia"></span>
+                                <span class="painel2-input" id="pendencia" style="white-space: pre-wrap"></span>
                             </div>
                         </div>
                     </div>

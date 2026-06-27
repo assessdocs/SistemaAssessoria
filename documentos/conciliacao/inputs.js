@@ -7,6 +7,19 @@ document.addEventListener('DOMContentLoaded', () => {
         },
 
         {
+            inputId: 'i-nomecompleto',
+            targetId: 'nomecompleto',
+            originalText: '[NOME]',
+        },
+
+        {
+            inputId: 'i-cpf',
+            targetId: 'cpf',
+            originalText: '[CPF]',
+            tags: ['cpf']
+        },
+
+        {
             inputId: 'i-agencia',
             targetId: 'agencia',
             originalText: '[AGÊNCIA]'

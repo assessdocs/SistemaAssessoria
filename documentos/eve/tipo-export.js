@@ -2,76 +2,65 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const tituloOriginal = document.title;
 
-    const selectExportar = document.getElementById('select-h1');
     const confirmacao = document.getElementById('confirmacao');
 
     const assessoriaNome =
         document.querySelector('.assessoria-nome')?.textContent || 'Garra Assessoria';
 
     const cnpj = document.getElementById('cnpj');
-
-    // Títulos do documento (visual)
-    const TITULOS = {
-        SWOT: 'ANÁLISE<br>DE SWOT',
-        EVE: 'ESTUDO DE<br>VIABILIDADE<br>ECONÔMICA',
-        ETVE: 'ESTUDO<br>TÉCNICO DE<br>VIABILIDADE<br>ECONÔMICA'
-    };
-
-    // Títulos da aba do navegador
-    const TITULOS_BROWSER = {
-        SWOT: 'Análise de SWOT',
-        EVE: 'Estudo de Viabilidade Econômica',
-        ETVE: 'Estudo Técnico de Viabilidade Econômica'
-    };
-
     const tituloDocumento = document.getElementById('titulo-documento');
 
+    const TITULOS = {
+        swot: 'ANÁLISE<br>DE SWOT',
+        eve: 'ESTUDO DE<br>VIABILIDADE<br>ECONÔMICA',
+        etve: 'ESTUDO<br>TÉCNICO DE<br>VIABILIDADE<br>ECONÔMICA'
+    };
+
+    const TITULOS_BROWSER = {
+        swot: 'Análise de SWOT',
+        eve: 'Estudo de Viabilidade Econômica',
+        etve: 'Estudo Técnico de Viabilidade Econômica'
+    };
+
     function obterCNPJ() {
-        return cnpj ? cnpj.textContent : '';
+        return (cnpj?.textContent || '').trim();
     }
 
-    // Atualiza o título VISUAL do documento
-    function atualizarTituloDocumento(tipo) {
-        tituloDocumento.innerHTML =
-            TITULOS[tipo] || TITULOS.ETVE;
+    function getTipoSelecionado() {
+        return document.querySelector('input[name="tipo-doc"]:checked')?.value || 'etve';
     }
 
-    // Atualiza o TITLE do navegador
+    function atualizarTituloDocumento() {
+        const tipo = getTipoSelecionado();
+        tituloDocumento.innerHTML = TITULOS[tipo] || TITULOS.etve;
+    }
+
     function atualizarTituloBrowser() {
 
-        // Se checkbox não estiver marcado → volta título original
-        if (!confirmacao || !confirmacao.checked) {
+        if (!confirmacao?.checked) {
             document.title = tituloOriginal;
             return;
         }
 
-        const tipoSelecionado = selectExportar.value;
-
-        const tituloSelecionado =
-            TITULOS_BROWSER[tipoSelecionado] || TITULOS_BROWSER.ETVE;
+        const tipo = getTipoSelecionado();
+        const titulo = TITULOS_BROWSER[tipo] || TITULOS_BROWSER.etve;
 
         document.title =
-            `${assessoriaNome} - ${tituloSelecionado} [${obterCNPJ()}]`;
+            `${assessoriaNome} - ${titulo} [${obterCNPJ()}]`;
     }
 
-    // Mudança do select
-    if (selectExportar) {
-        selectExportar.addEventListener('change', (e) => {
-
-            atualizarTituloDocumento(e.target.value);
-
-            // Atualiza também o title do navegador
-            atualizarTituloBrowser();
-        });
+    function atualizarTudo() {
+        atualizarTituloDocumento();
+        atualizarTituloBrowser();
     }
 
-    // Mudança do checkbox
-    if (confirmacao) {
-        confirmacao.addEventListener('change', atualizarTituloBrowser);
-    }
+    // eventos
+    document.querySelectorAll('input[name="tipo-doc"]').forEach(radio => {
+        radio.addEventListener('change', atualizarTudo);
+    });
 
-    // Inicialização
-    atualizarTituloDocumento(selectExportar.value);
-    atualizarTituloBrowser();
+    confirmacao?.addEventListener('change', atualizarTituloBrowser);
 
+    // init
+    atualizarTudo();
 });

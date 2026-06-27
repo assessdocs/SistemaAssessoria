@@ -2,88 +2,125 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const tituloOriginal = document.title;
 
-    const assessoriaNome =
-        document.querySelector('.assessoria-nome')?.textContent || 'Creta Assessoria';
+    const assessoriaNome = document.querySelector('.assessoria-nome')?.textContent || '';
 
     const cnpj = document.getElementById('cnpj');
+    const cpf = document.getElementById('cpf');
     const confirmacao = document.getElementById('confirmacao');
 
     const orcamento = document.getElementById('orcamento');
     const bv = document.getElementById('bv');
     const dmpl = document.getElementById('dmpl');
-    
     const notafiscal = document.getElementById('notafiscal');
     const conciliacao = document.getElementById('conciliacao');
     const govbr = document.getElementById('govbr');
     const score = document.getElementById('score');
-    const varredura = document.getElementById('varredura');
-
+    const bacen = document.getElementById('bacen');
     const contrato = document.getElementById('contrato');
 
+    // ----------------------------
+    // CONFIGURAÇÃO DE IDENTIDADE
+    // ----------------------------
+    const identidadeConfig = {
+        score: {
+            selector: 'tipo-id',
+            map: {
+                cpf: 'cpf',
+                cnpj: 'cnpj'
+            },
+            default: 'cnpj'
+        },
+        bacen: {
+            selector: 'tipo-bacen',
+            map: {
+                'tipo-varredura': 'cpf',
+                'tipo-verificacao': 'cnpj'
+            },
+            default: 'cnpj'
+        }
+    };
+
     function obterCNPJ() {
-        return cnpj ? cnpj.textContent : '';
+        return (cnpj?.textContent || '').trim();
+    }
+
+    function obterCPF() {
+        return (cpf?.textContent || '').trim();
+    }
+
+    function getRadioValue(name) {
+        return document.querySelector(`input[name="${name}"]:checked`)?.value;
+    }
+
+    function obterIdentificacao() {
+        if (score) {
+            const selecionado = getRadioValue('tipo-id');
+            return selecionado === 'cpf' ? obterCPF() : obterCNPJ();
+        }
+
+        if (bacen) {
+            const selecionado = getRadioValue('tipo-bacen');
+
+            return selecionado === 'varredura' ? obterCPF() : obterCNPJ();
+        }
+
+        return obterCNPJ();
     }
 
     function obterTotal() {
+        const total = document.getElementById('total');
         return total ? total.textContent : '';
     }
 
     function atualizarTitulo() {
-
         if (!confirmacao || !confirmacao.checked) {
             document.title = tituloOriginal;
             return;
         }
 
-        if (orcamento) {
-            const total = document.getElementById('total');
-            document.title =
-                `${assessoriaNome} [Orçamento de R$ ${obterTotal()}] - ${obterCNPJ()}`;
-        }
+        const id = obterIdentificacao();
 
-        else if (bv) {
-            document.title =
-                `${assessoriaNome} - Business Valuation [${obterCNPJ()}]`;
-        }
+        const base = {
+            orcamento: `${assessoriaNome} [Orçamento de R$ ${obterTotal()}] - ${id}`,
+            bv: `${assessoriaNome} - Business Valuation [${id}]`,
+            dmpl: `${assessoriaNome} - Demonstração das Mutações do Patrimônio Líquido [${id}]`,
+            contrato: `${assessoriaNome} - Contrato de Serviço [${id}]`,
+            notafiscal: `${assessoriaNome} - Nota Fiscal Eletrônica (NFe) [${id}]`,
+            conciliacao: `${assessoriaNome} - Conciliação Fiscal [${id}]`,
+            govbr: `${assessoriaNome} - GovBR [${id}]`,
+            score: `${assessoriaNome} - Score [${id}]`,
+            bacen: `${assessoriaNome} - BACEN [${id}]`
+        };
 
-        else if (dmpl) {
-            document.title =
-                `${assessoriaNome} - Demonstração das Mutações do Patrimônio Líquido [${obterCNPJ()}]`;
-        }
-
-        else if (contrato) {
-            document.title =
-                `${assessoriaNome} - Contrato de Serviço [${obterCNPJ()}]`;
-        }
-
-        else if (notafiscal) {
-            document.title =
-                `${assessoriaNome} - Nota Fiscal Eletrônica (NFe) [${obterCNPJ()}]`;
-        }
-
-        else if (conciliacao) {
-            document.title =
-                `${assessoriaNome} - Conciliação Fiscal [${obterCNPJ()}]`;
-        }
-
-        else if (govbr) {
-            document.title =
-                `${assessoriaNome} - GovBR [${obterCNPJ()}]`;
-        }
-
-        else if (score) {
-            document.title =
-                `${assessoriaNome} - Score [${obterCNPJ()}]`;
-        }
-
-        else if (varredura) {
-            document.title =
-                `${assessoriaNome} - Varredura [${obterCNPJ()}]`;
-        }
+        if (orcamento) document.title = base.orcamento;
+        else if (bv) document.title = base.bv;
+        else if (dmpl) document.title = base.dmpl;
+        else if (contrato) document.title = base.contrato;
+        else if (notafiscal) document.title = base.notafiscal;
+        else if (conciliacao) document.title = base.conciliacao;
+        else if (govbr) document.title = base.govbr;
+        else if (score) document.title = base.score;
+        else if (bacen) document.title = base.bacen;
     }
+
+    // ----------------------------
+    // LISTENERS
+    // ----------------------------
 
     if (confirmacao) {
         confirmacao.addEventListener('change', atualizarTitulo);
+    }
+
+    if (score) {
+        document.querySelectorAll('input[name="tipo-id"]').forEach(radio => {
+            radio.addEventListener('change', atualizarTitulo);
+        });
+    }
+
+    if (bacen) {
+        document.querySelectorAll('input[name="tipo-bacen"]').forEach(radio => {
+            radio.addEventListener('change', atualizarTitulo);
+        });
     }
 
     atualizarTitulo();

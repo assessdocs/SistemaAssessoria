@@ -79,11 +79,20 @@
         
         <div class="sistema-pagina">
 
-            <select id="select-h1">
-                <option value="ETVE" selected="">Exportar como ETVE</option>
-                <option value="EVE">Exportar como EVE</option>
-                <option value="SWOT">Exportar como SWOT</option>
-            </select>
+            <div class="segmented-button h1">
+                <input type="radio" name="tipo-doc" id="tipo-etve" value="etve" checked>
+                    <label class="left" for="tipo-etve">
+                        ETVE
+                    </label>
+                <input type="radio" name="tipo-doc" id="tipo-eve" value="eve">
+                    <label class="center" for="tipo-eve">
+                        EVE
+                    </label>
+                <input type="radio" name="tipo-doc" id="tipo-swot" value="swot">
+                    <label class="right" for="tipo-swot">
+                        SWOT
+                    </label>
+            </div>
             
             <div class="formularios">
                 <div class="area-boxes grid3">
