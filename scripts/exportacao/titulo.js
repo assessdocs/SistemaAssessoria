@@ -18,28 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const bacen = document.getElementById('bacen');
     const contrato = document.getElementById('contrato');
 
-    // ----------------------------
-    // CONFIGURAÇÃO DE IDENTIDADE
-    // ----------------------------
-    const identidadeConfig = {
-        score: {
-            selector: 'tipo-id',
-            map: {
-                cpf: 'cpf',
-                cnpj: 'cnpj'
-            },
-            default: 'cnpj'
-        },
-        bacen: {
-            selector: 'tipo-bacen',
-            map: {
-                'tipo-varredura': 'cpf',
-                'tipo-verificacao': 'cnpj'
-            },
-            default: 'cnpj'
-        }
-    };
-
     function obterCNPJ() {
         return (cnpj?.textContent || '').trim();
     }
@@ -53,14 +31,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function obterIdentificacao() {
-        if (score) {
+
+        if (score || conciliacao) {
             const selecionado = getRadioValue('tipo-id');
             return selecionado === 'cpf' ? obterCPF() : obterCNPJ();
         }
 
         if (bacen) {
             const selecionado = getRadioValue('tipo-bacen');
-
             return selecionado === 'varredura' ? obterCPF() : obterCNPJ();
         }
 
@@ -73,7 +51,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function atualizarTitulo() {
-        if (!confirmacao || !confirmacao.checked) {
+
+        if (!confirmacao?.checked) {
             document.title = tituloOriginal;
             return;
         }
@@ -103,15 +82,11 @@ document.addEventListener('DOMContentLoaded', () => {
         else if (bacen) document.title = base.bacen;
     }
 
-    // ----------------------------
     // LISTENERS
-    // ----------------------------
 
-    if (confirmacao) {
-        confirmacao.addEventListener('change', atualizarTitulo);
-    }
+    confirmacao?.addEventListener('change', atualizarTitulo);
 
-    if (score) {
+    if (score || conciliacao) {
         document.querySelectorAll('input[name="tipo-id"]').forEach(radio => {
             radio.addEventListener('change', atualizarTitulo);
         });
