@@ -77,6 +77,10 @@
     line-height: 5px;
 
     margin: 0px;
+
+    overflow: hidden; /* esconde qualquer conteúdo que ultrapasse a largura */
+    white-space: nowrap; /* faz com que o texto não quebre para a próxima linha */
+    text-overflow: ellipsis; /* adiciona "..." para indicar que o texto foi truncado */
 }
 
 .linha-destacavel {
@@ -220,6 +224,7 @@ table, th, td {
 table {
     width: 100%;
     height: 220px;
+    table-layout: fixed;
 }
 
 th {
@@ -248,11 +253,14 @@ td {
     padding-right: 2px;
 }
 
-.left {
+td.left {
     text-align: left;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
-.right {
+td.right {
     text-align: right;
 }
 
