@@ -4,6 +4,10 @@
    --md-sys-state-focus-state-layer-opacity: 0.1;
    --md-sys-state-pressed-state-layer-opacity: 0.17;
 
+   --elevation-3dp:
+        0 4px 8px 3px rgb(0 0 0 / 15%),
+        0 1px 3px rgb(0 0 0 / 30%);
+
   /* =========================
      SYSTEM COLORS (LIGHT)
      ========================= */

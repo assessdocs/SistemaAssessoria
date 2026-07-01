@@ -45,8 +45,6 @@ function gerarNavdrawer() {
 
     <div class="sistema-navdrawer" class="expanded">
       <div class="up-side">${gerarGrupo(menuConfig.top)}</div>
-
-      <div class="down-side">${gerarGrupo(menuConfig.bottom)}</div>
     </div>
   `;
 }

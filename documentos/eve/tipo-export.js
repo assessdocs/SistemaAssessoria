@@ -1,11 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    const STORAGE_KEY = 'tipo-documento';
+
     const tituloOriginal = document.title;
 
     const confirmacao = document.getElementById('confirmacao');
 
-    const assessoriaNome =
-        document.querySelector('.assessoria-nome')?.textContent || 'Garra Assessoria';
+    function obterAssessoria() {
+        return (
+            document.querySelector('.assessoria-nome')?.textContent.trim() || ''
+        );
+    }
 
     const cnpj = document.getElementById('cnpj');
     const tituloDocumento = document.getElementById('titulo-documento');
@@ -30,6 +35,24 @@ document.addEventListener('DOMContentLoaded', () => {
         return document.querySelector('input[name="tipo-doc"]:checked')?.value || 'etve';
     }
 
+    function salvarTipoSelecionado() {
+        localStorage.setItem(STORAGE_KEY, getTipoSelecionado());
+    }
+
+    function restaurarTipoSelecionado() {
+        const tipo = localStorage.getItem(STORAGE_KEY);
+
+        if (!tipo) return;
+
+        const radio = document.querySelector(
+            `input[name="tipo-doc"][value="${tipo}"]`
+        );
+
+        if (radio) {
+            radio.checked = true;
+        }
+    }
+
     function atualizarTituloDocumento() {
         const tipo = getTipoSelecionado();
         tituloDocumento.innerHTML = TITULOS[tipo] || TITULOS.etve;
@@ -46,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const titulo = TITULOS_BROWSER[tipo] || TITULOS_BROWSER.etve;
 
         document.title =
-            `${assessoriaNome} - ${titulo} [${obterCNPJ()}]`;
+            `${obterAssessoria()} - ${titulo} [${obterCNPJ()}]`;
     }
 
     function atualizarTudo() {
@@ -54,13 +77,21 @@ document.addEventListener('DOMContentLoaded', () => {
         atualizarTituloBrowser();
     }
 
-    // eventos
+    // Restaura o último tipo utilizado
+    restaurarTipoSelecionado();
+
+    // Eventos
     document.querySelectorAll('input[name="tipo-doc"]').forEach(radio => {
-        radio.addEventListener('change', atualizarTudo);
+        radio.addEventListener('change', () => {
+            salvarTipoSelecionado();
+            atualizarTudo();
+        });
     });
 
     confirmacao?.addEventListener('change', atualizarTituloBrowser);
 
-    // init
+    document.addEventListener('assessoria-change', atualizarTudo);
+
+    // Inicialização
     atualizarTudo();
 });

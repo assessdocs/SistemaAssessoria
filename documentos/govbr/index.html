@@ -15,8 +15,8 @@
                     <script type="module" src="${window.BASE_URL}scripts/sistema/head.js"><\/script> 
                 <!-- NAVDRAWER -->
                     <script type="module" src="${window.BASE_URL}scripts/sistema/navdrawer/main.js"><\/script>
-                <!-- DADOS DA ASSESSORIA -->
-                    <script src="${window.BASE_URL}scripts/sistema/assessoria.js"><\/script>
+                <!-- HEADER -->
+                    <script type="module" src="${window.BASE_URL}scripts/sistema/header/main.js"><\/script>
                 <!-- TOOLTIP -->
                     <script src="${window.BASE_URL}scripts/sistema/tooltip.js"><\/script>
                 <!-- TEMA -->
@@ -69,11 +69,7 @@
     
     <div class="conteudo" id="conteudo">
         
-        <header id="pagina" class="expanded">
-            <div class="cabecalho-div"></div>
-
-            <span id="sistema-assessoria" class="assessoria-nome"></span>
-        </header>
+        <header id="pagina" class="expanded"></header>
 
         <div class="sistema-pagina">
 
@@ -451,7 +447,7 @@
                     </div>
 
                     <div class="usuario">
-                        <img src="../../sistema/govbr/perfil1.png" alt="Foto de Perfil" id="usuario-foto">
+                        <img alt="Foto de Perfil" id="usuario-foto">
                         <span class="usuario-nome assessoria-nome" id="usuario-nome"></span>
                         <i class="fa-solid fa-caret-down" style="color: #555; margin-bottom: 0px;"></i>
                     </div>

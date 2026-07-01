@@ -5,14 +5,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
-    --cor-1: #BE9D6B;
-    --cor-2: #9E7D4A;
-    --cor-3: #573D16;
-    --cor-4: rgba(190, 157, 107, 0.1);
-
-    --m3-surface: #f9f9f9;
-    --m3-on-surface: #1a1a1a;
-    --m3-outline: grey;
+    --cor-textos: #1a1a1a;
 }
 
 #documento {
@@ -132,7 +125,7 @@
 .conteudo-doc p {
     margin: 0;
 
-    color: var(--m3-on-surface);
+    color: var(--cor-textos);
     font-family: 'Montserrat';
     font-weight: bold;
     font-size: 17px;
@@ -163,7 +156,7 @@
 .conteudo-doc h2 {
     margin: 0;
 
-    color: var(--m3-on-surface);
+    color: var(--cor-textos);
     font-family: 'Montserrat';
     font-weight: normal;
     font-size: 48px;
@@ -175,7 +168,7 @@
 .conteudo-doc h3 {
     margin: 0;
 
-    color: var(--m3-on-surface);
+    color: var(--cor-textos);
     font-family: 'Montserrat';
     font-weight: 600;
     font-size: 48px;
@@ -206,21 +199,21 @@
     justify-content: space-around;
 }
 
-.opcao {
+.opcoes .opcao {
     display: inline-flex;
     align-items: center;
     gap: 10px;
 }
 
-.opcao span {
+.opcoes .opcao span {
     line-height: 32px;
     color: var(--cor-1);
 }
 
-.opcao p {
+.opcoes .opcao p {
     margin: 0;
 
-    color: var(--m3-on-surface);
+    color: var(--cor-textos);
     font-family: 'Montserrat';
     font-weight: bold;
     font-size: 18px;
@@ -246,7 +239,7 @@ span#pag-texto {
     bottom: 32px;
     right: 36px;
 
-    color: var(--m3-on-surface);
+    color: var(--cor-textos);
     font-family: 'Montserrat';
     font-weight: 600;
     font-size: 16px;
@@ -262,7 +255,7 @@ span#pag-texto {
     bottom: 32px;
     left: 36px;
 
-    color: var(--m3-on-surface);
+    color: var(--cor-textos);
     font-family: 'Montserrat';
     font-weight: 600;
     font-size: 16px;

@@ -15,8 +15,8 @@
                     <script type="module" src="${window.BASE_URL}scripts/sistema/head.js"><\/script> 
                 <!-- NAVDRAWER -->
                     <script type="module" src="${window.BASE_URL}scripts/sistema/navdrawer/main.js"><\/script>
-                <!-- DADOS DA ASSESSORIA -->
-                    <script src="${window.BASE_URL}scripts/sistema/assessoria.js"><\/script>
+                <!-- HEADER -->
+                    <script type="module" src="${window.BASE_URL}scripts/sistema/header/main.js"><\/script>
                 <!-- TOOLTIP -->
                     <script src="${window.BASE_URL}scripts/sistema/tooltip.js"><\/script>
                 <!-- TEMA -->
@@ -71,11 +71,7 @@
     
     <div class="conteudo" id="conteudo">
         
-        <header id="pagina" class="expanded">
-            <div class="cabecalho-div"></div>
-
-            <span id="sistema-assessoria" class="assessoria-nome"></span>
-        </header>
+        <header id="pagina" class="expanded"></header>
 
         <div class="sistema-pagina">
 
@@ -253,7 +249,7 @@
     <div id="documento" style="display: none;">
         <div class="capa">
             <header>
-                <img src="../../sistema/logo-ass.svg" alt="Logo da Assessoria">
+                <img id="assessoria-logo">
             </header>
 
             <h1>BUSINESS<br>VALUATION</h1>
@@ -351,16 +347,16 @@
                 SELO DE<br>AUTENTICAÇÃO
                 <div id="selo-qr">
                     <div id="qr-logo">
-                        <img src="../../sistema/qr-logo.svg" alt="Logo">
+                        <img id="selo-logo">
                     </div>
-                    <img src="../../sistema/qr-code.svg" alt="QR Code">
+                    <img id="selo-qr-code">
                 </div>
             </div>
 
             <footer class="footer-esquerda">2</footer>
         </div>
         <div class="contracapa">
-            <img src="../../sistema/logo-ass-branca.svg" alt="Logo da Assessoria">
+            <img id="assessoria-logo-branca">
             <footer>
                 AGRADECEMOS A PREFERÊNCIA
             </footer>

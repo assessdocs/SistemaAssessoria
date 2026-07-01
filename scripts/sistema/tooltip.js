@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.addEventListener('mouseover', (event) => {
 
-        const tooltip = event.target.closest('.tooltip');
+        const tooltip = event.target.closest('[data-tooltip]');
 
         if (!tooltip) return;
 
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.addEventListener('mouseout', (event) => {
 
-        const tooltip = event.target.closest('.tooltip');
+        const tooltip = event.target.closest('[data-tooltip]');
 
         if (!tooltip) return;
 

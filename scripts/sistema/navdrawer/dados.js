@@ -60,25 +60,5 @@ export const menuConfig = {
       text: 'BACEN',
       href: `${BASE_URL}documentos/bacen/`
     }
-  ],
-
-  bottom: [
-    'divider',
-
-    {
-      icon: 'help',
-      text: 'Ajuda',
-      href: `${BASE_URL}ajuda/`
-    },
-    {
-      icon: 'settings',
-      text: 'Configurações',
-      href: `${BASE_URL}configuracoes/`
-    },
-    {
-      icon: 'logout',
-      text: 'Sair do Sistema',
-      href: 'https://www.google.com'
-    }
   ]
 };

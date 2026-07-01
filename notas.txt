@@ -1,12 +1,14 @@
 TAREFAS:
-- Adicionar comprovante GovBR (inserir dentro da página do GovBR, usando segmented button)
 
-- Recurso para trocar de assessoria dentro do próprio sistema
+- Adicionar comprovante GovBR (inserir dentro da página do GovBR, usando segmented button)
 
 - Melhorar página de Ajuda
 - Melhorar página de Início
 - Responsividade para mobile (não é possível no momento)
 - Analisar possibilidade de documentos da assessoria ficarem na mesma página (usar segmented button)
+
+- Recurso para criar "Credencial"
+- Recurso para baixar "Benefícios"
 
 FEITO
 - Adicionar Conciliação
@@ -23,3 +25,8 @@ FEITO
     > Corrigir sistema de abertura da navdrawer ("lembrar" quando deve ficar aberta ou fechada)
 
 - EVE sistema de título corrigido
+
+- Recurso para trocar de assessoria dentro do próprio sistema
+    > Título é alterado conforme assessoria
+    > Foto de perfil do GovBR
+    > Logo e Selos

@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const tituloOriginal = document.title;
 
-    const assessoriaNome = document.querySelector('.assessoria-nome')?.textContent || '';
+    let assessoriaNome = '';
 
     const cnpj = document.getElementById('cnpj');
     const cpf = document.getElementById('cpf');
@@ -84,6 +84,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // LISTENERS
 
+    document.addEventListener('assessoria-change', (e) => {
+        assessoriaNome = e.detail.nome || '';
+        atualizarTitulo();
+    });
+
     confirmacao?.addEventListener('change', atualizarTitulo);
 
     if (score || conciliacao) {
@@ -97,6 +102,9 @@ document.addEventListener('DOMContentLoaded', () => {
             radio.addEventListener('change', atualizarTitulo);
         });
     }
+
+    assessoriaNome =
+        document.querySelector('.assessoria-nome')?.textContent.trim() || '';
 
     atualizarTitulo();
 });
