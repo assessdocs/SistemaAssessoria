@@ -1,17 +1,41 @@
 import { initAssessoriaSystem } from './assessoria.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+    const header = document.getElementById('header');
+    if (!header) return;
 
-    const pagina = document.getElementById('pagina');
-    if (!pagina) return;
+    header.innerHTML = renderHeader();
 
-    pagina.innerHTML = renderHeader();
+    initNavigation();
+    initPageButtons();
+    initActiveButtons();
+    initNavDrawer();
+    initAssessoriaSystem();
+});
 
-    function renderHeader() {
-        return `
-        <div class="cabecalho-div"></div>
+/* ========================================
+   HEADER
+======================================== */
 
-        <div class="cabecalho-right">
+function renderHeader() {
+    const logo = localStorage.getItem('theme') === 'dark'
+        ? 'logo-dark.svg'
+        : 'logo.svg';
+
+    return `
+        <div class="left">
+            <div id="navdrawer-menu">
+                <span class="material-symbols-rounded" id="navdrawer-menu-icon">
+                    menu
+                </span>
+            </div>
+
+            <img src="${BASE_URL}sistema/${logo}" id="logo" alt="Logo">
+
+            <div class="divisoria"></div>
+        </div>
+
+        <div class="right">
 
             <button id="ajuda" class="standard icon" data-tooltip="Ajuda">
                 <span class="material-symbols-rounded p24">help</span>
@@ -30,45 +54,131 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
 
                 <div class="trailing" id="trailing-assessoria">
-                    <span class="material-symbols-rounded">keyboard_arrow_down</span>
+                    <span class="material-symbols-rounded">
+                        keyboard_arrow_down
+                    </span>
                 </div>
 
                 <div class="menu" id="menu-assessoria">
+
                     <div id="assessoria-options"></div>
 
                     <label id="sair">
                         <span class="material-symbols-rounded">logout</span>
                         <span>Sair do Sistema</span>
                     </label>
+
                 </div>
 
             </div>
-        </div>`;
-    }
 
+        </div>
+    `;
+}
+
+/* ========================================
+   NAVEGAÇÃO
+======================================== */
+
+function initNavigation() {
     document.getElementById('ajuda')?.addEventListener('click', () => {
-        window.location.href = `${window.BASE_URL}ajuda/`;
+        window.location.href = `${BASE_URL}ajuda/`;
     });
 
     document.getElementById('configuracoes')?.addEventListener('click', () => {
-        window.location.href = `${window.BASE_URL}configuracoes/`;
+        window.location.href = `${BASE_URL}configuracoes/`;
     });
+}
 
+/* ========================================
+   BOTÕES ATIVOS
+======================================== */
+
+function initActiveButtons() {
     requestAnimationFrame(() => {
-        const path = window.location.pathname.toLowerCase();
-
-        const btnAjuda = document.getElementById('ajuda');
-        const btnConfig = document.getElementById('configuracoes');
+        const path = location.pathname.toLowerCase();
 
         if (path.includes('ajuda')) {
-            btnAjuda?.classList.add('ativo');
+            document.getElementById('ajuda')
+                ?.classList.add('ativo');
         }
 
-        if (path.includes('configuracoes') || path.includes('configuracao')) {
-            btnConfig?.classList.add('ativo');
+        if (
+            path.includes('configuracoes') ||
+            path.includes('configuracao')
+        ) {
+            document.getElementById('configuracoes')
+                ?.classList.add('ativo');
+        }
+    });
+}
+
+/* ========================================
+   NAVDRAWER
+======================================== */
+
+function initNavDrawer() {
+
+    const menuButton = document.getElementById('navdrawer-menu');
+    const menuIcon = document.getElementById('navdrawer-menu-icon');
+
+    const elementos = [
+        document.getElementById('navdrawer'),
+        ...document.querySelectorAll(
+            '.sistema-pagina, .navdrawer-text, .navdrawer-div'
+        )
+    ];
+
+    function aplicarEstado(expandido) {
+        elementos.forEach(el => {
+            el?.classList.toggle('expanded', expandido);
+        });
+
+        menuIcon.textContent = expandido
+            ? 'menu_open'
+            : 'menu';
+    }
+
+    function obterEstado() {
+
+        if (window.innerWidth < 920) {
+            return false;
         }
 
-        initAssessoriaSystem();
+        const salvo = localStorage.getItem('navdrawerExpandido');
+
+        return salvo === null
+            ? true
+            : salvo === 'true';
+    }
+
+    function atualizar() {
+        aplicarEstado(obterEstado());
+    }
+
+    atualizar();
+
+    window.addEventListener('resize', atualizar);
+
+    menuButton?.addEventListener('click', () => {
+
+        const expandido = !elementos[0]?.classList.contains('expanded');
+
+        aplicarEstado(expandido);
+
+        localStorage.setItem(
+            'navdrawerExpandido',
+            expandido
+        );
+
     });
 
-});
+}
+
+/* ========================================
+   OUTROS
+======================================== */
+
+function initPageButtons() {
+    // Reservado para futuras inicializações da página.
+}

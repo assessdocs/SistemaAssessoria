@@ -1,15 +1,15 @@
 document.addEventListener('DOMContentLoaded', function () {
     const exportar = document.getElementById('exportar');
 
-    const navdrawer = document.getElementById('navdrawer');
+    const header = document.getElementById('header');
     const sistema = document.getElementById('conteudo');
     const documento = document.getElementById('documento');
 
     function base() {
-        const navdrawer = document.getElementById('navdrawer');
+        const header = document.getElementById('header');
 
-        if (navdrawer) {
-            navdrawer.style.display = 'flex'; // alterar para flex após editar
+        if (header) {
+            header.style.display = 'flex'; // alterar para flex após editar
         }
 
         sistema.style.display = 'flex'; // alterar para flex após editar
@@ -23,10 +23,10 @@ document.addEventListener('DOMContentLoaded', function () {
     doc();
 
     function basePRINT() {
-        const navdrawer = document.getElementById('navdrawer');
+        const header = document.getElementById('header');
 
-        if (navdrawer) {
-            navdrawer.style.display = 'none';
+        if (header) {
+            header.style.display = 'none';
         }
 
         sistema.style.display = 'none';

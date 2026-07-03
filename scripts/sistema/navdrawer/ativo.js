@@ -1,4 +1,4 @@
-export function ativarMenuAtual() {
+export function paginaAtiva() {
   const currentPath = location.pathname.toLowerCase();
 
   const links = [...document.querySelectorAll('.navdrawer-option')];
