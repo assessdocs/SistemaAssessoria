@@ -32,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 <textarea id="i-code" placeholder="Cole o código exibido na Base de Dados aqui."></textarea>
                 
                 <button class="filled" id="verificar">
-                    <span class="button-state-layer"></span>
                     <span class="material-symbols-rounded">frame_inspect</span>
                     <span>Verificar Dados</span>
                 </button>

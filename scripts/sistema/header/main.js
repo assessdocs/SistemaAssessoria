@@ -39,11 +39,9 @@ function renderHeader() {
 
             <button id="ajuda" class="standard icon" data-tooltip="Ajuda">
                 <span class="material-symbols-rounded p24">help</span>
-                <div class="button-state-layer"></div>
             </button>
 
             <button id="configuracoes" class="standard icon" data-tooltip="Configurações">
-                <div class="button-state-layer"></div>
                 <span class="material-symbols-rounded p24">settings</span>
             </button>
 
