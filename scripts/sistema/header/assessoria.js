@@ -35,9 +35,9 @@ export function initAssessoriaSystem() {
    RENDER
 ========================= */
 function render() {
-    el.options.innerHTML = assessorias.map(a => `
+    el.options.innerHTML = assessorias.map((a, index) => `
         <input type="radio" name="assessoria" value="${a.id}" id="assessoria-${a.id}">
-        <label for="assessoria-${a.id}">
+        <label for="assessoria-${a.id}" class="${index === 0 ? 'top' : ''}">
             <span class="material-symbols-rounded">${a.icon}</span>
             <span>${a.label}</span>
         </label>

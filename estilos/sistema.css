@@ -92,7 +92,7 @@ header#header .left {
     pointer-events: none;
     z-index: 0;
 
-    transition: opacity 0.2s ease-out;
+    transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
 }
 #navdrawer-menu:hover::after {
     opacity: var(--md-sys-state-hover-state-layer-opacity);
@@ -120,6 +120,7 @@ header#header .divisoria {
 header#header .right {
     display: flex;
     flex-direction: row;
+    align-items: center;
     gap: 8px;
 }
 
@@ -151,15 +152,14 @@ header#header .right {
     font-family: 'Inter';
     font-size: 14px;
     font-weight: 500;
-
     text-align: left;
-
     line-height: 20px;
+    text-wrap: nowrap;
 
     position: relative;
     overflow: hidden;
 
-    transition: border-radius .1s ease-in-out;
+    transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
     cursor: pointer;
 }
 
@@ -182,7 +182,7 @@ header#header .right {
     pointer-events: none;
     z-index: 0;
 
-    transition: opacity 0.2s ease-out;
+    transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
 }
 .split-button .leading:hover::after {
     opacity: var(--md-sys-state-hover-state-layer-opacity);
@@ -209,7 +209,7 @@ header#header .right {
     position: relative;
     overflow: hidden;
 
-    transition: border-radius .1s ease-in-out;
+    transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
     cursor: pointer;
 }
 
@@ -242,7 +242,7 @@ header#header .right {
     pointer-events: none;
     z-index: 0;
 
-    transition: opacity 0.2s ease-out;
+    transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
 }
 .split-button .trailing:hover::after {
     opacity: var(--md-sys-state-hover-state-layer-opacity);
@@ -253,7 +253,7 @@ header#header .right {
 
 .split-button .trailing:active .material-symbols-rounded {
     transform: rotate(180deg);
-    transition: transform .2s ease-in-out;
+    transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
 }
 
 .split-button .trailing.ativo {
@@ -267,12 +267,32 @@ header#header .right {
 
 .split-button .trailing.ativo .material-symbols-rounded {
     transform: rotate(180deg);
-    transition: transform .2s ease-in-out;
+    transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
 }
 
 .split-button .trailing.ativo:active .material-symbols-rounded {
     transform: rotate(0deg);
     transition: transform .2s ease-in-out;
+}
+
+.split-button .trailing.ativo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    
+    width: 100%;
+    height: 100%;
+
+    background-color: var(--md-sys-color-on-primary);
+    opacity: var(--md-sys-state-hover-state-layer-opacity);
+
+    pointer-events: none;
+    z-index: 0;
+
+    transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
+}
+.split-button .trailing.ativo:active::after {
+    opacity: var(--md-sys-state-pressed-state-layer-opacity);
 }
 
 .split-button .menu {
@@ -283,7 +303,8 @@ header#header .right {
 
     display: flex;
     flex-direction: column;
-    padding: 2px 4px;
+    padding: 4px 4px;
+    gap: 2px;
     border-radius: 16px;
 
     background-color: var(--md-sys-color-surface-container-low);
@@ -291,15 +312,41 @@ header#header .right {
     box-shadow: var(--elevation-3dp);
     overflow: hidden;
 
+    /* Hidden */
+    opacity: 0;
     visibility: hidden;
+    pointer-events: none;
+
+    transform-origin: top right;
+    transform: translateY(-4px) scale(.96);
+
+    transition:
+        opacity var(--motion-duration-short-4) var(--motion-easing-emphasized-accelerate),
+        transform var(--motion-duration-short-4) var(--motion-easing-emphasized-accelerate),
+        visibility var(--motion-duration-short-4) var(--motion-easing-emphasized-accelerate);
 }
 
 .split-button .menu.open {
+    opacity: 1;
     visibility: visible;
+    pointer-events: auto;
+
+    transform: translateY(0) scale(1);
+
+    transition:
+        opacity var(--motion-duration-medium-1) var(--motion-easing-emphasized-decelerate),
+        transform var(--motion-duration-medium-1) var(--motion-easing-emphasized-decelerate),
+        visibility 0s;
 }
 
 .split-button .menu input[type="radio"] {
     display: none;
+}
+
+.split-button .menu #assessoria-options {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
 }
 
 .split-button .menu label {
@@ -313,10 +360,8 @@ header#header .right {
     box-sizing: border-box;
     height: 44px;
     padding: 0px 12px;
-    border-radius: 12px;
+    border-radius: 4px;
     gap: 8px;
-    margin-top: 2px;
-    margin-bottom: 2px;
 
     font-family: 'Inter';
     font-size: 14px;
@@ -329,6 +374,16 @@ header#header .right {
 
     position: relative;
     overflow: hidden;
+}
+
+.split-button .menu label.top {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.split-button .menu label.bot {
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
 }
 
 .split-button .menu label span {
@@ -355,18 +410,21 @@ header#header .right {
     pointer-events: none;
     z-index: 0;
 
-    transition: opacity 0.2s ease-out;
+    transition: all 0.3s ease-in-out;
 }
 .split-button .menu label:hover::after {
     opacity: var(--md-sys-state-hover-state-layer-opacity);
+    transition: all 0.3s ease-out;
 }
 .split-button .menu label:active::after {
     opacity: var(--md-sys-state-pressed-state-layer-opacity);
+    transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
 }
 
 .split-button .menu input[type="radio"]:checked + label {
     background-color: var(--md-sys-color-tertiary-container);
     color: var(--md-sys-color-on-tertiary-container);
+    border-radius: 12px;
 }
 
 .split-button .menu input[type="radio"]:checked + label .material-symbols-rounded {
@@ -385,106 +443,53 @@ header#header .right {
     pointer-events: none;
     z-index: 0;
 
-    transition: opacity 0.2s;
+    transition: all 0.3s ease-out;
 }
 .split-button .menu input[type="radio"]:checked + label:hover::after {
     opacity: var(--md-sys-state-hover-state-layer-opacity);
+    transition: all 0.3s ease-out;
+
 }
 .split-button .menu input[type="radio"]:checked + label:active::after {
     opacity: var(--md-sys-state-pressed-state-layer-opacity);
+    transition: all 0.3s ease-out;
 }
 
-/* NAVDRAWER */
+.menu #sair {
+    cursor: pointer;
 
-#navdrawer {
-    height: 100vh;
-    width: 96px;
-    min-width: 96px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    box-sizing: border-box;
-    padding: 8px 20px 12px 20px;
-
-    transition: all 0.2s ease-in-out;
-
-    user-select: none;
-
-    /* Para rolagem */
-    overflow: hidden;
-    overflow-y: auto;
-    max-height: calc(100vh - 64px); /* ajusta esse valor conforme altura do header e margens */
-}
-
-#navdrawer.expanded {
-    transition: all 0.2s ease-in-out;
-    width: 240px;
-    min-width: 240px;
-}
-
-.up-side {
-    display: flex;
-    flex-direction: column;
-    gap: 0px;
-
-    align-items: center;
-}
-
-.navdrawer-div {
-    margin-top: 8px;
-    margin-bottom: 8px;
-    height: 1px;
-
-    width: 100%;
-
-    background-color: var(--md-sys-color-outline-variant);
-    border-radius: 1px;
-}
-
-.navdrawer-option {
-    min-width: 56px;
-    width: 100%;
-    height: 56px;
-    border-radius: 28px;
-    padding: 16px;
-    box-sizing: border-box;
-    
     display: flex;
     flex-direction: row;
+    justify-content: flex-start;
     align-items: center;
-    align-content: flex-start;
-    gap: 8px;
 
-    color: var(--md-sys-color-on-surface-variant);
+    box-sizing: border-box;
+    height: 44px;
+    padding: 0px 12px;
+    border-radius: 4px;
+    gap: 8px;
 
     font-family: 'Inter';
     font-size: 14px;
     font-weight: 500;
-    line-height: 16px;
-    text-wrap: nowrap;
 
-    cursor: pointer;
+    text-align: left;
+    line-height: 20px;
 
-    text-decoration: none;
-
-    font-variation-settings: 'FILL' 0, 'opsz' 24;
+    color: var(--md-sys-color-on-surface);
 
     position: relative;
     overflow: hidden;
-
-    transition: font-variation-settings 0.2s ease-in-out;
 }
-
-.navdrawer-option:hover {
-    transition:
-        font-variation-settings 0.2s ease-in-out,
-        font-weight 0s ease;
-    font-weight: 600;
-    font-variation-settings: 'FILL' 1, 'opsz' 24;
+.menu #sair span {
+    width: max-content;
 }
-
-.navdrawer-option::after {
+.menu #sair .material-symbols-rounded {
+    font-size: 20px;
+    font-variation-settings: 'FILL' 0, 'opsz' 24;
+    color: var(--md-sys-color-on-surface-variant)
+}
+.menu #sair::after {
     content: "";
     position: absolute;
     inset: 0;
@@ -498,57 +503,23 @@ header#header .right {
     pointer-events: none;
     z-index: 0;
 
-    transition: opacity 0.2s ease-out;
+    transition: all 0.3s ease-in-out;
 }
-.navdrawer-option:hover::after {
+.menu #sair:hover::after {
     opacity: var(--md-sys-state-hover-state-layer-opacity);
+    transition: all 0.3s ease-out;
 }
-.navdrawer-option:active::after {
+.menu #sair:active::after {
     opacity: var(--md-sys-state-pressed-state-layer-opacity);
+    transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
 }
-
-.navdrawer-option.ativo {
-    color: var(--md-sys-color-on-secondary-container);
-    background-color: var(--md-sys-color-secondary-container);
-
-    font-variation-settings: 'FILL' 1, 'opsz' 24;
-
-    font-weight: 500;
+.menu #sair.top {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
 }
-
-.navdrawer-option.ativo::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    
-    width: 100%;
-    height: 100%;
-
-    background-color: var(--md-sys-color-on-secondary-container);
-    opacity: 0;
-
-    pointer-events: none;
-    z-index: 0;
-
-    transition: opacity 0.2s ease-out;
-}
-.navdrawer-option.ativo:hover::after {
-    opacity: var(--md-sys-state-hover-state-layer-opacity);
-}
-.navdrawer-option.ativo:active::after {
-    opacity: var(--md-sys-state-pressed-state-layer-opacity);
-}
-
-.navdrawer-text {
-    display: none;
-}
-.navdrawer-text.expanded {
-    display: block;
-}
-
-.navdrawer-option .material-symbols-rounded {
-    user-select: none;
-    -webkit-user-drag: none;
+.menu #sair.bot {
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
 }
 
 /* CONTEÚDO */
@@ -577,8 +548,8 @@ header#header .right {
     
     /* Para rolagem */
     overflow-y: auto;
-    height: calc(100vh - 64px);
-    max-height: calc(100vh - 64px); /* ajusta esse valor conforme altura do header e margens */
+    height: 100vh;
+    max-height: calc(100vh - 64px - 24px - 24px); /* ajusta esse valor conforme altura do header e margens */
 
     position: relative;
 
@@ -1026,7 +997,7 @@ button:active {
     pointer-events: none;
     z-index: 0;
 
-    transition: opacity 0.2s ease-out;
+    transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
 }
 
 /* TAMANHOS */
@@ -1120,7 +1091,7 @@ button.filled::after {
     pointer-events: none;
     z-index: 0;
 
-    transition: opacity 0.2s ease-out;
+    transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
 }
 button.filled:hover::after {
     opacity: var(--md-sys-state-hover-state-layer-opacity);
@@ -1152,7 +1123,7 @@ button.tonal::after {
     pointer-events: none;
     z-index: 0;
 
-    transition: opacity 0.2s ease-out;
+    transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
 }
 button.tonal:hover::after {
     opacity: var(--md-sys-state-hover-state-layer-opacity);
@@ -1184,7 +1155,7 @@ button.outline::after {
     pointer-events: none;
     z-index: 0;
 
-    transition: opacity 0.2s ease-out;
+    transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
 }
 button.outline:hover::after {
     opacity: var(--md-sys-state-hover-state-layer-opacity);
@@ -1220,7 +1191,7 @@ button.text::after {
     pointer-events: none;
     z-index: 0;
 
-    transition: opacity 0.2s ease-out;
+    transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
 }
 button.text:hover::after {
     opacity: var(--md-sys-state-hover-state-layer-opacity);
@@ -1280,7 +1251,7 @@ button.icon {
     pointer-events: none;
     z-index: 0;
 
-    transition: opacity 0.2s ease-out;
+    transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
 }
 
 .icon.standard:hover::after {
@@ -1313,7 +1284,7 @@ button.icon {
     pointer-events: none;
     z-index: 0;
 
-    transition: opacity 0.2s ease-out;
+    transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
 }
 
 .icon.standard.ativo:hover::after {
@@ -1538,7 +1509,7 @@ button.icon {
     pointer-events: none;
     z-index: 0;
 
-    transition: opacity 0.2s ease-out;
+    transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
 }
 
 .tooltip:hover::after {
@@ -1567,7 +1538,7 @@ button.icon {
     font-size: 12px;
     font-weight: 500;
     line-height: 18px;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.04%;
 
     text-align: center;
 
@@ -1667,7 +1638,7 @@ button.icon {
     pointer-events: none;
     z-index: 0;
 
-    transition: opacity 0.2s;
+    transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
 }
 
 #exportar.enabled:hover::after {
@@ -1817,7 +1788,6 @@ textarea::placeholder {
 }
 
 .input-home:hover {
-    border-radius: 12px;
 
     background-color: var(--md-sys-color-secondary-container);
     color: var(--md-sys-color-on-secondary-container);
@@ -1923,6 +1893,38 @@ h3 {
     }
 }
 
+/* SCROLL BAR */
+/* Largura da barra */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Fundo da barra */
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Parte que desliza */
+::-webkit-scrollbar-thumb {
+    background: var(--md-sys-color-outline-variant);
+    border-radius: 999px;
+    border-right: 1px solid var(--md-sys-color-surface);
+}
+
+/* Hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--md-sys-color-outline);
+}
+
+/* Quando está sendo clicada */
+::-webkit-scrollbar-thumb:active {
+    background: var(--md-sys-color-outline);
+}
+
+/* Cantinho entre barras horizontal e vertical */
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
 
 /* RESPONSIVIDADE */
 

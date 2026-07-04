@@ -1,0 +1,71 @@
+:root {
+    /* EASING */
+        /* Standard */
+        --motion-easing-standard: cubic-bezier(0.20, 0.00, 0.00, 1.00);
+        --motion-easing-standard-decelerate: cubic-bezier(0.00, 0.00, 0.00, 1.00);
+        --motion-easing-standard-accelerate: cubic-bezier(0.30, 0.00, 1.00, 1.00);
+
+        /* Emphasized */
+        --motion-easing-emphasized: linear(0, 0.005, 0.02, 0.06, 0.13, 0.25, 0.40, 0.60,  0.82, 1 );
+        --motion-easing-emphasized-decelerate: cubic-bezier(0.05, 0.70, 0.10, 1.00);
+        --motion-easing-emphasized-accelerate: cubic-bezier(0.30, 0.00, 0.80, 0.15);
+
+    /* DURATION */
+        /* Short */
+        --motion-duration-short-1: 50ms;
+        --motion-duration-short-2: 100ms;
+        --motion-duration-short-3: 150ms;
+        --motion-duration-short-4: 200ms;
+
+        /* Medium */
+        --motion-duration-medium-1: 250ms;
+        --motion-duration-medium-2: 300ms;
+        --motion-duration-medium-3: 350ms;
+        --motion-duration-medium-4: 400ms;
+
+        /* Long */
+        --motion-duration-long-1: 450ms;
+        --motion-duration-long-2: 500ms;
+        --motion-duration-long-3: 550ms;
+        --motion-duration-long-4: 600ms;
+
+        /* Extra Long */
+        --motion-duration-extra-long-1: 700ms;
+        --motion-duration-extra-long-2: 800ms;
+        --motion-duration-extra-long-3: 900ms;
+        --motion-duration-extra-long-4: 1000ms;
+
+    /* SPRING */
+        /* Spatial Expressive*/
+        --motion-spring-expressive-fast-spatial: linear(0.42, 1.67, 0.21, 0.90);
+        --motion-spring-expressive-default-spatial: linear(0.38, 1.21, 0.22, 1.00);
+        --motion-spring-expressive-slow-spatial: linear(0.39, 1.29, 0.35, 0.98);
+
+        /* Effects Expressive */
+        --motion-spring-expressive-fast-effects: linear(0.31, 0.94, 0.34, 1.00);
+        --motion-spring-expressive-default-effects: linear(0.34, 0.80, 0.34, 1.00);
+        --motion-spring-expressive-slow-effects: linear(0.34, 0.88, 0.34, 1.00);
+
+        /* Spatial Standard */
+        --motion-spring-standard-fast-spatial: linear(0.27, 1.06, 0.18, 1.00);
+        --motion-spring-standard-default-spatial: linear(0.27, 1.06, 0.18, 1.00);
+        --motion-spring-standard-slow-spatial: linear(0.27, 1.06, 0.18, 1.00);
+
+        /* Effects Standard */
+        --motion-spring-standard-fast-effects: linear(0.31, 0.94, 0.34, 1.00);
+        --motion-spring-standard-default-effects: linear(0.34, 0.80, 0.34, 1.00);
+        --motion-spring-standard-slow-effects: linear(0.34, 0.88, 0.34, 1.00);
+
+    /* TRANSITION */
+        --motion-transition-hover: 150ms var(--motion-easing-standard);
+        --motion-transition-focus: 150ms var(--motion-easing-standard);
+        --motion-transition-press: 100ms var(--motion-easing-standard);
+
+        --motion-transition-state: 200ms var(--motion-easing-standard);
+
+        --motion-transition-enter: 400ms var(--motion-easing-emphasized-decelerate);
+        --motion-transition-exit: 200ms var(--motion-easing-emphasized-accelerate);
+
+        --motion-transition-expand: 500ms var(--motion-easing-emphasized);
+        --motion-transition-collapse: 350ms var(--motion-easing-emphasized);
+}

@@ -1,7 +1,7 @@
 export function paginaAtiva() {
   const currentPath = location.pathname.toLowerCase();
 
-  const links = [...document.querySelectorAll('.navdrawer-option')];
+  const links = [...document.querySelectorAll('.item')];
 
   // Remove de todos
   links.forEach(link => link.classList.remove('ativo'));

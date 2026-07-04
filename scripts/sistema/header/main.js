@@ -61,10 +61,10 @@ function renderHeader() {
 
                     <div id="assessoria-options"></div>
 
-                    <label id="sair">
+                    <div id="sair" class="bot">
                         <span class="material-symbols-rounded">logout</span>
                         <span>Sair do Sistema</span>
-                    </label>
+                    </div>
 
                 </div>
 
@@ -123,7 +123,7 @@ function initNavDrawer() {
     const elementos = [
         document.getElementById('navdrawer'),
         ...document.querySelectorAll(
-            '.sistema-pagina, .navdrawer-text, .navdrawer-div'
+            '.sistema-pagina'
         )
     ];
 

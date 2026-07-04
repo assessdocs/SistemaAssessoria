@@ -3,18 +3,18 @@ import { menuConfig } from './dados.js';
 function criarItem(item) {
 
   if (item === 'divider') {
-    return '<div class="navdrawer-div expanded"></div>';
+    return '<div class="divisoria"></div>';
   }
 
   return `
-    <a class="navdrawer-option" href="${item.href}">
-      <span class="material-symbols-rounded">
-        ${item.icon}
-      </span>
+    <a class="item" href="${item.href}">
+      <div class="indicator">
+        <span class="material-symbols-rounded icon">${item.icon}</span>
 
-      <span class="navdrawer-text expanded">
-        ${item.text}
-      </span>
+        <span class="indicator-label">${item.text}</span>
+      </div>
+      
+      <span class="item-label">${item.text}</span>
     </a>
   `;
 }
@@ -25,7 +25,7 @@ function gerarGrupo(itens) {
 
 function gerarNavdrawer() {
   return `
-    <div class="up-side">${gerarGrupo(menuConfig.top)}</div>
+    ${gerarGrupo(menuConfig.top)}
   `;
 }
 
