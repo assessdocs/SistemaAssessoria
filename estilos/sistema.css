@@ -553,7 +553,7 @@ header#header .right {
 
     position: relative;
 
-    overflow-x: visible;
+    overflow-x: hidden;
 
     border-top-left-radius: 16px;
 
@@ -562,7 +562,7 @@ header#header .right {
 }
 
 .sistema-pagina.expanded {
-    width: calc(100% - 240px);
+    width: calc(100% - 220px);
     transition: all 0.2s ease-in-out;
 }
 
@@ -607,6 +607,7 @@ h1 {
     flex-direction: column;
 
     width: 100%;
+    min-width: min-content;
 }
 
 .area-boxes {
@@ -614,6 +615,7 @@ h1 {
     grid-template-columns: 340px 340px;
     gap: 12px;
     justify-content: center;
+    min-width: min-content;
 }
 
 .area-boxes.grid3 {
@@ -632,16 +634,13 @@ h1 {
     box-sizing: border-box;
 
     width: 100%;
+    min-width: min-content;
 
     height: min-content;
 
     border-radius: 16px;
 
     position: relative;
-}
-
-.grid3 .base-box {
-    max-width: 340px;
 }
 
 .base-box.secondary {
@@ -687,6 +686,8 @@ h2 {
     margin: 0px 0px 16px 0px;
 
     white-space: nowrap;
+
+    min-width: min-content;
 }
 
 .base-boxcampos {
