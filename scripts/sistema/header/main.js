@@ -29,8 +29,10 @@ function renderHeader() {
                     menu
                 </span>
             </div>
-
-            <img src="${BASE_URL}sistema/${logo}" id="logo" alt="Logo">
+            
+            <a class="logo" href="/">
+                <img src="${BASE_URL}sistema/${logo}" id="logo" alt="Logo">
+            </a>
 
             <div class="divisoria"></div>
         </div>

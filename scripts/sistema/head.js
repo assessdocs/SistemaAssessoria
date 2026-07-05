@@ -20,10 +20,10 @@ document.head.insertAdjacentHTML('beforeend', `
         <link rel="stylesheet" href="${BASE_URL}estilos/icones.css">
 
     <!-- TEMA M3 -->
-        <link rel="stylesheet" href="${BASE_URL}estilos/m3/navdrawer.css">
         <link rel="stylesheet" href="${BASE_URL}estilos/m3/color.css">
-        <link rel="stylesheet" href="${BASE_URL}estilos/m3/motion.css">
         <link rel="stylesheet" href="${BASE_URL}estilos/m3/elevation.css">
+        <link rel="stylesheet" href="${BASE_URL}estilos/m3/motion.css">
+        <link rel="stylesheet" href="${BASE_URL}estilos/m3/navdrawer.css">
 
     <!-- FONTES -->
         <link rel="preconnect" href="https://fonts.googleapis.com">

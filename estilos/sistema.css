@@ -101,6 +101,12 @@ header#header .left {
     opacity: var(--md-sys-state-pressed-state-layer-opacity);
 }
 
+#header a.logo {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
 #logo {
     height: 40px;
 
@@ -1850,9 +1856,23 @@ textarea::placeholder {
     border-bottom-right-radius: 4px;
 }
 
+.config.center {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
 .config.bot {
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+}
+
+.config.only {
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
     border-bottom-left-radius: 16px;
     border-bottom-right-radius: 16px;
 }

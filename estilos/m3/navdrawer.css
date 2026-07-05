@@ -79,7 +79,7 @@
 
 #navdrawer.expanded a.item {
     height: 56px;
-    height: 56px;
+    min-height: 56px;
     padding: 0px;
 
     transition:
