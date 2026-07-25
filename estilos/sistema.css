@@ -113,7 +113,6 @@ header#header .left {
     user-select: none;
     -webkit-user-drag: none;
     pointer-events: none; /* opcional */
-    z-index: 2;
 }
 
 header#header .divisoria {
