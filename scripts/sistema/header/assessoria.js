@@ -1,8 +1,8 @@
 const STORAGE_KEY = 'assessoria-selecionada';
 
 const assessorias = [
-    { id: 'creta', label: 'Creta Assessoria', icon: 'counter_1' },
-    { id: 'solution', label: 'Solution Assessoria', icon: 'counter_2' },
+    { id: 'solution', label: 'Solution Assessoria', icon: 'counter_1' },
+    { id: 'ace', label: 'Ace Assessoria', icon: 'counter_2' },
     { id: 'teste', label: 'Teste Assessoria', icon: 'counter_3' }
 ];
 
